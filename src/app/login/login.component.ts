@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +10,25 @@ import { FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
-  constructor(){}
-
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  
-
+  constructor(private authService: AuthService){}
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      name: new FormControl(null),
+      email: new FormControl(null),
+      password: new FormControl(null)
+    });
+  }
+
+  login(){
+    this.authService.login(this.form.value).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error.error)
+    });
+  }
+
+  ngOnDestroy(): void {
     throw new Error('Method not implemented.');
   }
 

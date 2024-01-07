@@ -23,4 +23,12 @@ export class AuthService {
 
     return this.http.post(`${this.url}/user`, user, { headers })
   }
+
+  login(user: User){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post(`${this.url}/auth/login`, user, { headers })
+  }
 }
