@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,15 +21,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(){
-    this.authService.login(this.form.value).subscribe(data => {
-      console.log(data);
-    }, error => {
-      console.log(error.error)
-    });
+    this.authService.login(this.form.value);
   }
 
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
   }
 
 }
