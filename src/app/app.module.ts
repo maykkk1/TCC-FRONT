@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HeaderComponent } from './header/header.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    SidenavComponent,
+    HeaderComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
