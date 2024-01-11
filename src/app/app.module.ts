@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
+import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { MainComponent } from './main/main.component';
     DashboardComponent,
     SidenavComponent,
     HeaderComponent,
-    MainComponent
+    GerenciadorComponent
   ],
   imports: [
     BrowserModule,

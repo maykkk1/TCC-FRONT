@@ -42,7 +42,7 @@ export class AuthService {
     return this.http.post<{ token:string }>(`${this.getUrl()}/auth/login`, user, { headers })
       .subscribe(response => {
         this.token = response.token;
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['gerenciador']);
       }, error => {
         /// arrumar mensagem de error aqui
         console.log(error)
