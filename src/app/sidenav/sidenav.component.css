@@ -1,0 +1,34 @@
+.sidenav {
+    width: max-content;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+
+.sidenav-nav {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidenav-nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+}
+
+.sidenav-link-text {
+    width: 0;
+    overflow: hidden;
+}
+
+.sidenav-link-text.collapesed {
+    width: 150px;
+}

@@ -11,7 +11,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router) { }
-  private token: string | null = null;
+  private token: string | null = "aaa";
 
   private getUrl(){
     return "http://localhost:5149";
