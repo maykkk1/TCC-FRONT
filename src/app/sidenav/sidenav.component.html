@@ -1,10 +1,10 @@
 <aside class="sidenav">
-    <button>Abrir/fechar</button>
+    <button (click)="asideHandler()">Abrir/fechar</button>
     <ul class="sidenav-nav">
         <li class="sidenav-nav-item">
             <a href="" class="sidenav-nav-link">
                 <div class="icone"></div>
-                <span class="sidenav-link-text">Teste</span>
+                <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Teste</span>
             </a>
         </li>
     </ul>
