@@ -7,6 +7,19 @@
     background-color: black;
 }
 
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
 .sidenav-nav {
     list-style: none;
     padding-left: 0;
@@ -18,7 +31,7 @@
     align-items: center;
 }
 
-.icone, button {
+.icone {
     width: 50px;
     height: 50px;
     background-color: red;

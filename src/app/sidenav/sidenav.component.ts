@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AsideService } from '../services/aside.service';
 import { Subscription } from 'rxjs';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,6 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit, OnDestroy {
+  faBars = faBars;
   isCollapesed: Boolean;
   isCollapesed$Subscription: Subscription;
 
