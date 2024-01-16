@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 export class AsideService {
 
   constructor() { }
-  isCollapesed: boolean = true;
+  isCollapesed: boolean = false;
   collapsedChange: Subject<Boolean> = new Subject<Boolean>();
 
   getCollapesedValue(){
