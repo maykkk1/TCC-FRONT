@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
+import { User } from '../model/user.model';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,12 +18,14 @@ export class CadastroComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       name: new FormControl(null),
       email: new FormControl("asdasdda@hotmail.com"),
+      tipoPessoa: new FormControl(null),
       password: new FormControl(null)
     });
   }
 
   onSubmit(){
-    this.authService.cadastro(this.form.value).subscribe(data => {
+    const value = { ...this.form.value, tipoPessoa: +this.form.value.tipoPessoa };
+    this.authService.cadastro(value).subscribe(data => {
     });
   }
 
