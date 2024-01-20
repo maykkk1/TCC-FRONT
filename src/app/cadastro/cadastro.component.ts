@@ -18,13 +18,13 @@ export class CadastroComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       name: new FormControl(null),
       email: new FormControl("asdasdda@hotmail.com"),
-      tipoPessoa: new FormControl(null),
+      tipo: new FormControl(null),
       password: new FormControl(null)
     });
   }
 
   onSubmit(){
-    const value = { ...this.form.value, tipoPessoa: +this.form.value.tipoPessoa };
+    const value = { ...this.form.value, tipo: +this.form.value.tipo };
     this.authService.cadastro(value).subscribe(data => {
     });
   }
