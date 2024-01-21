@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
+import { Auth } from '../model/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router) { }
-  private token: string | null = null;
+  auth: Auth;
 
   private getUrl(){
     return "http://localhost:5149";
@@ -24,7 +25,7 @@ export class AuthService {
   }
 
   isAuthenticated(){
-    return this.token != null;
+    return this.auth != null;
   }
 
   cadastro(user: User){
@@ -35,13 +36,21 @@ export class AuthService {
     return this.http.post(`${this.getUrl()}/user`, user, { headers })
   }
 
+  onStart(){
+    const user: Auth = JSON.parse(localStorage.getItem('gerenciador-auth')!);
+    if(user != null){
+      this.auth = user;
+    }
+  }
+
   login(user: User){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post<{ token:string }>(`${this.getUrl()}/auth/login`, user, { headers })
+    return this.http.post<Auth>(`${this.getUrl()}/auth/login`, user, { headers })
       .subscribe(response => {
-        this.token = response.token;
+        localStorage.setItem('gerenciador-auth', JSON.stringify(response))
+        this.auth = response;
         this.router.navigate(['gerenciador']);
       }, error => {
         /// arrumar mensagem de error aqui
