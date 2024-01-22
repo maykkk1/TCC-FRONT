@@ -9,7 +9,7 @@ import { TipoPessoaEnum } from '../shared/enums/tipoPessoa.enum';
 export class AsideService {
 
   constructor(private authService: AuthService) { }
-  isCollapesed: boolean = false;
+  isCollapesed: boolean = true;
   collapsedChange: Subject<Boolean> = new Subject<Boolean>();
 
   getCollapesedValue(){

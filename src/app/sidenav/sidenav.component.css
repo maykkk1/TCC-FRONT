@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     background-color: var(--dark-bd-color);
-    padding: 0 5px;
+    padding: 5px;
 }
 
 
@@ -13,7 +13,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 45px;
+    font-size: 30px;
     width: 50px;
     height: 50px;
     color: var(--primary-color);
@@ -30,6 +30,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    transition: ease-in-out 400ms;
 }
 
 .icone {
@@ -38,6 +40,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
 }
 
 .sidenav-link-text {
@@ -55,10 +58,19 @@ button {
     padding: 1px;
     margin: 2px 0;
     border-radius: 10px;
+    transition: ease-in-out 400ms;
 }
 
 .sidenav-nav-item:hover {
     background-color: antiquewhite;
+}
+
+.sidenav-nav-item:hover > .sidenav-nav-link > .sidenav-link-text {
+    color: var(--dark-bd-color);
+}
+
+.sidenav-nav-item:hover > .sidenav-nav-link {
+    color: var(--dark-bd-color);
 }
 
 /* .sidenav-link-text {
