@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'gerenciador', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [LoginRedirectGuard] },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'gerenciador', component: GerenciadorComponent, canActivate: [AuthGuard]},
+  { path: 'gerenciador', component: GerenciadorComponent, canActivate: [AuthGuard], children: [
+    { path: 'home', component: HomeComponent }
+  ]},
   { path: 'cadastro', component: CadastroComponent},
   // { path: '**', component: GerenciadorComponent }
 ];
