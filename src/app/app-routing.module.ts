@@ -8,10 +8,12 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginRedirectGuard } from './guards/login-redirect-guard.guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'gerenciador', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [LoginRedirectGuard] },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'gerenciador', component: GerenciadorComponent, canActivate: [AuthGuard]},
-  { path: 'cadastro', component: CadastroComponent}
+  { path: 'cadastro', component: CadastroComponent},
+  // { path: '**', component: GerenciadorComponent }
 ];
 
 @NgModule({

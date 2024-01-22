@@ -24,6 +24,10 @@ export class AuthService {
     })
   }
 
+  getUser(){
+    return this.auth.user;
+  }
+
   isAuthenticated(){
     return this.auth != null;
   }
