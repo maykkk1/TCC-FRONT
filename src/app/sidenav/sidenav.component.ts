@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AsideService } from '../services/aside.service';
 import { Subscription } from 'rxjs';
-import { faBars, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faList } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,6 +11,7 @@ import { faBars, faHome } from '@fortawesome/free-solid-svg-icons';
 export class SidenavComponent implements OnInit, OnDestroy {
   faBars = faBars;
   faHome = faHome;
+  faList = faList;
   isCollapesed: Boolean;
   isCollapesed$Subscription: Subscription;
 

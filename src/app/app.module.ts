@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 import { MainComponent } from './main/main.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TarefasViewComponent } from './tarefas-view/tarefas-view.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SidenavComponent,
     HeaderComponent,
     GerenciadorComponent,
-    MainComponent
+    MainComponent,
+    TarefasViewComponent
   ],
   imports: [
     BrowserModule,

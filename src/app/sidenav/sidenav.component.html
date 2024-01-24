@@ -1,12 +1,22 @@
 <aside class="sidenav">
     <button (click)="asideHandler()"><fa-icon [icon]="faBars"></fa-icon></button>
     <ul class="sidenav-nav">
+        <!-- tornar dinamico -->
         <li class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/home']" class="sidenav-nav-link">
                 <div class="icone">
                     <fa-icon [icon]="faHome"></fa-icon>
                 </div>
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Home</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <!-- PENSAR EM UM NOME MELHOR -->
+            <a [routerLink]="['/gerenciador/tarefas']" class="sidenav-nav-link">
+                <div class="icone">
+                    <fa-icon [icon]="faList"></fa-icon>
+                </div>
+                <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Tarefas</span>
             </a>
         </li>
     </ul>

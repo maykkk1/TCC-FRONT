@@ -6,13 +6,15 @@ import { AuthGuard } from './auth/auth.guard';
 import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginRedirectGuard } from './guards/login-redirect-guard.guard';
+import { TarefasViewComponent } from './tarefas-view/tarefas-view.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'gerenciador', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [LoginRedirectGuard] },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'gerenciador', component: GerenciadorComponent, canActivate: [AuthGuard], children: [
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent },
+    { path: 'tarefas', component: TarefasViewComponent }
   ]},
   { path: 'cadastro', component: CadastroComponent},
   // { path: '**', component: GerenciadorComponent }
