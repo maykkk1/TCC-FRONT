@@ -15,6 +15,7 @@ import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 import { MainComponent } from './main/main.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TarefasViewComponent } from './tarefas-view/tarefas-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TarefasViewComponent } from './tarefas-view/tarefas-view.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
