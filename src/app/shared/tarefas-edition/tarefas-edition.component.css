@@ -1,0 +1,22 @@
+.tarefas-edition-wrapper {
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.347);
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarefas-edition-wrapper > form {
+    max-width: 500px;
+    width: 100%;
+    max-height: 500px;
+    height: 90%;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+}

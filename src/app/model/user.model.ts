@@ -1,6 +1,7 @@
 import { TipoPessoaEnum } from "../shared/enums/tipoPessoa.enum";
 
 export class User {
+    id: number;
     name: string;
     email: string;
     tipo: TipoPessoaEnum;

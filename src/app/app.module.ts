@@ -17,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TarefasViewComponent } from './tarefas-view/tarefas-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { TarefasEditionComponent } from './shared/tarefas-edition/tarefas-edition.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     HeaderComponent,
     GerenciadorComponent,
     MainComponent,
-    TarefasViewComponent
+    TarefasViewComponent,
+    TarefasEditionComponent
   ],
   imports: [
     BrowserModule,
