@@ -43,20 +43,20 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
     switch (previousContainerIdx) {
       case "0":
-        this.pendente[event.currentIndex].situacao = newSituacao;
-        tarefa = this.pendente[event.currentIndex];
+        this.pendente[event.previousIndex].situacao = newSituacao;
+        tarefa = this.pendente[event.previousIndex];
         break;
       case "1":
-        this.fazendo[event.currentIndex].situacao = newSituacao;
-        tarefa = this.fazendo[event.currentIndex];
+        this.fazendo[event.previousIndex].situacao = newSituacao;
+        tarefa = this.fazendo[event.previousIndex];
         break;
       case "2":
-        this.analise[event.currentIndex].situacao = newSituacao;
-        tarefa = this.analise[event.currentIndex];
+        this.analise[event.previousIndex].situacao = newSituacao;
+        tarefa = this.analise[event.previousIndex];
         break;
       default:
-        this.concluida[event.currentIndex].situacao = newSituacao;
-        tarefa = this.concluida[event.currentIndex];
+        this.concluida[event.previousIndex].situacao = newSituacao;
+        tarefa = this.concluida[event.previousIndex];
         break;
     }
 

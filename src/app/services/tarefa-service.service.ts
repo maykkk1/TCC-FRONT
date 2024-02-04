@@ -41,7 +41,6 @@ export class TarefaService {
     });
     this.http.put<any>(`${this.getUrl()}`, tarefa, { headers }).subscribe(data => {
       // plotar mensagem
-      console.log(data);
     });
   }
 
