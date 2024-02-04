@@ -1,7 +1,7 @@
 <div class="tarefas" cdkDropListGroup>
   <div class="example-container">
     <h2>Pendente</h2>
-    <div cdkDropList [cdkDropListData]="pendente" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div cdkDropList id="0" [cdkDropListData]="pendente" class="example-list" (cdkDropListDropped)="drop($event)">
       <div *ngFor="let item of pendente" class="example-box" cdkDrag>
         <!-- MONTAR O CARD -->
         <p>{{item.descricao}}</p>
@@ -11,7 +11,7 @@
 
   <div class="example-container">
     <h2>Fazendo</h2>
-    <div cdkDropList [cdkDropListData]="fazendo" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div cdkDropList id="1" [cdkDropListData]="fazendo" class="example-list" (cdkDropListDropped)="drop($event)">
       <div *ngFor="let item of fazendo" class="example-box" cdkDrag>
         <!-- MONTAR O CARD -->
         <p>{{item.descricao}}</p>
@@ -21,7 +21,7 @@
 
   <div class="example-container">
     <h2>Análise</h2>
-    <div cdkDropList [cdkDropListData]="analise" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div cdkDropList id="2" [cdkDropListData]="analise" class="example-list" (cdkDropListDropped)="drop($event)">
       <div *ngFor="let item of analise" class="example-box" cdkDrag>
         <!-- MONTAR O CARD -->
         <p>{{item.descricao}}</p>
@@ -31,7 +31,7 @@
 
   <div class="example-container">
     <h2>Concluída</h2>
-    <div cdkDropList [cdkDropListData]="concluida" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div cdkDropList id="3" [cdkDropListData]="concluida" class="example-list" (cdkDropListDropped)="drop($event)">
       <div *ngFor="let item of concluida" class="example-box" cdkDrag>
         <!-- MONTAR O CARD -->
         <p>{{item.descricao}}</p>

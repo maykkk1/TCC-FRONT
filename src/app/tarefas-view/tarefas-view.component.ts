@@ -39,6 +39,7 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
   drop(event: CdkDragDrop<Tarefa[]>) {
     const previousContainerIdx = event.previousContainer.id.replace(/\D/g, '');
     const newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
+
     let tarefa: Tarefa;
 
     switch (previousContainerIdx) {
