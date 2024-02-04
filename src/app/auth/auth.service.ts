@@ -28,6 +28,10 @@ export class AuthService {
     return this.auth.user;
   }
 
+  getToken(){
+    return this.auth.token;
+  }
+
   isAuthenticated(){
     return this.auth != null;
   }
