@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../model/user.model';
 import { SituacaoTarefaEnum } from '../shared/enums/situacaoTarefa.enum';
+import { TipoTarefa } from '../shared/enums/tipoTarefa.enum';
 
 @Injectable({
   providedIn: 'root'

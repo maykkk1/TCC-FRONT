@@ -18,6 +18,7 @@ import { TarefasViewComponent } from './tarefas-view/tarefas-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { TarefasEditionComponent } from './shared/tarefas-edition/tarefas-edition.component';
+import { TarefasViewCardComponent } from './tarefas-view/tarefas-view-card/tarefas-view-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TarefasEditionComponent } from './shared/tarefas-edition/tarefas-editio
     GerenciadorComponent,
     MainComponent,
     TarefasViewComponent,
-    TarefasEditionComponent
+    TarefasEditionComponent,
+    TarefasViewCardComponent
   ],
   imports: [
     BrowserModule,

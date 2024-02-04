@@ -1,0 +1,16 @@
+.card {
+    height: max-content;
+    border-radius: 5px;
+    background-color: var(--dark-bd-color);
+    color: white;
+    padding: 5px 15px;
+}
+
+.data-action {
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-action fa-icon {
+    cursor: pointer;
+}

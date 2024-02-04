@@ -26,10 +26,5 @@
 .example-box {
     width: 100%;
     min-height: 60px;
-    line-break: normal;
-    background-color: white;
-    border-radius: 2px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    /* LEMBRAR DE REMOVER */
-    word-wrap: break-word;
+    height: max-content;
 }
