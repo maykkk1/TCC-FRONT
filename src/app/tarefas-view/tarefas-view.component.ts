@@ -72,8 +72,6 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
         event.currentIndex,
       );
     }
-
-    console.log(this.fazendo)
   }
 
   filtrarTarefas(data: Tarefa[]) {

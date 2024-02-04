@@ -22,10 +22,10 @@ export class AsideService {
   }
 
   getMenuByTipo(){
-    if(this.authService.getUser().tipo = TipoPessoaEnum.Aluno){
-      return []
-    } else {
+    const user = this.authService.getUser();
+    if(user && user.tipo == TipoPessoaEnum.Aluno){
       return []
     }
+    return []
   }
 }

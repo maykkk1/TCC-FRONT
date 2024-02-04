@@ -22,10 +22,9 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
   }
 
   salvarTarefa(){
-    // const tarefa = new Tarefa();
-    // tarefa.descricao = this.form.value.descricao;
-    // this.tarefaService.save(tarefa);
-    this.tarefaService.getTarefas();
+    const tarefa = new Tarefa();
+    tarefa.descricao = this.form.value.descricao;
+    this.tarefaService.save(tarefa);
   }
 
 

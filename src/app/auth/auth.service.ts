@@ -12,7 +12,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router) { }
-  auth: Auth;
+  auth: Auth | null;
 
   private getUrl(){
     return "http://localhost:5149";
@@ -25,11 +25,11 @@ export class AuthService {
   }
 
   getUser(){
-    return this.auth.user;
+    return this.auth?.user;
   }
 
   getToken(){
-    return this.auth.token;
+    return this.auth?.token;
   }
 
   isAuthenticated(){
@@ -45,9 +45,9 @@ export class AuthService {
   }
 
   onStart(){
-    const user: Auth = JSON.parse(localStorage.getItem('gerenciador-auth')!);
-    if(user != null){
-      this.auth = user;
+    const auth: Auth = JSON.parse(localStorage.getItem('gerenciador-auth')!);
+    if(auth != null){
+      this.auth = auth;
     }
   }
 
@@ -64,5 +64,11 @@ export class AuthService {
         /// arrumar mensagem de error aqui
         console.log(error)
       })
+  }
+
+  logout(){
+    this.auth = null;
+    localStorage.removeItem('gerenciador-auth')
+    this.router.navigate(['login']);
   }
 }

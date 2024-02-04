@@ -1,6 +1,7 @@
 <header>
     <div></div>
-    <div>
-        <span>{{ user.name }}</span>
+    <div class="name-section">
+        <span>{{ user?.name }}</span>
+        <fa-icon (click)="logout()" [icon]="faRightFromBracket"></fa-icon>
     </div>
 </header>

@@ -23,8 +23,10 @@ export class TarefaService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    const user: User = this.authService.getUser();
-    tarefa.idPessoa = user.id;
+    const user: User | undefined = this.authService.getUser();
+    if(user){
+      tarefa.idPessoa = user.id;
+    }
     tarefa.situacao = SituacaoTarefaEnum.Pendente;
     this.http.post<any>(`${this.getUrl()}/save`, tarefa, { headers }).subscribe(data => {
       // plotar mensagem
