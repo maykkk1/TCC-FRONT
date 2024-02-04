@@ -17,15 +17,44 @@ export class TarefaService {
   }
 
   save(tarefa: Tarefa){
+    const token = this.authService.getToken();
+
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
     });
     const user: User = this.authService.getUser();
     tarefa.idPessoa = user.id;
     tarefa.situacao = SituacaoTarefaEnum.Pendente;
     this.http.post<any>(`${this.getUrl()}/save`, tarefa, { headers }).subscribe(data => {
+      // plotar mensagem
       console.log(data);
     });
+  }
+
+  update(tarefa: Tarefa){
+    const token = this.authService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    this.http.put<any>(`${this.getUrl()}`, tarefa, { headers }).subscribe(data => {
+      // plotar mensagem
+      console.log(data);
+    });
+  }
+
+  getTarefas(){
+    const token = this.authService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+
+    return this.http.get<Tarefa[]>(this.getUrl(), { headers });
   }
 
 }
