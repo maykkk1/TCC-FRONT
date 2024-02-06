@@ -9,3 +9,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-snack-bar-container {
+  max-width: 800px;
+  height: 300px !important;
+  text-wrap: wrap;
+}
+  
+.success-snackbar {
+  --mdc-snackbar-container-color: green;
+  --mat-mdc-snack-bar-button-color: white;
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: #e53935;
+  --mat-mdc-snack-bar-button-color: #fff;
+}
+
