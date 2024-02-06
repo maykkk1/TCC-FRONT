@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { MensagemService } from './services/mensagem.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit{
   title = 'TCC-FRONT';
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private mensagemService: MensagemService){}
 
 
   ngOnInit(): void {

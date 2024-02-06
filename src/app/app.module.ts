@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule } from '@angular/common/http'
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +43,8 @@ import { TarefasViewCardComponent } from './tarefas-view/tarefas-view-card/taref
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

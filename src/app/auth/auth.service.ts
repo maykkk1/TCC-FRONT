@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
 import { Auth } from '../model/auth.model';
+import { MensagemService } from '../services/mensagem.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    private mensagemService: MensagemService) { }
   auth: Auth | null;
 
   private getUrl(){
@@ -60,9 +62,9 @@ export class AuthService {
         localStorage.setItem('gerenciador-auth', JSON.stringify(response))
         this.auth = response;
         this.router.navigate(['gerenciador']);
+        this.mensagemService.ShowMessage("Login efetuado com sucesso!", 3000, true);
       }, error => {
-        /// arrumar mensagem de error aqui
-        console.log(error)
+        this.mensagemService.ShowMessage(error.error.message, 5000, false);
       })
   }
 
