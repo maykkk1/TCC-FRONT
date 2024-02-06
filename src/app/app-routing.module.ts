@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './gerenciador/home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginRedirectGuard } from './guards/login-redirect-guard.guard';
-import { TarefasViewComponent } from './tarefas-view/tarefas-view.component';
+import { PrincipaisComponent } from './gerenciador/principais/principais.component';
+import { SecundariasComponent } from './gerenciador/secundarias/secundarias.component';
+import { AlunoComponent } from './gerenciador/aluno/aluno.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'gerenciador', pathMatch: 'full' },
@@ -14,10 +16,12 @@ const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'gerenciador', component: GerenciadorComponent, canActivate: [AuthGuard], children: [
     { path: 'home', component: HomeComponent },
-    { path: 'tarefas', component: TarefasViewComponent }
+    { path: 'principais', component: PrincipaisComponent },
+    { path: 'secundarias', component: SecundariasComponent },
+    { path: 'aluno/:id', component: AlunoComponent },
   ]},
   { path: 'cadastro', component: CadastroComponent},
-  // { path: '**', component: GerenciadorComponent }
+  { path: '**', component: GerenciadorComponent }
 ];
 
 @NgModule({

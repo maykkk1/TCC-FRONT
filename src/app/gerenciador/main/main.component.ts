@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AsideService } from '../services/aside.service';
+import { AsideService } from '../../services/aside.service';
 import { Subscription } from 'rxjs';
 
 @Component({
