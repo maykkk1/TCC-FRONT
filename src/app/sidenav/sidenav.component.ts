@@ -1,7 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AsideService } from '../services/aside.service';
 import { Subscription } from 'rxjs';
-import { faBars, faHome, faList } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faList, faUser } from '@fortawesome/free-solid-svg-icons';
+import { User } from '../model/user.model';
+import { AuthService } from '../auth/auth.service';
+import { TipoPessoaEnum } from '../shared/enums/tipoPessoa.enum';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,10 +16,14 @@ export class SidenavComponent implements OnInit, OnDestroy {
   faBars = faBars;
   faHome = faHome;
   faList = faList;
+  faUser = faUser;
+  orientandos: User[] = [];
   isCollapesed: Boolean;
   isCollapesed$Subscription: Subscription;
 
-  constructor(private asideService: AsideService){}
+  constructor(private asideService: AsideService,
+              private authService: AuthService,
+              private userService: UserService){}
 
   ngOnInit(): void {
     this.isCollapesed = this.asideService.getCollapesedValue();
@@ -23,12 +31,17 @@ export class SidenavComponent implements OnInit, OnDestroy {
     this.isCollapesed$Subscription = this.asideService.collapsedChange.subscribe(value => {
       this.isCollapesed = value;
     })
+
+    const user = this.authService.getUser();
+
+    if(user?.tipo == TipoPessoaEnum.Professor){
+      this.userService.getOrientandos().subscribe(data => this.orientandos = data);
+    }
   }
 
   asideHandler(){
     this.asideService.setCollapesedValue();
   }
-
 
   ngOnDestroy(): void {
     this.isCollapesed$Subscription.unsubscribe();

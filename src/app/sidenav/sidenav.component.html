@@ -11,12 +11,19 @@
             </a>
         </li>
         <li class="sidenav-nav-item">
-            <!-- PENSAR EM UM NOME MELHOR -->
             <a [routerLink]="['/gerenciador/tarefas']" class="sidenav-nav-link">
                 <div class="icone">
                     <fa-icon [icon]="faList"></fa-icon>
                 </div>
-                <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Tarefas</span>
+                <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Principais</span>
+            </a>
+        </li>
+        <li *ngFor="let orientando of orientandos" class="sidenav-nav-item">
+            <a [routerLink]="['/gerenciador/tarefas']" class="sidenav-nav-link">
+                <div class="icone">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                </div>
+                <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">{{ orientando.name }}</span>
             </a>
         </li>
     </ul>
