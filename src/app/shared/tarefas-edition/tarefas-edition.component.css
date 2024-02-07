@@ -1,0 +1,27 @@
+.form-group {
+    margin-top: 10px !important;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+small {
+    display: none;
+}
+
+.error-small {
+    display: block !important;
+    color: red !important;
+}
+
+input.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+textarea.ng-invalid.ng-touched {
+    border-color: red;
+}
+

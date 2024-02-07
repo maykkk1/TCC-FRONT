@@ -19,16 +19,13 @@ export class TarefaService {
     return "http://localhost:5149/tarefas";
   }
 
-  // validar erro
   save(tarefa: Tarefa){
     const token = this.authService.getToken();
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    this.http.post<any>(`${this.getUrl()}/save`, tarefa, { headers }).subscribe(data => {
-      this.mensagemService.ShowMessage("Tarefa criada com sucesso!", 3000, true);
-    });
+    return this.http.post<any>(`${this.getUrl()}/save`, tarefa, { headers });
   }
 
   savePrincipal(tarefa: Tarefa){
@@ -39,9 +36,7 @@ export class TarefaService {
       'Authorization': `Bearer ${token}`
     });
 
-    this.http.post<any>(`${this.getUrl()}/save-principal`, tarefa, { headers }).subscribe(data => {
-      this.mensagemService.ShowMessage("Tarefa criada com sucesso!", 3000, true);
-    });
+    return this.http.post<any>(`${this.getUrl()}/save-principal`, tarefa, { headers });
   }
 
   update(tarefa: Tarefa){

@@ -5,6 +5,8 @@ import { Tarefa } from 'src/app/model/tarefa.model';
 import { TarefaService } from 'src/app/services/tarefa-service.service';
 import { TipoTarefa } from '../enums/tipoTarefa.enum';
 import { SituacaoTarefaEnum } from '../enums/situacaoTarefa.enum';
+import { DialogRef } from '@angular/cdk/dialog';
+import { MensagemService } from 'src/app/services/mensagem.service';
 
 @Component({
   selector: 'app-tarefas-edition',
@@ -15,7 +17,9 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
   constructor(private tarefaService: TarefaService,
-               @Inject(MAT_DIALOG_DATA) public data: tarefasEditionData){}
+               @Inject(MAT_DIALOG_DATA) public data: tarefasEditionData,
+               private dialogRef: DialogRef<TarefasEditionComponent>,
+               private mensagem: MensagemService){}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -35,14 +39,25 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
     tarefa.createdById = this.data.criadorId;
     tarefa.situacao = SituacaoTarefaEnum.Pendente;
 
-    console.log(tarefa)
-
-
-
     if(this.data.isPrincipal){
-      return this.tarefaService.save(tarefa);
+      this.tarefaService.savePrincipal(tarefa).subscribe(response => {
+        this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
+        this.dialogRef.close();
+      }, Error => {
+        this.mensagem.ShowMessage("Ocorreu um erro ao criar a tarefa!", 3000, false)
+      });
+    } else {
+      this.tarefaService.save(tarefa).subscribe(response => {
+        this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
+        this.dialogRef.close();
+      }, Error => {
+        this.mensagem.ShowMessage("Ocorreu um erro ao criar a tarefa!", 3000, false)
+      });
     }
-    return this.tarefaService.savePrincipal(tarefa);
+  }
+
+  resetForm(){
+    this.form.reset();
   }
 
 
