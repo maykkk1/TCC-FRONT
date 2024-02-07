@@ -9,5 +9,6 @@ export class Tarefa {
     tipo: TipoTarefa
     idPessoa: number;
     createdById: number;
+    dataFinal: Date;
 }
 

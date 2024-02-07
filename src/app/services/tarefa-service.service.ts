@@ -22,19 +22,10 @@ export class TarefaService {
   // validar erro
   save(tarefa: Tarefa){
     const token = this.authService.getToken();
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    const user: User | undefined = this.authService.getUser();
-    if(user){
-      tarefa.idPessoa = user.id;
-      tarefa.createdById = user.id;
-    }
-    tarefa.situacao = SituacaoTarefaEnum.Pendente;
-    tarefa.titulo = "teste";
-    tarefa.situacao = SituacaoTarefaEnum.Pendente;
     this.http.post<any>(`${this.getUrl()}/save`, tarefa, { headers }).subscribe(data => {
       this.mensagemService.ShowMessage("Tarefa criada com sucesso!", 3000, true);
     });
@@ -47,10 +38,6 @@ export class TarefaService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    const user: User | undefined = this.authService.getUser();
-    if(user){
-      tarefa.createdById = user.id;
-    }
 
     this.http.post<any>(`${this.getUrl()}/save-principal`, tarefa, { headers }).subscribe(data => {
       this.mensagemService.ShowMessage("Tarefa criada com sucesso!", 3000, true);

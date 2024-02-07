@@ -4,6 +4,10 @@ import { Tarefa } from 'src/app/model/tarefa.model';
 import { TarefaService } from 'src/app/services/tarefa-service.service';
 import { SituacaoTarefaEnum } from 'src/app/shared/enums/situacaoTarefa.enum';
 import { TipoTarefa } from 'src/app/shared/enums/tipoTarefa.enum';
+import { MatDialog } from '@angular/material/dialog'; 
+import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tarefas-edition/tarefas-edition.component';
+import { AuthService } from 'src/app/auth/auth.service';
+import { User } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-aluno',
@@ -14,7 +18,9 @@ export class AlunoComponent  implements OnInit{
   alunoId: number;
 
   constructor(private route: ActivatedRoute,
-              private tarefaService: TarefaService){ }
+              private tarefaService: TarefaService,
+              private dialog: MatDialog,
+              private authService: AuthService){ }
 
 
   ngOnInit(): void {
@@ -35,6 +41,15 @@ export class AlunoComponent  implements OnInit{
     tarefa.titulo = "tarefa criada pelo professor"
 
     this.tarefaService.savePrincipal(tarefa);
+  }
+
+  openTarefaEdition(){
+    const user = this.authService.getUser();
+    const dialogConf: tarefasEditionData = {isPrincipal: true, criadorId: user?.id!, destinatarioId: this.alunoId};
+    this.dialog.open(TarefasEditionComponent, {
+      width: "500px",
+      data: dialogConf
+    });
   }
 
 

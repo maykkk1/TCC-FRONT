@@ -1,11 +1,30 @@
-<div class="tarefas-edition-wrapper">
-    <form [formGroup]="form">
-        <div class="form-group">
+<h2 mat-dialog-title>Nova tarefa</h2>
+
+<mat-dialog-content>
+    <div class="tarefas-edition-wrapper">
+        <form [formGroup]="form">
             <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <input type="text" class="form-control" formControlName="descricao" id="descricao">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" formControlName="titulo" id="titulo">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" class="form-control" formControlName="descricao" id="descricao">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="dataFinal">Data de entrega</label>
+                            <input type="date" class="form-control" formControlName="dataFinal" id="dataFinal">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <button (click)="salvarTarefa()" class="btn btn-primary">Criar</button>
-    </form>
-</div>
+        </form>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button (click)="salvarTarefa()" class="btn btn-primary">Criar</button>
+</mat-dialog-actions>
