@@ -8,5 +8,6 @@ export class Tarefa {
     situacao: SituacaoTarefaEnum;
     tipo: TipoTarefa
     idPessoa: number;
+    createdById: number;
 }
 
