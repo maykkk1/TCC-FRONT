@@ -9,6 +9,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TarefaService } from '../services/tarefa-service.service';
 import { Tarefa } from '../model/tarefa.model';
 import { SituacaoTarefaEnum } from '../shared/enums/situacaoTarefa.enum';
+import { MensagemService } from '../services/mensagem.service';
 
 @Component({
   selector: 'app-tarefas-view',
@@ -25,7 +26,8 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   concluida: Tarefa[] = [];
 
-  constructor(private tarefaSerice: TarefaService) { }
+  constructor(private tarefaSerice: TarefaService,
+              private mensagemService: MensagemService) { }
 
   ngOnInit(): void {
     this.tarefaSerice.getTarefas().subscribe(data => {
@@ -38,7 +40,14 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   drop(event: CdkDragDrop<Tarefa[]>) {
     const previousContainerIdx = event.previousContainer.id.replace(/\D/g, '');
-    const newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
+    let newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
+
+    if(newSituacao == 3){
+      this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
+      return;
+    } else if (newSituacao == 2) {
+      this.mensagemService.ShowMessage("O orientador irá analisar e concluir a sua tarefa em breve.", 10000, true)
+    }
 
     let tarefa: Tarefa;
 
@@ -61,7 +70,9 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
         break;
     }
 
-    this.tarefaSerice.update(this.getTarefaRequestModel(tarefa));
+    tarefa.createdBy = null;
+
+    this.tarefaSerice.update(tarefa);
 
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -84,22 +95,6 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   setTarefaSituacao() {
 
-  }
-
-  getTarefaRequestModel(tarefa: Tarefa){
-    const updateTarefa = new Tarefa();
-
-    updateTarefa.id = tarefa.id;
-    updateTarefa.idPessoa = tarefa.idPessoa;
-    updateTarefa.createdById = tarefa.createdById;
-    updateTarefa.dataCriacao = tarefa.dataCriacao;
-    updateTarefa.dataFinal = tarefa.dataFinal;
-    updateTarefa.situacao = tarefa.situacao;
-    updateTarefa.tipo = tarefa.tipo;
-    updateTarefa.titulo = tarefa.titulo;
-    updateTarefa.descricao = tarefa.descricao;
-
-    return updateTarefa;
   }
 
 }

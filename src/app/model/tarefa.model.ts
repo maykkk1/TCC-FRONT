@@ -10,6 +10,7 @@ export class Tarefa {
     tipo: TipoTarefa
     idPessoa: number;
     createdById: number;
+    createdBy: User | null;
     dataFinal: Date;
     dataCriacao: Date;
 }
