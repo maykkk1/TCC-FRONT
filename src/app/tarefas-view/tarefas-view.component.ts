@@ -61,7 +61,7 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
         break;
     }
 
-    this.tarefaSerice.update(tarefa);
+    this.tarefaSerice.update(this.getTarefaRequestModel(tarefa));
 
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -84,6 +84,22 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   setTarefaSituacao() {
 
+  }
+
+  getTarefaRequestModel(tarefa: Tarefa){
+    const updateTarefa = new Tarefa();
+
+    updateTarefa.id = tarefa.id;
+    updateTarefa.idPessoa = tarefa.idPessoa;
+    updateTarefa.createdById = tarefa.createdById;
+    updateTarefa.dataCriacao = tarefa.dataCriacao;
+    updateTarefa.dataFinal = tarefa.dataFinal;
+    updateTarefa.situacao = tarefa.situacao;
+    updateTarefa.tipo = tarefa.tipo;
+    updateTarefa.titulo = tarefa.titulo;
+    updateTarefa.descricao = tarefa.descricao;
+
+    return updateTarefa;
   }
 
 }
