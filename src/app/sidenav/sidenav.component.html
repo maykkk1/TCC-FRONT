@@ -1,11 +1,11 @@
 <aside class="sidenav">
     <button (click)="asideHandler()"><fa-icon [icon]="faBars"></fa-icon></button>
     <ul class="sidenav-nav">
-        <!-- tornar dinamico -->
+        <hr style="margin: 0;">
         <li class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/home']" class="sidenav-nav-link">
                 <div class="icone">
-                    <fa-icon [icon]="faHome"></fa-icon>
+                    <img src="../../assets/imagens/icones/home.png" alt="">
                 </div>
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Home</span>
             </a>
@@ -13,7 +13,7 @@
         <li class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/principais']" class="sidenav-nav-link">
                 <div class="icone">
-                    <fa-icon [icon]="faList"></fa-icon>
+                    <img src="../../assets/imagens/icones/mainQuest.png" alt="">
                 </div>
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Principais</span>
             </a>
@@ -21,15 +21,16 @@
         <li class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/secundarias/']" class="sidenav-nav-link">
                 <div class="icone">
-                    <fa-icon [icon]="faList"></fa-icon>
+                    <img src="../../assets/imagens/icones/sideQuest.png" alt="">
                 </div>
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Secundárias</span>
             </a>
         </li>
+        <hr *ngIf="orientandos.length > 0">
         <li *ngFor="let orientando of orientandos" class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/aluno/' + orientando.id]" class="sidenav-nav-link">
                 <div class="icone">
-                    <fa-icon [icon]="faUser"></fa-icon>
+                    <img src="../../assets/imagens/icones/avatar.png" alt="">
                 </div>
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">{{ orientando.name }}</span>
             </a>

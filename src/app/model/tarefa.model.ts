@@ -10,5 +10,6 @@ export class Tarefa {
     idPessoa: number;
     createdById: number;
     dataFinal: Date;
+    dataCriacao: Date;
 }
 

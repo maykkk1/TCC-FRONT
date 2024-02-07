@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AsideService } from '../services/aside.service';
 import { Subscription } from 'rxjs';
-import { faBars, faHome, faList, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { User } from '../model/user.model';
 import { AuthService } from '../auth/auth.service';
 import { TipoPessoaEnum } from '../shared/enums/tipoPessoa.enum';
@@ -14,9 +14,6 @@ import { UserService } from '../services/user.service';
 })
 export class SidenavComponent implements OnInit, OnDestroy {
   faBars = faBars;
-  faHome = faHome;
-  faList = faList;
-  faUser = faUser;
   orientandos: User[] = [];
   isCollapesed: Boolean;
   isCollapesed$Subscription: Subscription;

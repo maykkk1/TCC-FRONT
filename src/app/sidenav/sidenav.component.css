@@ -41,12 +41,21 @@ button {
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    color: var(--light-color);
+}
+
+.icone img {
+    width: 100%;
+    -webkit-filter: drop-shadow(1px 1px 2px var(--primary-color));
+    filter: drop-shadow(1px 1px 2px var(--primary-color));
 }
 
 .sidenav-link-text {
     width: 0;
     overflow: hidden;
     transition: ease-in-out 400ms;
+    color: var(--light-color);
+    font-weight: 500;
 }
 
 .sidenav-link-text.collapesed {
@@ -66,6 +75,10 @@ button {
 }
 
 .sidenav-nav-item:hover > .sidenav-nav-link > .sidenav-link-text {
+    color: var(--dark-bd-color);
+}
+
+.sidenav-nav-item:hover > .sidenav-nav-link > .icone {
     color: var(--dark-bd-color);
 }
 

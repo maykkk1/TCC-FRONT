@@ -1,7 +1,7 @@
 .card {
     height: max-content;
     border-radius: 5px;
-    background-color: var(--dark-bd-color);
+    background-color: rgb(39, 35, 35);
     color: white;
     padding: 5px 15px;
 }

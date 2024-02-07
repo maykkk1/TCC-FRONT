@@ -1,14 +1,27 @@
 :root {
-    --primary-color: #2ecc71;
-    --dark-bd-color: #191919;
-  }
+  --primary-color: #3700b3;
+  --secondary-color: #C8FF4C;
+  --dark-bd-color: #212121;
+  --light-dark-bd-color: #282A36;
+  --light-color: #FBF9F1;
+}
 
-  * {
-    font-family: 'Roboto', sans-serif;
-  }
+* {
+  font-family: 'Roboto', sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--light-dark-bd-color);
+  color: var(--light-color);
+}
+
 
 
 .mat-snack-bar-container {
@@ -16,7 +29,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 300px !important;
   text-wrap: wrap;
 }
-  
+
 .success-snackbar {
   --mdc-snackbar-container-color: green;
   --mat-mdc-snack-bar-button-color: white;
@@ -26,4 +39,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --mdc-snackbar-container-color: #e53935;
   --mat-mdc-snack-bar-button-color: #fff;
 }
-
