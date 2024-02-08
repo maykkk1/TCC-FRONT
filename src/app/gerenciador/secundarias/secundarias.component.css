@@ -1,0 +1,18 @@
+.titulo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo fa-icon {
+    font-size: 30px;
+    background-color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: translateY(-15px);
+}

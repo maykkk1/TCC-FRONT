@@ -10,7 +10,7 @@ import { TarefaService } from '../services/tarefa-service.service';
 import { Tarefa } from '../model/tarefa.model';
 import { SituacaoTarefaEnum } from '../shared/enums/situacaoTarefa.enum';
 import { MensagemService } from '../services/mensagem.service';
-import { TipoTarefa } from '../shared/enums/tipoTarefa.enum';
+import { Subscription, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-tarefas-view',
@@ -18,6 +18,7 @@ import { TipoTarefa } from '../shared/enums/tipoTarefa.enum';
   styleUrls: ['./tarefas-view.component.css']
 })
 export class TarefasViewComponent implements OnInit, OnDestroy {
+  task$Sub: Subscription;
 
   pendente: Tarefa[] = [];
 
@@ -33,12 +34,20 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
               private mensagemService: MensagemService) { }
 
   ngOnInit(): void {
-    // filtrar as principais das sec
-    this.tarefaSerice.getTarefas().subscribe(data => {
+    this.tarefaSerice.getTarefas(this.isPrincipal).subscribe(data => {
       this.filtrarTarefas(data);
     });
+
+    this.task$Sub = this.tarefaSerice.taskChange.pipe(
+      switchMap(() => this.tarefaSerice.getTarefas(this.isPrincipal))
+    ).subscribe(data => {
+      this.filtrarTarefas(data);
+    })
   }
+
+
   ngOnDestroy(): void {
+    this.task$Sub.unsubscribe();
   }
 
 
@@ -73,8 +82,6 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
         tarefa = this.concluida[event.previousIndex];
         break;
     }
-
-    tarefa.createdBy = null;
 
     this.tarefaSerice.update(tarefa);
 

@@ -13,6 +13,11 @@ h3 {
 p {
     font-size: 12px;
     color: rgb(165, 158, 158);
+    margin: 0;
+}
+
+hr {
+    color: rgba(255, 255, 255, 0.33);
 }
 
 span {
@@ -37,14 +42,18 @@ span {
     gap: 2px;
 }
 
-.letter-wrapper {
+.card-h {
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
+}
+
+.card-h h3 {
+    text-wrap: wrap !important;
 }
 
 .letter {
-    background-color: var(--secondary-color);
+    background-color: rgba(220, 220, 220, 0.314);
+    color: var(--secondary-color);
+    font-weight: bold;
     width: 25px;
     height: 25px;
     border-radius: 25px;
@@ -52,4 +61,19 @@ span {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+}
+
+strong {
+    color: var(--primary-light-color);
+    cursor: pointer;
+}
+
+.row, .col-2, .col-10 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.col-2 {
+    display: flex;
+    justify-content: flex-end;
 }

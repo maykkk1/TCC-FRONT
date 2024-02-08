@@ -22,10 +22,7 @@ export class AlunoComponent  implements OnInit{
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.alunoId = parseInt(params.get('id')!);
-      this.openTarefaEdition();
     });
-
-    // carregar dados do aluno
   }
 
   openTarefaEdition(){

@@ -1,4 +1,7 @@
 <div class="secundarias-container">
-    <h2 class="title">Tarefas Secundárias</h2>
+    <div class="titulo">
+        <h2 class="title">Tarefas Secundárias</h2>
+        <fa-icon (click)="openTarefaEdition()" matTooltip="Nova tarefa" [icon]="faPlus"></fa-icon>
+    </div>
     <app-tarefas-view></app-tarefas-view>
 </div>
