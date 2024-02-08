@@ -1,9 +1,14 @@
 <div class="card">
+    <div class="letter-wrapper">
+        <div [matTooltip]="'Criado por: ' +  tarefa.createdBy?.name" class="letter">{{ (tarefa.createdBy && tarefa.createdBy.name) ? tarefa.createdBy.name.charAt(0) : '' }}</div>
+    </div>
     <h3>{{ tarefa.titulo }}</h3>
     <p>{{ tarefa.descricao }}</p>
     <hr>
     <div class="data-action">
-        <span matTooltip="Data de criação">{{ tarefa.dataCriacao| date : 'dd/MM/yyyy' }}</span>
+        <div class="date">
+            <span *ngIf="tarefa.dataFinal" matTooltip="Data de Entrega">{{ tarefa.dataFinal| date : 'dd/MM/yyyy' }}</span>
+        </div>
         <fa-icon [icon]="faEdit"></fa-icon>
     </div>
 </div>

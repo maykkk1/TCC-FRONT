@@ -4,6 +4,7 @@
   --dark-bd-color: #212121;
   --light-dark-bd-color: #282A36;
   --light-color: #FBF9F1;
+  --error-color: #ED4337;
 }
 
 * {
@@ -33,7 +34,7 @@ body {
 }
 
 .error-snackbar {
-  --mdc-snackbar-container-color: #e53935;
+  --mdc-snackbar-container-color: var(--error-color);
   --mat-mdc-snack-bar-button-color: #fff;
 }
 

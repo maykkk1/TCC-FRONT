@@ -3,7 +3,7 @@
     border-radius: 5px;
     background-color: var(--dark-bd-color);
     color: white;
-    padding: 5px 15px;
+    padding: 10px;
 }
 
 h3 {
@@ -18,7 +18,7 @@ p {
 span {
     font-size: 12px;
     font-weight: bold;
-    background-color: var(--primary-color);
+    background-color: var(--error-color);
     padding: 2px 5px;
     border-radius: 2px;
 }
@@ -30,4 +30,26 @@ span {
 
 .data-action fa-icon {
     cursor: pointer;
+}
+
+.date {
+    display: flex;
+    gap: 2px;
+}
+
+.letter-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.letter {
+    background-color: var(--secondary-color);
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
 }
