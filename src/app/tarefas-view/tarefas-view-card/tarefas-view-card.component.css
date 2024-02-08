@@ -1,9 +1,26 @@
 .card {
     height: max-content;
     border-radius: 5px;
-    background-color: rgb(39, 35, 35);
+    background-color: var(--dark-bd-color);
     color: white;
     padding: 5px 15px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+    color: rgb(165, 158, 158);
+}
+
+span {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    padding: 2px 5px;
+    border-radius: 2px;
 }
 
 .data-action {

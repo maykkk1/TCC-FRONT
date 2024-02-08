@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule } from '@angular/common/http'
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,7 +53,8 @@ import { AlunoComponent } from './gerenciador/aluno/aluno.component';
     BrowserAnimationsModule,
     DragDropModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

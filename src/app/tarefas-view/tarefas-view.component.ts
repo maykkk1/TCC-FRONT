@@ -5,11 +5,12 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TarefaService } from '../services/tarefa-service.service';
 import { Tarefa } from '../model/tarefa.model';
 import { SituacaoTarefaEnum } from '../shared/enums/situacaoTarefa.enum';
 import { MensagemService } from '../services/mensagem.service';
+import { TipoTarefa } from '../shared/enums/tipoTarefa.enum';
 
 @Component({
   selector: 'app-tarefas-view',
@@ -26,10 +27,13 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   concluida: Tarefa[] = [];
 
+  @Input() isPrincipal: boolean = false;
+
   constructor(private tarefaSerice: TarefaService,
               private mensagemService: MensagemService) { }
 
   ngOnInit(): void {
+    // filtrar as principais das sec
     this.tarefaSerice.getTarefas().subscribe(data => {
       this.filtrarTarefas(data);
     });
@@ -42,10 +46,10 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
     const previousContainerIdx = event.previousContainer.id.replace(/\D/g, '');
     let newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
 
-    if(newSituacao == 3){
+    if(newSituacao == 3 && this.isPrincipal){
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
       return;
-    } else if (newSituacao == 2) {
+    } else if (newSituacao == 2 && this.isPrincipal) {
       this.mensagemService.ShowMessage("O orientador irá analisar e concluir a sua tarefa em breve.", 10000, true)
     }
 

@@ -3,7 +3,7 @@
     <p>{{ tarefa.descricao }}</p>
     <hr>
     <div class="data-action">
-        <span>{{ tarefa.dataCriacao| date : 'dd/MM/yyyy' }}</span>
+        <span matTooltip="Data de criação">{{ tarefa.dataCriacao| date : 'dd/MM/yyyy' }}</span>
         <fa-icon [icon]="faEdit"></fa-icon>
     </div>
 </div>
