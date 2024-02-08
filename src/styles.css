@@ -1,6 +1,6 @@
 :root {
   --primary-color: #3700b3;
-  --secondary-color: #C8FF4C;
+  --secondary-color: #00d062;
   --dark-bd-color: #212121;
   --light-dark-bd-color: #282A36;
   --light-color: #FBF9F1;
@@ -11,9 +11,6 @@
 }
 
 html,
-body {
-  height: 100%;
-}
 
 body {
   margin: 0;
@@ -38,4 +35,18 @@ body {
 .error-snackbar {
   --mdc-snackbar-container-color: #e53935;
   --mat-mdc-snack-bar-button-color: #fff;
+}
+
+.title {
+  font-size: 25px !important;
+}
+
+.title::after{
+  display: block;
+  content: '';
+  height: 2px;
+  width: 100px;
+  background-color: var(--secondary-color);
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
