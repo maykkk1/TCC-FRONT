@@ -6,7 +6,6 @@
   --light-dark-bd-color: #282A36;
   --light-color: #FBF9F1;
   --error-color: #ED4337;
-
 }
 
 * {
@@ -53,3 +52,32 @@ body {
   margin-top: 5px;
   margin-bottom: 10px;
 }
+
+.form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #25fc89;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #4a17a0;
+}
+
+.btn-success {
+  background-color: var(--secondary-color);
+}
+
+.btn-success:hover {
+  background-color:#04783a;
+}
+
+.btn-danger {
+  background-color: var(--error-color);
+}
+
+/* .mdc-dialog__surface::before {
+  background-color: red;
+ } */

@@ -1,16 +1,15 @@
-<h2 mat-dialog-title>Nova tarefa</h2>
-
 <mat-dialog-content>
+    <h2 class="title">Nova tarefa</h2>
     <form [formGroup]="form">
         <div class="form-group">
             <div class="form-group">
                 <label for="titulo">Título</label>
-                <input type="text" class="form-control" formControlName="titulo" id="titulo">
+                <input type="text" maxlength="50" class="form-control" formControlName="titulo" id="titulo">
                 <small class="text-muted" [ngClass]="!form.get('titulo')?.valid && form.get('titulo')?.touched  ? 'error-small': ''">Título é obrigatório.</small>
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição</label>
-                <textarea type="text" class="form-control" formControlName="descricao" id="descricao"></textarea>
+                <textarea maxlength="255" type="text" class="form-control" formControlName="descricao" id="descricao"></textarea>
                 <small class="text-muted" [ngClass]="!form.get('descricao')?.valid && form.get('descricao')?.touched  ? 'error-small': ''">Descrição da tarefa é obrigatória.</small>
             </div>
             <div class="row">

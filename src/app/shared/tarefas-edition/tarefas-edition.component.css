@@ -14,14 +14,15 @@ small {
 
 .error-small {
     display: block !important;
-    color: red !important;
+    color: var(--error-color) !important;
+    opacity: .7;
 }
 
 input.ng-invalid.ng-touched {
-    border-color: red;
+    border-color: var(--error-color);
 }
 
 textarea.ng-invalid.ng-touched {
-    border-color: red;
+    border-color: var(--error-color);
 }
 
