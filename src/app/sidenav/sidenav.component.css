@@ -49,8 +49,8 @@ button {
 
 .icone img {
     width: 80%;
-    -webkit-filter: drop-shadow(.5px .5px 1px var(--primary-color));
-    filter: drop-shadow(.5px .5px 1px var(--primary-color));
+    -webkit-filter: drop-shadow(.5px .5px .5px var(--light-color));
+    filter: drop-shadow(.5px .5px .5px var(--light-color));
 }
 
 .sidenav-link-text {
@@ -75,6 +75,7 @@ button {
 
 .sidenav-nav-item:hover {
     background-color: var(--primary-color);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 

@@ -4,13 +4,13 @@
         <div class="form-group">
             <div class="form-group">
                 <label for="titulo">Título</label>
-                <input type="text" maxlength="50" class="form-control" formControlName="titulo" id="titulo">
-                <small class="text-muted" [ngClass]="!form.get('titulo')?.valid && form.get('titulo')?.touched  ? 'error-small': ''">Título é obrigatório.</small>
+                <input [ngClass]="error ? 'error' : ''" type="text" maxlength="50" class="form-control" formControlName="titulo" id="titulo">
+                <small [ngClass]="!form.get('titulo')?.valid && form.get('titulo')?.touched && error  ? 'error-small': ''">Título é obrigatório.</small>
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição</label>
-                <textarea maxlength="255" type="text" class="form-control" formControlName="descricao" id="descricao"></textarea>
-                <small class="text-muted" [ngClass]="!form.get('descricao')?.valid && form.get('descricao')?.touched  ? 'error-small': ''">Descrição da tarefa é obrigatória.</small>
+                <textarea [ngClass]="error ? 'error' : ''" maxlength="255" type="text" class="form-control" formControlName="descricao" id="descricao"></textarea>
+                <small class="text-muted" [ngClass]="!form.get('descricao')?.valid && form.get('descricao')?.touched && error  ? 'error-small': ''">Descrição da tarefa é obrigatória.</small>
             </div>
             <div class="row">
                 <div class="col-6">

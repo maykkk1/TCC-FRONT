@@ -15,6 +15,7 @@ import { MensagemService } from 'src/app/services/mensagem.service';
 })
 export class TarefasEditionComponent implements OnInit, OnDestroy {
   form: FormGroup;
+  error: boolean = false;
 
   constructor(private tarefaService: TarefaService,
                @Inject(MAT_DIALOG_DATA) public data: tarefasEditionData,
@@ -39,12 +40,20 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
     tarefa.createdById = this.data.criadorId;
     tarefa.situacao = SituacaoTarefaEnum.Pendente;
 
+    if(!this.form.get('descricao')?.valid || !this.form.get('titulo')?.valid){
+      this.form.markAllAsTouched();
+      this.error = true;
+      this.mensagem.ShowMessage("Ocorreu um erro ao criar a tarefa!", 3000, false)
+      return;
+    }
+
     if(this.data.isPrincipal){
       this.tarefaService.savePrincipal(tarefa).subscribe(response => {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
         this.tarefaService.taskChange.next();
         this.dialogRef.close();
       }, Error => {
+        this.error = true;
         this.mensagem.ShowMessage("Ocorreu um erro ao criar a tarefa!", 3000, false)
       });
     } else {
@@ -53,6 +62,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
         this.tarefaService.taskChange.next();
         this.dialogRef.close();
       }, Error => {
+        this.error = true;
         this.mensagem.ShowMessage("Ocorreu um erro ao criar a tarefa!", 3000, false)
       });
     }

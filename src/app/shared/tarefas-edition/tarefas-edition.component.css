@@ -18,11 +18,11 @@ small {
     opacity: .7;
 }
 
-input.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched.error {
     border-color: var(--error-color);
 }
 
-textarea.ng-invalid.ng-touched {
+textarea.ng-invalid.ng-touched.error {
     border-color: var(--error-color);
 }
 
