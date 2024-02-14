@@ -64,7 +64,11 @@ export class AuthService {
         this.router.navigate(['gerenciador']);
         this.mensagemService.ShowMessage("Login efetuado com sucesso!", 3000, true);
       }, error => {
-        this.mensagemService.ShowMessage(error.error.message, 5000, false);
+        if(error.error.message){
+          this.mensagemService.ShowMessage(error.error.message, 5000, false);
+        } else {
+          this.mensagemService.ShowMessage("Ocorreu um erro ao fazer a autenticação.", 5000, false);
+        }
       })
   }
 
