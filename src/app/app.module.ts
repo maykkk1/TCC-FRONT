@@ -25,6 +25,7 @@ import { TarefasViewCardComponent } from './tarefas-view/tarefas-view-card/taref
 import { PrincipaisComponent } from './gerenciador/principais/principais.component';
 import { SecundariasComponent } from './gerenciador/secundarias/secundarias.component';
 import { AlunoComponent } from './gerenciador/aluno/aluno.component';
+import { TarefaComponent } from './gerenciador/tarefa/tarefa.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AlunoComponent } from './gerenciador/aluno/aluno.component';
     TarefasViewCardComponent,
     PrincipaisComponent,
     SecundariasComponent,
-    AlunoComponent
+    AlunoComponent,
+    TarefaComponent
   ],
   imports: [
     BrowserModule,

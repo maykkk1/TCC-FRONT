@@ -70,7 +70,7 @@ button {
     padding: 1px;
     margin: 2px 0;
     border-radius: 5px;
-    transition: ease-in-out 400ms;
+    transition: ease-in-out 200ms;
 }
 
 .sidenav-nav-item:hover {
