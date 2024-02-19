@@ -55,35 +55,37 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
     const previousContainerIdx = event.previousContainer.id.replace(/\D/g, '');
     let newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
 
-    if(newSituacao == 3 && this.isPrincipal){
+    if(newSituacao == 3 && this.isPrincipal && !(event.previousContainer === event.container)){
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
       return;
-    } else if (newSituacao == 2 && this.isPrincipal) {
+    } else if (newSituacao == 2 && this.isPrincipal && !(event.previousContainer === event.container)) {
       this.mensagemService.ShowMessage("O orientador irá analisar e concluir a sua tarefa em breve.", 10000, true)
     }
 
     let tarefa: Tarefa;
 
-    switch (previousContainerIdx) {
-      case "0":
-        this.pendente[event.previousIndex].situacao = newSituacao;
-        tarefa = this.pendente[event.previousIndex];
-        break;
-      case "1":
-        this.fazendo[event.previousIndex].situacao = newSituacao;
-        tarefa = this.fazendo[event.previousIndex];
-        break;
-      case "2":
-        this.analise[event.previousIndex].situacao = newSituacao;
-        tarefa = this.analise[event.previousIndex];
-        break;
-      default:
-        this.concluida[event.previousIndex].situacao = newSituacao;
-        tarefa = this.concluida[event.previousIndex];
-        break;
+    if(!(event.previousContainer === event.container)){
+      switch (previousContainerIdx) {
+        case "0":
+          this.pendente[event.previousIndex].situacao = newSituacao;
+          tarefa = this.pendente[event.previousIndex];
+          break;
+        case "1":
+          this.fazendo[event.previousIndex].situacao = newSituacao;
+          tarefa = this.fazendo[event.previousIndex];
+          break;
+        case "2":
+          this.analise[event.previousIndex].situacao = newSituacao;
+          tarefa = this.analise[event.previousIndex];
+          break;
+        default:
+          this.concluida[event.previousIndex].situacao = newSituacao;
+          tarefa = this.concluida[event.previousIndex];
+          break;
+      }
+  
+      this.tarefaSerice.update(tarefa);
     }
-
-    this.tarefaSerice.update(tarefa);
 
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
