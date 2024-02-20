@@ -13,5 +13,6 @@ export class Tarefa {
     createdBy: User | null;
     dataFinal: Date;
     dataCriacao: Date;
+    idTarefaRelacionada: number;
 }
 
