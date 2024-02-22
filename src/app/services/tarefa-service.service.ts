@@ -51,9 +51,7 @@ export class TarefaService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    this.http.put<any>(`${this.getUrl()}`, tarefaCopy, { headers }).subscribe(data => {
-      // plotar mensagem
-    });
+    return this.http.put<any>(`${this.getUrl()}`, tarefaCopy, { headers });
   }
 
   getTarefas(isPrincipal: Boolean = false){

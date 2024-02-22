@@ -84,7 +84,20 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
           break;
       }
   
-      this.tarefaSerice.update(tarefa);
+      this.tarefaSerice.update(tarefa).subscribe(data => { 
+      }, error => {
+        this.mensagemService.ShowMessage(error.error, 5000, false)
+        if (event.previousContainer === event.container) {
+          moveItemInArray(event.container.data, event.currentIndex, event.previousIndex);
+        } else {
+          transferArrayItem(
+            event.container.data,
+            event.previousContainer.data,
+            event.currentIndex,
+            event.previousIndex,
+          );
+        }
+      });
     }
 
     if (event.previousContainer === event.container) {
