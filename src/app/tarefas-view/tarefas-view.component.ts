@@ -11,6 +11,9 @@ import { Tarefa } from '../model/tarefa.model';
 import { SituacaoTarefaEnum } from '../shared/enums/situacaoTarefa.enum';
 import { MensagemService } from '../services/mensagem.service';
 import { Subscription, switchMap } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../model/user.model';
+import { TipoPessoaEnum } from '../shared/enums/tipoPessoa.enum';
 
 @Component({
   selector: 'app-tarefas-view',
@@ -28,12 +31,17 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   concluida: Tarefa[] = [];
 
+  user: User | undefined;
+
   @Input() isPrincipal: boolean = false;
 
   constructor(private tarefaSerice: TarefaService,
-              private mensagemService: MensagemService) { }
+              private mensagemService: MensagemService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getUser();
+
     this.tarefaSerice.getTarefas(this.isPrincipal).subscribe(data => {
       this.filtrarTarefas(data);
     });
@@ -55,7 +63,7 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
     const previousContainerIdx = event.previousContainer.id.replace(/\D/g, '');
     let newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
 
-    if(newSituacao == 3 && this.isPrincipal && !(event.previousContainer === event.container)){
+    if(newSituacao == 3 && this.isPrincipal && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor){
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
       return;
     } else if (newSituacao == 2 && this.isPrincipal && !(event.previousContainer === event.container)) {

@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="example-container">
+  <div *ngIf="user?.tipo == 2" class="example-container">
     <h3>Análise</h3>
     <div cdkDropList id="2" [cdkDropListData]="analise" class="example-list" (cdkDropListDropped)="drop($event)">
       <div *ngFor="let item of analise" class="example-box" cdkDrag>
