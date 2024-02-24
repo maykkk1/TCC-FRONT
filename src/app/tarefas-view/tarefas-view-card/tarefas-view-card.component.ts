@@ -16,6 +16,6 @@ export class TarefasViewCardComponent {
 
 
   openTarefa(){
-    this.router.navigate(['gerenciador/'+this.tarefa.id]);
+    this.router.navigate(['gerenciador/tarefa/'+this.tarefa.id]);
   }
 }

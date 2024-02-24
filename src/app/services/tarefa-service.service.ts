@@ -66,4 +66,16 @@ export class TarefaService {
     return this.http.get<Tarefa[]>(this.getUrl(), { headers, params });
   }
 
+  getTarefaById(id: number){
+    const token = this.authService.getToken();
+    console.log(id)
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.post<any>(`${this.getUrl()}/tarefa`, id, { headers });
+  }
+
 }
