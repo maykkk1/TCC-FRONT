@@ -43,13 +43,13 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
     this.user = this.authService.getUser();
 
     this.tarefaSerice.getTarefas(this.isPrincipal).subscribe(data => {
-      this.filtrarTarefas(data);
+      this.filtrarTarefas(data.data);
     });
 
     this.task$Sub = this.tarefaSerice.taskChange.pipe(
       switchMap(() => this.tarefaSerice.getTarefas(this.isPrincipal))
     ).subscribe(data => {
-      this.filtrarTarefas(data);
+      this.filtrarTarefas(data.data);
     })
   }
 

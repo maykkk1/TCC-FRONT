@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { Tarefa } from '../model/tarefa.model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
-import { User } from '../model/user.model';
-import { SituacaoTarefaEnum } from '../shared/enums/situacaoTarefa.enum';
-import { TipoTarefa } from '../shared/enums/tipoTarefa.enum';
 import { MensagemService } from './mensagem.service';
 import { Subject } from 'rxjs';
+import { RequestResult } from '../shared/requestResult/request-result.model';
 
 @Injectable({
   providedIn: 'root'
@@ -63,7 +61,7 @@ export class TarefaService {
     });
     const params = new HttpParams().set('isPrincipal', isPrincipal.toString());
 
-    return this.http.get<Tarefa[]>(this.getUrl(), { headers, params });
+    return this.http.get<RequestResult<Tarefa[]>>(this.getUrl(), { headers, params });
   }
 
   getTarefaById(id: number){
