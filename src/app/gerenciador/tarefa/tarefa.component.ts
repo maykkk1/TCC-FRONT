@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Tarefa } from 'src/app/model/tarefa.model';
 import { TarefaService } from 'src/app/services/tarefa-service.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { TarefaService } from 'src/app/services/tarefa-service.service';
 })
 export class TarefaComponent implements OnInit {
 
+  tarefa: Tarefa;
+
   constructor(private route: ActivatedRoute,
               private tarefaService: TarefaService) { }
 
@@ -17,6 +20,7 @@ export class TarefaComponent implements OnInit {
       const id = params['id'];
       console.log(id);
       this.tarefaService.getTarefaById(id).subscribe(data => {
+        this.tarefa = data.data;
       });
     })
   }

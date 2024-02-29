@@ -73,7 +73,7 @@ export class TarefaService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this.http.post<any>(`${this.getUrl()}/tarefa`, id, { headers });
+    return this.http.post<RequestResult<Tarefa>>(`${this.getUrl()}/tarefa`, id, { headers });
   }
 
 }
