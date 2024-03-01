@@ -29,6 +29,8 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   analise: Tarefa[] = [];
 
+  retorno: Tarefa[] = [];
+
   concluida: Tarefa[] = [];
 
   user: User | undefined;

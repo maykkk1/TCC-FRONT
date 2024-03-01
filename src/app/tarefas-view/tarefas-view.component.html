@@ -17,6 +17,15 @@
     </div>
   </div>
 
+  <div *ngIf="user?.tipo == 1" class="example-container">
+    <h3>Retorno</h3>
+    <div cdkDropList id="2" [cdkDropListData]="retorno" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of retorno" class="example-box" cdkDrag>
+        <app-tarefas-view-card [tarefa]="item"></app-tarefas-view-card>
+      </div>
+    </div>
+  </div>
+
   <div *ngIf="user?.tipo == 2" class="example-container">
     <h3>Análise</h3>
     <div cdkDropList id="2" [cdkDropListData]="analise" class="example-list" (cdkDropListDropped)="drop($event)">
