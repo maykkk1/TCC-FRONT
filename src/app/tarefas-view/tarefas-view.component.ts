@@ -65,6 +65,10 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
     const previousContainerIdx = event.previousContainer.id.replace(/\D/g, '');
     let newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
 
+    if(this.user?.tipo == TipoPessoaEnum.Professor && newSituacao == 3){
+      newSituacao = 5;
+    }
+
     if(newSituacao == 3 && this.isPrincipal && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor){
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
       return;
