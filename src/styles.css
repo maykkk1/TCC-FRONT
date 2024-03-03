@@ -17,7 +17,7 @@ html,
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--dark-bd-color);
+  background-color: var(--light-dark-bd-color);
   background-size: auto;
   color: var(--light-color);
 }

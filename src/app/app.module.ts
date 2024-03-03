@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { HomeComponent } from './gerenciador/home/home.component';
+import { HomeComponent } from './gerenciador/main/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,10 +22,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { TarefasEditionComponent } from './shared/tarefas-edition/tarefas-edition.component';
 import { TarefasViewCardComponent } from './tarefas-view/tarefas-view-card/tarefas-view-card.component';
-import { PrincipaisComponent } from './gerenciador/principais/principais.component';
-import { SecundariasComponent } from './gerenciador/secundarias/secundarias.component';
+import { PrincipaisComponent } from './gerenciador/main/principais/principais.component';
+import { SecundariasComponent } from './gerenciador/main/secundarias/secundarias.component';
 import { AlunoComponent } from './gerenciador/aluno/aluno.component';
-import { TarefaComponent } from './gerenciador/tarefa/tarefa.component';
+import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
 
 @NgModule({
   declarations: [

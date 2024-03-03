@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './gerenciador/home/home.component';
+import { HomeComponent } from './gerenciador/main/home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginRedirectGuard } from './guards/login-redirect-guard.guard';
-import { PrincipaisComponent } from './gerenciador/principais/principais.component';
-import { SecundariasComponent } from './gerenciador/secundarias/secundarias.component';
+import { PrincipaisComponent } from './gerenciador/main/principais/principais.component';
+import { SecundariasComponent } from './gerenciador/main/secundarias/secundarias.component';
 import { AlunoComponent } from './gerenciador/aluno/aluno.component';
-import { TarefaComponent } from './gerenciador/tarefa/tarefa.component';
+import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'gerenciador', pathMatch: 'full' },
