@@ -1,9 +1,11 @@
 main {
-    min-height: calc(100vh - 60px) !important;
+    height: calc(100vh - 60px) !important;
     width: 100%;
     margin-top: 60px;
     padding-left: 60px;
     transition: ease-in-out 400ms;
+    display: flex;
+    flex-direction: column;
 }
 
 main.aside-collapped {
@@ -11,6 +13,6 @@ main.aside-collapped {
 }
 
 .main-wrapper {
-    min-height: calc(100vh - 60px) !important;
+    height: calc(100vh - 60px) !important;
     padding: 15px;
 }

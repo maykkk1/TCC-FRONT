@@ -18,7 +18,8 @@ import { TipoPessoaEnum } from '../shared/enums/tipoPessoa.enum';
 @Component({
   selector: 'app-tarefas-view',
   templateUrl: './tarefas-view.component.html',
-  styleUrls: ['./tarefas-view.component.css']
+  styleUrls: ['./tarefas-view.component.css'],
+  host:{'style':'flex-grow:1'}
 })
 export class TarefasViewComponent implements OnInit, OnDestroy {
   task$Sub: Subscription;

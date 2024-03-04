@@ -1,6 +1,6 @@
 .tarefas {
     width: 100%;
-    height: auto !important;
+    height: 100%;
     display: flex;
     gap: 15px;
     overflow: scroll;
