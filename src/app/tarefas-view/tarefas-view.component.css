@@ -15,11 +15,33 @@
     color: rgba(255, 255, 255, 0.237);
     cursor: pointer;
     padding: 0 20px;
-    z-index: 10000;
+    background-color: black;
+}
+
+.arrow-right-wrapper, .arrow-left-wrapper {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 100%;
+    z-index: 100;
+    color: rgba(255, 255, 255, 0.316);
+}
+
+.arrow-right-wrapper {
+    right: 0;
+}
+
+.arrow-left-wrapper {
+    left: 0;
 }
 
 fa-icon {
     font-size: 3rem;
+    text-shadow: 1px 1px 5px black;
+    cursor: pointer;
 }
 
 h3 {

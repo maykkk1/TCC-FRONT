@@ -1,7 +1,9 @@
 <div #tarefas class="tarefas" cdkDropListGroup>
-  <div class="arrows">
-    <fa-icon (mouseenter)="startScrolling('right')" (mouseleave)="stopScrolling()" [icon]="faArrowLeft"></fa-icon>
-    <fa-icon (mouseenter)="startScrolling('left')" (mouseleave)="stopScrolling()" [icon]="faArrowRight"></fa-icon>
+  <div (mouseenter)="startScrolling('right')" (mouseleave)="stopScrolling()" class="arrow-left-wrapper">
+    <fa-icon [icon]="faArrowLeft"></fa-icon>
+  </div>
+  <div (mouseenter)="startScrolling('left')" (mouseleave)="stopScrolling()" class="arrow-right-wrapper">
+    <fa-icon  [icon]="faArrowRight"></fa-icon>
   </div>
   <div class="example-container">
     <h3>Pendente</h3>
