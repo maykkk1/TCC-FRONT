@@ -5,7 +5,7 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TarefaService } from '../services/tarefa-service.service';
 import { Tarefa } from '../model/tarefa.model';
 import { SituacaoTarefaEnum } from '../shared/enums/situacaoTarefa.enum';
@@ -14,6 +14,7 @@ import { Subscription, switchMap } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../model/user.model';
 import { TipoPessoaEnum } from '../shared/enums/tipoPessoa.enum';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tarefas-view',
@@ -22,6 +23,11 @@ import { TipoPessoaEnum } from '../shared/enums/tipoPessoa.enum';
   host:{'style':'flex-grow:1'}
 })
 export class TarefasViewComponent implements OnInit, OnDestroy {
+  private scrollInterval: any;
+
+  faArrowRight = faArrowRight;
+  faArrowLeft = faArrowLeft;
+
   task$Sub: Subscription;
 
   pendente: Tarefa[] = [];
@@ -37,6 +43,8 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
   user: User | undefined;
 
   @Input() isPrincipal: boolean = false;
+
+  @ViewChild('tarefas', { read: ElementRef }) public tarefas: ElementRef<any>;
 
   constructor(private tarefaSerice: TarefaService,
               private mensagemService: MensagemService,
@@ -137,5 +145,33 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
   setTarefaSituacao() {
 
   }
+
+  left() {
+    this.tarefas.nativeElement.scrollTo({ left: (this.tarefas.nativeElement.scrollLeft + 10) });
+  }
+
+  right() {
+    this.tarefas.nativeElement.scrollTo({ left: (this.tarefas.nativeElement.scrollLeft - 10) });
+  }
+
+  startScrolling(direcao: string) {
+    if(direcao == 'left') {
+      this.scrollInterval = setInterval(() => {
+        this.left()
+      }, 30);
+    } else {
+      this.scrollInterval = setInterval(() => {
+        this.right()
+      }, 30);
+    }
+  }
+
+  stopScrolling() {
+    clearInterval(this.scrollInterval);
+  }
+
+
+
+
 
 }

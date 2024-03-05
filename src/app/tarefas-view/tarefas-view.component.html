@@ -1,4 +1,8 @@
-<div class="tarefas" cdkDropListGroup>
+<div #tarefas class="tarefas" cdkDropListGroup>
+  <div class="arrows">
+    <fa-icon (mouseenter)="startScrolling('right')" (mouseleave)="stopScrolling()" [icon]="faArrowLeft"></fa-icon>
+    <fa-icon (mouseenter)="startScrolling('left')" (mouseleave)="stopScrolling()" [icon]="faArrowRight"></fa-icon>
+  </div>
   <div class="example-container">
     <h3>Pendente</h3>
     <div cdkDropList id="0" [cdkDropListData]="pendente" class="example-list" (cdkDropListDropped)="drop($event)">
@@ -44,3 +48,4 @@
     </div>
   </div>
 </div>
+

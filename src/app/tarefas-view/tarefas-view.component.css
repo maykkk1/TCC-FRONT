@@ -6,6 +6,22 @@
     overflow: scroll;
 }
 
+.arrows {
+    top: 50%;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.237);
+    cursor: pointer;
+    padding: 0 20px;
+    z-index: 10000;
+}
+
+fa-icon {
+    font-size: 3rem;
+}
+
 h3 {
     text-align: start;
     width: 100%;
