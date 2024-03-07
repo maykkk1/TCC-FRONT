@@ -7,8 +7,8 @@
   </div>
   <div class="example-container">
     <h3>Pendente</h3>
-    <div cdkDropList id="0" [cdkDropListData]="pendente" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of pendente" class="example-box" cdkDrag>
+    <div cdkDropList id="pendente" [cdkDropListData]="colunas.pendente" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of colunas.pendente" class="example-box" cdkDrag>
         <app-tarefas-view-card [tarefa]="item"></app-tarefas-view-card>
       </div>
     </div>
@@ -16,8 +16,8 @@
 
   <div class="example-container">
     <h3>Fazendo</h3>
-    <div cdkDropList id="1" [cdkDropListData]="fazendo" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of fazendo" class="example-box" cdkDrag>
+    <div cdkDropList id="fazendo" [cdkDropListData]="colunas.fazendo" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of colunas.fazendo" class="example-box" cdkDrag>
         <app-tarefas-view-card [tarefa]="item"></app-tarefas-view-card>
       </div>
     </div>
@@ -25,8 +25,8 @@
 
   <div class="example-container">
     <h3>Retorno</h3>
-    <div cdkDropList id="2" [cdkDropListData]="retorno" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of retorno" class="example-box" cdkDrag>
+    <div cdkDropList id="retorno" [cdkDropListData]="colunas.retorno" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of colunas.retorno" class="example-box" cdkDrag>
         <app-tarefas-view-card [tarefa]="item"></app-tarefas-view-card>
       </div>
     </div>
@@ -34,8 +34,8 @@
 
   <div *ngIf="user?.tipo == 2" class="example-container">
     <h3>Análise</h3>
-    <div cdkDropList id="2" [cdkDropListData]="analise" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of analise" class="example-box" cdkDrag>
+    <div cdkDropList id="analise" [cdkDropListData]="colunas.analise" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of colunas.analise" class="example-box" cdkDrag>
         <app-tarefas-view-card [tarefa]="item"></app-tarefas-view-card>
       </div>
     </div>
@@ -43,8 +43,8 @@
 
   <div class="example-container">
     <h3>Concluída</h3>
-    <div cdkDropList id="3" [cdkDropListData]="concluida" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of concluida" class="example-box" cdkDrag>
+    <div cdkDropList id="concluida" [cdkDropListData]="colunas.concluida" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of colunas.concluida" class="example-box" cdkDrag>
         <app-tarefas-view-card [tarefa]="item"></app-tarefas-view-card>
       </div>
     </div>

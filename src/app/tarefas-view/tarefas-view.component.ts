@@ -20,7 +20,7 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-tarefas-view',
   templateUrl: './tarefas-view.component.html',
   styleUrls: ['./tarefas-view.component.css'],
-  host:{'style':'flex-grow:1'}
+  host: { 'style': 'flex-grow:1' }
 })
 export class TarefasViewComponent implements OnInit, OnDestroy {
   private scrollInterval: any;
@@ -30,15 +30,13 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   task$Sub: Subscription;
 
-  pendente: Tarefa[] = [];
-
-  fazendo: Tarefa[] = [];
-
-  analise: Tarefa[] = [];
-
-  retorno: Tarefa[] = [];
-
-  concluida: Tarefa[] = [];
+  colunas: any = {
+    pendente: [],
+    fazendo: [],
+    analise: [],
+    retorno: [],
+    concluida: []
+  }
 
   user: User | undefined;
 
@@ -47,8 +45,8 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
   @ViewChild('tarefas', { read: ElementRef }) public tarefas: ElementRef<any>;
 
   constructor(private tarefaSerice: TarefaService,
-              private mensagemService: MensagemService,
-              private authService: AuthService) { }
+    private mensagemService: MensagemService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
@@ -64,6 +62,14 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
     })
   }
 
+  filtrarTarefas(data: Tarefa[]) {
+    this.colunas.pendente = data.filter(t => t.situacao == SituacaoTarefaEnum.Pendente);
+    this.colunas.fazendo = data.filter(t => t.situacao == SituacaoTarefaEnum.Fazendo);
+    this.colunas.analise = data.filter(t => t.situacao == SituacaoTarefaEnum.Analise);
+    this.colunas.retorno = data.filter(t => t.situacao == SituacaoTarefaEnum.Retorno);
+    this.colunas.concluida = data.filter(t => t.situacao == SituacaoTarefaEnum.Concluida);
+  }
+
 
   ngOnDestroy(): void {
     this.task$Sub.unsubscribe();
@@ -71,14 +77,16 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
 
   drop(event: CdkDragDrop<Tarefa[]>) {
-    const previousContainerIdx = event.previousContainer.id.replace(/\D/g, '');
+    console.log(event)
+
+    const previousContainerReference = this.getPreviousContainerReference(event.previousContainer.id)
+
+    console.log(previousContainerReference)
+
     let newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
 
-    if(this.user?.tipo == TipoPessoaEnum.Professor && newSituacao == 3){
-      newSituacao = 5;
-    }
 
-    if(newSituacao == 3 && this.isPrincipal && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor){
+    if (newSituacao == 3 && this.isPrincipal && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor) {
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
       return;
     } else if (newSituacao == 2 && this.isPrincipal && !(event.previousContainer === event.container)) {
@@ -87,63 +95,67 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
     let tarefa: Tarefa;
 
-    if(!(event.previousContainer === event.container)){
-      switch (previousContainerIdx) {
-        case "0":
-          this.pendente[event.previousIndex].situacao = newSituacao;
-          tarefa = this.pendente[event.previousIndex];
-          break;
-        case "1":
-          this.fazendo[event.previousIndex].situacao = newSituacao;
-          tarefa = this.fazendo[event.previousIndex];
-          break;
-        case "2":
-          this.analise[event.previousIndex].situacao = newSituacao;
-          tarefa = this.analise[event.previousIndex];
-          break;
-        default:
-          this.concluida[event.previousIndex].situacao = newSituacao;
-          tarefa = this.concluida[event.previousIndex];
-          break;
-      }
-  
-      this.tarefaSerice.update(tarefa).subscribe(data => { 
-      }, error => {
-        this.mensagemService.ShowMessage(error.error, 5000, false)
-        if (event.previousContainer === event.container) {
-          moveItemInArray(event.container.data, event.currentIndex, event.previousIndex);
-        } else {
-          transferArrayItem(
-            event.container.data,
-            event.previousContainer.data,
-            event.currentIndex,
-            event.previousIndex,
-          );
-        }
-      });
-    }
+    // if(!(event.previousContainer === event.container)){
+    //   switch (previousContainerIdx) {
+    //     case "0":
+    //       this.pendente[event.previousIndex].situacao = newSituacao;
+    //       tarefa = this.pendente[event.previousIndex];
+    //       break;
+    //     case "1":
+    //       this.fazendo[event.previousIndex].situacao = newSituacao;
+    //       tarefa = this.fazendo[event.previousIndex];
+    //       break;
+    //     case "2":
+    //       this.analise[event.previousIndex].situacao = newSituacao;
+    //       tarefa = this.analise[event.previousIndex];
+    //       break;
+    //     default:
+    //       this.concluida[event.previousIndex].situacao = newSituacao;
+    //       tarefa = this.concluida[event.previousIndex];
+    //       break;
+    //   }
 
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
+    //   this.tarefaSerice.update(tarefa).subscribe(data => { 
+    //   }, error => {
+    //     this.mensagemService.ShowMessage(error.error, 5000, false)
+    //     if (event.previousContainer === event.container) {
+    //       moveItemInArray(event.container.data, event.currentIndex, event.previousIndex);
+    //     } else {
+    //       transferArrayItem(
+    //         event.container.data,
+    //         event.previousContainer.data,
+    //         event.currentIndex,
+    //         event.previousIndex,
+    //       );
+    //     }
+    //   });
+    // }
+
+    // if (event.previousContainer === event.container) {
+    //   moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    // } else {
+    //   transferArrayItem(
+    //     event.previousContainer.data,
+    //     event.container.data,
+    //     event.previousIndex,
+    //     event.currentIndex,
+    //   );
+    // }
   }
 
-  filtrarTarefas(data: Tarefa[]) {
-    this.pendente = data.filter(t => t.situacao == SituacaoTarefaEnum.Pendente);
-    this.fazendo = data.filter(t => t.situacao == SituacaoTarefaEnum.Fazendo);
-    this.analise = data.filter(t => t.situacao == SituacaoTarefaEnum.Analise);
-    this.concluida = data.filter(t => t.situacao == SituacaoTarefaEnum.Concluida);
-  }
-
-  setTarefaSituacao() {
-
+  getPreviousContainerReference(previousContainerId: string) {
+    switch (previousContainerId) {
+      case "pendente":
+        return this.colunas.pendente;
+      case "fazendo":
+        return this.colunas.fazendo;
+      case "retorno":
+        return this.colunas.analise;
+      case "analise":
+        return this.colunas.retorno;
+      default:
+        return this.colunas.concluida;
+    }
   }
 
   left() {
@@ -155,7 +167,7 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
   }
 
   startScrolling(direcao: string) {
-    if(direcao == 'left') {
+    if (direcao == 'left') {
       this.scrollInterval = setInterval(() => {
         this.left()
       }, 30);
