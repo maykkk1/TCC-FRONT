@@ -77,14 +77,10 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
 
   drop(event: CdkDragDrop<Tarefa[]>) {
-    console.log(event)
 
     const previousContainerReference = this.getPreviousContainerReference(event.previousContainer.id)
 
-    console.log(previousContainerReference)
-
-    let newSituacao = parseInt(event.container.id.replace(/\D/g, ''));
-
+    let newSituacao = this.containerIdToEnum(event.container.id);
 
     if (newSituacao == 3 && this.isPrincipal && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor) {
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
@@ -93,54 +89,38 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
       this.mensagemService.ShowMessage("O orientador irá analisar e concluir a sua tarefa em breve.", 10000, true)
     }
 
-    let tarefa: Tarefa;
+    let tarefa: Tarefa = new Tarefa();
 
-    // if(!(event.previousContainer === event.container)){
-    //   switch (previousContainerIdx) {
-    //     case "0":
-    //       this.pendente[event.previousIndex].situacao = newSituacao;
-    //       tarefa = this.pendente[event.previousIndex];
-    //       break;
-    //     case "1":
-    //       this.fazendo[event.previousIndex].situacao = newSituacao;
-    //       tarefa = this.fazendo[event.previousIndex];
-    //       break;
-    //     case "2":
-    //       this.analise[event.previousIndex].situacao = newSituacao;
-    //       tarefa = this.analise[event.previousIndex];
-    //       break;
-    //     default:
-    //       this.concluida[event.previousIndex].situacao = newSituacao;
-    //       tarefa = this.concluida[event.previousIndex];
-    //       break;
-    //   }
+    if (!(event.previousContainer === event.container)) {
+      previousContainerReference[event.previousIndex].situacao = newSituacao;
+      tarefa = previousContainerReference[event.previousIndex];
+    }
 
-    //   this.tarefaSerice.update(tarefa).subscribe(data => { 
-    //   }, error => {
-    //     this.mensagemService.ShowMessage(error.error, 5000, false)
-    //     if (event.previousContainer === event.container) {
-    //       moveItemInArray(event.container.data, event.currentIndex, event.previousIndex);
-    //     } else {
-    //       transferArrayItem(
-    //         event.container.data,
-    //         event.previousContainer.data,
-    //         event.currentIndex,
-    //         event.previousIndex,
-    //       );
-    //     }
-    //   });
-    // }
+    this.tarefaSerice.update(tarefa).subscribe(data => {
+    }, error => {
+      this.mensagemService.ShowMessage(error.error, 5000, false)
+      if (event.previousContainer === event.container) {
+        moveItemInArray(event.container.data, event.currentIndex, event.previousIndex);
+      } else {
+        transferArrayItem(
+          event.container.data,
+          event.previousContainer.data,
+          event.currentIndex,
+          event.previousIndex,
+        );
+      }
+    });
 
-    // if (event.previousContainer === event.container) {
-    //   moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    // } else {
-    //   transferArrayItem(
-    //     event.previousContainer.data,
-    //     event.container.data,
-    //     event.previousIndex,
-    //     event.currentIndex,
-    //   );
-    // }
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 
   getPreviousContainerReference(previousContainerId: string) {
@@ -155,6 +135,21 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
         return this.colunas.retorno;
       default:
         return this.colunas.concluida;
+    }
+  }
+
+  containerIdToEnum(containerId: string) {
+    switch (containerId) {
+      case "pendente":
+        return 0;
+      case "fazendo":
+        return 1;
+      case "analise":
+        return 2;
+      case "concluida":
+        return 3;
+      default:
+        return 4;
     }
   }
 
