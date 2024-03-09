@@ -4,6 +4,10 @@
     gap: 20px;
 }
 
+.secundarias-container {
+    position: relative;
+}
+
 .titulo fa-icon {
     font-size: 30px;
     background-color: var(--primary-color);

@@ -1,8 +1,8 @@
 <div #tarefas class="tarefas" cdkDropListGroup>
-  <div (mouseenter)="startScrolling('right')" (mouseleave)="stopScrolling()" class="arrow-left-wrapper">
+  <div [ngStyle]="{'display': scrollAtivo ? 'flex' : 'none'}" (mouseenter)="startScrolling('right')" (mouseleave)="stopScrolling()" class="arrow-left-wrapper">
     <fa-icon [icon]="faArrowLeft"></fa-icon>
   </div>
-  <div (mouseenter)="startScrolling('left')" (mouseleave)="stopScrolling()" class="arrow-right-wrapper">
+  <div [ngStyle]="{'display': scrollAtivo ? 'flex' : 'none'}" (mouseenter)="startScrolling('left')" (mouseleave)="stopScrolling()" class="arrow-right-wrapper">
     <fa-icon  [icon]="faArrowRight"></fa-icon>
   </div>
   <div class="example-container">

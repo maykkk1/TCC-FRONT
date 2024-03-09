@@ -1,2 +1,4 @@
-
-<button (click)="openTarefaEdition()">Criar tarefa</button>
+<div class="aluno-container">
+    <button (click)="openTarefaEdition()">Criar tarefa</button>
+    <app-tarefas-view [isPrincipal]="true" [idAluno]="alunoId"></app-tarefas-view>
+</div>

@@ -52,14 +52,16 @@ export class TarefaService {
     return this.http.put<any>(`${this.getUrl()}`, tarefaCopy, { headers });
   }
 
-  getTarefas(isPrincipal: Boolean = false){
+  getTarefas(isPrincipal: Boolean = false, userId: number){
     const token = this.authService.getToken();
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    const params = new HttpParams().set('isPrincipal', isPrincipal.toString());
+    const params = new HttpParams()
+      .set('isPrincipal', isPrincipal.toString())
+      .set('userId', userId);
 
     return this.http.get<RequestResult<Tarefa[]>>(this.getUrl(), { headers, params });
   }

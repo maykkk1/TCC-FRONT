@@ -5,7 +5,7 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TarefaService } from '../services/tarefa-service.service';
 import { Tarefa } from '../model/tarefa.model';
 import { SituacaoTarefaEnum } from '../shared/enums/situacaoTarefa.enum';
@@ -22,8 +22,10 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./tarefas-view.component.css'],
   host: { 'style': 'flex-grow:1' }
 })
-export class TarefasViewComponent implements OnInit, OnDestroy {
+export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
   private scrollInterval: any;
+
+  scrollAtivo: boolean = false;
 
   faArrowRight = faArrowRight;
   faArrowLeft = faArrowLeft;
@@ -42,21 +44,46 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
 
   @Input() isPrincipal: boolean = false;
 
+  private _idAluno: number;
+  @Input()
+  set idAluno(value: number) {
+    if (value !== this._idAluno) {
+      this._idAluno = value;
+      this.tarefaSerice.getTarefas(this.isPrincipal, this.idAluno).subscribe(data => {
+        this.filtrarTarefas(data.data);
+      });
+    }
+  }
+
+  get idAluno(): number {
+    return this._idAluno;
+  }
+
   @ViewChild('tarefas', { read: ElementRef }) public tarefas: ElementRef<any>;
 
   constructor(private tarefaSerice: TarefaService,
     private mensagemService: MensagemService,
     private authService: AuthService) { }
 
+  ngAfterViewInit(): void {
+    const element: HTMLElement = this.tarefas.nativeElement;
+    if(element.scrollWidth > element.clientWidth){
+      this.scrollAtivo = true;
+    }
+  }
+
   ngOnInit(): void {
+
     this.user = this.authService.getUser();
 
-    this.tarefaSerice.getTarefas(this.isPrincipal).subscribe(data => {
+    const userId = this.idAluno != null ? this.idAluno : this.user?.id;
+
+    this.tarefaSerice.getTarefas(this.isPrincipal, userId!).subscribe(data => {
       this.filtrarTarefas(data.data);
     });
 
     this.task$Sub = this.tarefaSerice.taskChange.pipe(
-      switchMap(() => this.tarefaSerice.getTarefas(this.isPrincipal))
+      switchMap(() => this.tarefaSerice.getTarefas(this.isPrincipal, userId!))
     ).subscribe(data => {
       this.filtrarTarefas(data.data);
     })
@@ -70,11 +97,9 @@ export class TarefasViewComponent implements OnInit, OnDestroy {
     this.colunas.concluida = data.filter(t => t.situacao == SituacaoTarefaEnum.Concluida);
   }
 
-
   ngOnDestroy(): void {
     this.task$Sub.unsubscribe();
   }
-
 
   drop(event: CdkDragDrop<Tarefa[]>) {
 
