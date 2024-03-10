@@ -154,9 +154,9 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
         return this.colunas.pendente;
       case "fazendo":
         return this.colunas.fazendo;
-      case "retorno":
-        return this.colunas.analise;
       case "analise":
+        return this.colunas.analise;
+      case "retorno":
         return this.colunas.retorno;
       default:
         return this.colunas.concluida;
