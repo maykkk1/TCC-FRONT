@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <div *ngIf="user?.tipo == 2" class="example-container">
+  <div class="example-container">
     <h3>Análise</h3>
     <div cdkDropList id="analise" [cdkDropListData]="colunas.analise" class="example-list" (cdkDropListDropped)="drop($event)">
       <div *ngFor="let item of colunas.analise" class="example-box" cdkDrag>

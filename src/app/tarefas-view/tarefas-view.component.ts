@@ -107,12 +107,11 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
 
     let newSituacao = this.containerIdToEnum(event.container.id);
 
-    if (newSituacao == 3 && this.isPrincipal && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor) {
+    if ((newSituacao == 3 || newSituacao == 4) && this.isPrincipal && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor) {
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
       return;
-    } else if (newSituacao == 2 && this.isPrincipal && !(event.previousContainer === event.container)) {
-      this.mensagemService.ShowMessage("O orientador irá analisar e concluir a sua tarefa em breve.", 10000, true)
     }
+    
 
     let tarefa: Tarefa = new Tarefa();
 
