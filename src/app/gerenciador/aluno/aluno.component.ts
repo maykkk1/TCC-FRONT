@@ -4,6 +4,7 @@ import { TarefaService } from 'src/app/services/tarefa-service.service';
 import { MatDialog } from '@angular/material/dialog'; 
 import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tarefas-edition/tarefas-edition.component';
 import { AuthService } from 'src/app/auth/auth.service';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-aluno',
@@ -12,6 +13,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class AlunoComponent  implements OnInit{
   alunoId: number;
+  faPlus = faPlus;
 
   constructor(private route: ActivatedRoute,
               private tarefaService: TarefaService,

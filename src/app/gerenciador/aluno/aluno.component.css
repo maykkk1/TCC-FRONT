@@ -1,3 +1,23 @@
 .aluno-container {
     position: relative;
+    display: flex; 
+    flex-direction: column; 
+    height: 100%;
+}
+
+.aluno-container-header {
+    height: 50px;
+}
+
+fa-icon {
+    font-size: 30px;
+    background-color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 100000;
 }

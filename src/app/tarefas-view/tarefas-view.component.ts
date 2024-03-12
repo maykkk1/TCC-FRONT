@@ -111,29 +111,28 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
       return;
     }
-    
 
     let tarefa: Tarefa = new Tarefa();
 
     if (!(event.previousContainer === event.container)) {
       previousContainerReference[event.previousIndex].situacao = newSituacao;
       tarefa = previousContainerReference[event.previousIndex];
-    }
 
-    this.tarefaSerice.update(tarefa).subscribe(data => {
-    }, error => {
-      this.mensagemService.ShowMessage(error.error, 5000, false)
-      if (event.previousContainer === event.container) {
-        moveItemInArray(event.container.data, event.currentIndex, event.previousIndex);
-      } else {
-        transferArrayItem(
-          event.container.data,
-          event.previousContainer.data,
-          event.currentIndex,
-          event.previousIndex,
-        );
-      }
-    });
+      this.tarefaSerice.update(tarefa).subscribe(data => {
+      }, error => {
+        this.mensagemService.ShowMessage(error.error, 5000, false)
+        if (event.previousContainer === event.container) {
+          moveItemInArray(event.container.data, event.currentIndex, event.previousIndex);
+        } else {
+          transferArrayItem(
+            event.container.data,
+            event.previousContainer.data,
+            event.currentIndex,
+            event.previousIndex,
+          );
+        }
+      });
+    }
 
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
