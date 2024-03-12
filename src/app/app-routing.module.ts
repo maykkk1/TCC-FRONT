@@ -8,7 +8,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginRedirectGuard } from './guards/login-redirect-guard.guard';
 import { PrincipaisComponent } from './gerenciador/main/principais/principais.component';
 import { SecundariasComponent } from './gerenciador/main/secundarias/secundarias.component';
-import { AlunoComponent } from './gerenciador/aluno/aluno.component';
+import { AlunoComponent } from './gerenciador/main/aluno/aluno.component';
 import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
 
 const routes: Routes = [

@@ -24,7 +24,7 @@ import { TarefasEditionComponent } from './shared/tarefas-edition/tarefas-editio
 import { TarefasViewCardComponent } from './tarefas-view/tarefas-view-card/tarefas-view-card.component';
 import { PrincipaisComponent } from './gerenciador/main/principais/principais.component';
 import { SecundariasComponent } from './gerenciador/main/secundarias/secundarias.component';
-import { AlunoComponent } from './gerenciador/aluno/aluno.component';
+import { AlunoComponent } from './gerenciador/main/aluno/aluno.component';
 import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
 
 @NgModule({

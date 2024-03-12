@@ -1,3 +1,8 @@
+.tarefas-wrapper {
+    position: relative;
+    height: 100%;
+}
+
 .tarefas {
     width: 100%;
     height: 100%;
