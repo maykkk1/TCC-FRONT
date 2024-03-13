@@ -76,14 +76,12 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.user = this.authService.getUser();
 
-    const userId = this.idAluno != null ? this.idAluno : this.user?.id;
-
-    this.tarefaSerice.getTarefas(this.isPrincipal, userId!).subscribe(data => {
+    this.tarefaSerice.getTarefas(this.isPrincipal, this.idAluno != null ? this.idAluno : this.user?.id!).subscribe(data => {
       this.filtrarTarefas(data.data);
     });
 
     this.task$Sub = this.tarefaSerice.taskChange.pipe(
-      switchMap(() => this.tarefaSerice.getTarefas(this.isPrincipal, userId!))
+      switchMap(() => this.tarefaSerice.getTarefas(this.isPrincipal, this.idAluno != null ? this.idAluno : this.user?.id!))
     ).subscribe(data => {
       this.filtrarTarefas(data.data);
     })

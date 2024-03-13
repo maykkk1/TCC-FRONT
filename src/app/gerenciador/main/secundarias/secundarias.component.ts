@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/auth.service';
 import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tarefas-edition/tarefas-edition.component';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'; 
+import { AsideService } from 'src/app/services/aside.service';
 
 @Component({
   selector: 'app-secundarias',
@@ -13,10 +14,13 @@ export class SecundariasComponent implements OnInit {
   faPlus = faPlus;
 
   constructor(private dialog: MatDialog,
-              private authService: AuthService){ }
+              private authService: AuthService,
+              private asideService: AsideService){ }
 
   ngOnInit(): void {
+    this.asideService.menuSelectedChange.next('secundarias');
   }
+
 
   openTarefaEdition(){
     const user = this.authService.getUser();

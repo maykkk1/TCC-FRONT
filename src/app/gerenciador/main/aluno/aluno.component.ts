@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tarefas-edition/tarefas-edition.component';
 import { AuthService } from 'src/app/auth/auth.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { AsideService } from 'src/app/services/aside.service';
 
 @Component({
   selector: 'app-aluno',
@@ -18,11 +19,15 @@ export class AlunoComponent  implements OnInit{
   constructor(private route: ActivatedRoute,
               private tarefaService: TarefaService,
               private dialog: MatDialog,
-              private authService: AuthService){ }
+              private authService: AuthService,
+              private asideService: AsideService){ }
 
 
   ngOnInit(): void {
+    this.asideService.menuSelectedChange.next('aluno'+this.alunoId)
+
     this.route.paramMap.subscribe(params => {
+      this.asideService.menuSelectedChange.next('aluno'+params.get('id')!)
       this.alunoId = parseInt(params.get('id')!);
     });
   }

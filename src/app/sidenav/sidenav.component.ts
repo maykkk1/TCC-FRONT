@@ -17,6 +17,8 @@ export class SidenavComponent implements OnInit, OnDestroy {
   orientandos: User[] = [];
   isCollapesed: Boolean;
   isCollapesed$Subscription: Subscription;
+  selectedMenu$Subscription: Subscription;
+  selectedMenu: string;
 
   constructor(private asideService: AsideService,
               private authService: AuthService,
@@ -28,6 +30,10 @@ export class SidenavComponent implements OnInit, OnDestroy {
     this.isCollapesed$Subscription = this.asideService.collapsedChange.subscribe(value => {
       this.isCollapesed = value;
     })
+
+    this.selectedMenu = this.asideService.getSelectedMenuItem();
+
+    this.selectedMenu$Subscription = this.asideService.menuSelectedChange.subscribe(data => this.selectedMenu = data);
 
     const user = this.authService.getUser();
 
@@ -42,6 +48,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.isCollapesed$Subscription.unsubscribe();
+    this.selectedMenu$Subscription.unsubscribe();
   }
 
 }

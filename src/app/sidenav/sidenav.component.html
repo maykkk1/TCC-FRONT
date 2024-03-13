@@ -2,7 +2,7 @@
     <button (click)="asideHandler()"><fa-icon [icon]="faBars"></fa-icon></button>
     <ul class="sidenav-nav">
         <hr style="margin: 0;">
-        <li class="sidenav-nav-item">
+        <li [ngClass]="selectedMenu == 'home' ? 'selected-menu-item' : ''" class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/home']" class="sidenav-nav-link">
                 <div class="icone">
                     <img src="../../assets/imagens/icones/home.png" alt="">
@@ -10,7 +10,7 @@
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Home</span>
             </a>
         </li>
-        <li class="sidenav-nav-item">
+        <li [ngClass]="selectedMenu == 'principais' ? 'selected-menu-item' : ''" class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/principais']" class="sidenav-nav-link">
                 <div class="icone">
                     <img src="../../assets/imagens/icones/mainQuest.png" alt="">
@@ -18,7 +18,7 @@
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Principais</span>
             </a>
         </li>
-        <li class="sidenav-nav-item">
+        <li [ngClass]="selectedMenu == 'secundarias' ? 'selected-menu-item' : ''" class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/secundarias/']" class="sidenav-nav-link">
                 <div class="icone">
                     <img src="../../assets/imagens/icones/sideQuest.png" alt="">
@@ -27,7 +27,7 @@
             </a>
         </li>
         <hr *ngIf="orientandos.length > 0">
-        <li *ngFor="let orientando of orientandos" class="sidenav-nav-item">
+        <li [ngClass]="selectedMenu == 'aluno'+orientando.id ? 'selected-menu-item' : ''" *ngFor="let orientando of orientandos" class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/aluno/' + orientando.id]" class="sidenav-nav-link">
                 <div class="icone">
                     <img src="../../assets/imagens/icones/avatar.png" alt="">

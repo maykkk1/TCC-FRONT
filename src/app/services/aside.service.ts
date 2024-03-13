@@ -11,9 +11,15 @@ export class AsideService {
   constructor(private authService: AuthService) { }
   isCollapesed: boolean = true;
   collapsedChange: Subject<Boolean> = new Subject<Boolean>();
+  menuSelected: string;
+  menuSelectedChange: Subject<string> = new Subject<string>();
 
   getCollapesedValue(){
     return this.isCollapesed;
+  }
+
+  getSelectedMenuItem(){
+    return this.menuSelected;
   }
 
   setCollapesedValue(){
