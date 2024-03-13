@@ -71,10 +71,12 @@ button {
     margin: 2px 0;
     border-radius: 5px;
     transition: ease-in-out 200ms;
+    position: relative;
 }
 
 .selected-menu-item {
-    border-right: 5px solid var(--primary-color);
+    -webkit-filter: drop-shadow(1px 1px 1px var(--primary-color)) !important;
+    filter: drop-shadow(1px 1px 1px var(--primary-color)) !important;
 }
 
 .sidenav-nav-item:hover {
