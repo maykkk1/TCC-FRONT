@@ -1,6 +1,6 @@
 .sidenav {
     width: max-content;
-    height: calc(100vh - 60px);
+    height: 100vh;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -13,9 +13,9 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
-    width: 50px;
-    height: 50px;
+    font-size: 35px;
+    width: 35px;
+    height: 35px;
     color: var(--primary-color);
     background-color: transparent;
     border: none;
@@ -38,8 +38,8 @@ button {
 }
 
 .icone {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +58,7 @@ button {
     overflow: hidden;
     transition: ease-in-out 400ms;
     color: var(--light-color);
-    font-weight: 500;
+    font-size: 13px;
 }
 
 .sidenav-link-text.collapesed {
@@ -75,13 +75,18 @@ button {
 }
 
 .selected-menu-item {
-    -webkit-filter: drop-shadow(1px 1px 1px var(--primary-color)) !important;
-    filter: drop-shadow(1px 1px 1px var(--primary-color)) !important;
+    -webkit-filter: drop-shadow(2px 2px 5px var(--primary-color)) !important;
+    filter: drop-shadow(2px 2px 5px var(--primary-color)) !important;
 }
 
 .sidenav-nav-item:hover {
     background-color: var(--primary-color);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.exit-item {
+    -webkit-filter: none !important;
+    filter: none !important;
 }
 
 

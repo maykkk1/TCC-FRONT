@@ -46,6 +46,10 @@ export class SidenavComponent implements OnInit, OnDestroy {
     this.asideService.setCollapesedValue();
   }
 
+  logout(){
+    this.authService.logout()
+  }
+
   ngOnDestroy(): void {
     this.isCollapesed$Subscription.unsubscribe();
     this.selectedMenu$Subscription.unsubscribe();

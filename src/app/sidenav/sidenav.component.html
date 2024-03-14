@@ -35,6 +35,15 @@
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">{{ orientando.name }}</span>
             </a>
         </li>
+        <hr>
+        <li (click)="logout()" class="sidenav-nav-item exit-item">
+            <a class="sidenav-nav-link">
+                <div class="icone">
+                    <img src="../../assets/imagens/icones/exit.png"  alt="">
+                </div>
+                <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Sair</span>
+            </a>
+        </li>
     </ul>
     
 </aside>
