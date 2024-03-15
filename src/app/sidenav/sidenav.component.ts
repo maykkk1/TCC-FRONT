@@ -19,6 +19,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
   isCollapesed$Subscription: Subscription;
   selectedMenu$Subscription: Subscription;
   selectedMenu: string;
+  user: User;
 
   constructor(private asideService: AsideService,
               private authService: AuthService,
@@ -35,9 +36,9 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
     this.selectedMenu$Subscription = this.asideService.menuSelectedChange.subscribe(data => this.selectedMenu = data);
 
-    const user = this.authService.getUser();
+    this.user = this.authService.getUser()!;
 
-    if(user?.tipo == TipoPessoaEnum.Professor){
+    if(this.user?.tipo == TipoPessoaEnum.Professor){
       this.userService.getOrientandos().subscribe(data => this.orientandos = data);
     }
   }
