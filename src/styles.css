@@ -3,7 +3,7 @@
   --primary-light-color: #b18eee;
   --secondary-color: #00d062;
   --dark-bd-color: #212121;
-  --light-dark-bd-color: #282A36;
+  --light-dark-bd-color: #2d2d2d;
   --light-color: #FBF9F1;
   --error-color: #ED4337;
 }
@@ -17,7 +17,7 @@ html,
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--light-dark-bd-color);
+  background-color: var(--dark-bd-color);
   background-size: auto;
   color: var(--light-color);
 }

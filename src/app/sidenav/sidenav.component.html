@@ -1,7 +1,15 @@
 <aside class="sidenav">
-    <button (click)="asideHandler()"><fa-icon [icon]="faBars"></fa-icon></button>
+    <button (click)="asideHandler()" class="menu-handler">{{ isCollapesed ? '<' : '>' }}</button>
     <ul class="sidenav-nav">
-        <hr style="margin: 0;">
+        <li class="user">
+            <div class="icone">
+                <img src="../../assets/imagens/icones/badge.png" alt="">
+            </div>
+            <div class="usuario-name">
+                <span class="sidenav-link-text name" [ngClass]="isCollapesed ? 'collapesed' : ''">Maycon</span>
+                <span class="sidenav-link-text patente" [ngClass]="isCollapesed ? 'collapesed' : ''">Professor</span>
+            </div>
+        </li>
         <li class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/home']" class="sidenav-nav-link">
                 <div class="icone">

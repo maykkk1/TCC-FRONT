@@ -4,22 +4,43 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: var(--dark-bd-color);
+    background-color: var(--light-dark-bd-color);
     padding: 5px;
 }
 
-
-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-    width: 35px;
-    height: 35px;
-    color: var(--primary-color);
-    background-color: transparent;
+.menu-handler {
+    top: 0;
+    position: absolute;
     border: none;
+    font-size: 18px;
+    color: var(--primary-color);
+    font-weight: bolder;
+    background-color: rgba(0, 0, 0, 0.322);
+    width: 35px;
+    right: -35px;
+    height: 60px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
 }
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1rem !important;
+}
+
+.patente {
+    font-size: 12px !important;
+    color: rgba(237, 239, 242, 0.475) !important;
+}
+
+
 
 .sidenav-nav {
     list-style: none;
@@ -47,6 +68,11 @@ button {
     color: var(--light-color);
 }
 
+.usuario-name {
+    display: flex;
+    flex-direction: column;
+}
+
 .icone img {
     width: 80%;
     -webkit-filter: drop-shadow(.5px .5px .5px var(--light-color));
@@ -72,11 +98,12 @@ button {
     border-radius: 5px;
     transition: ease-in-out 200ms;
     position: relative;
+    cursor: pointer;
 }
 
 .selected-menu-item {
     -webkit-filter: drop-shadow(2px 2px 5px var(--primary-color)) !important;
-    filter: drop-shadow(2px 2px 5px var(--primary-color)) !important;
+    filter: drop-shadow(2px 2px 3px var(--primary-color)) !important;
 }
 
 .sidenav-nav-item:hover {
@@ -87,6 +114,10 @@ button {
 .exit-item {
     -webkit-filter: none !important;
     filter: none !important;
+}
+
+.sidenav-nav-item.exit-item:hover{
+    background-color: var(--error-color);
 }
 
 
