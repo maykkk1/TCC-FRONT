@@ -17,7 +17,11 @@ html,
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--dark-bd-color);
+  background-image: url("./assets/imagens/bg/bg.png");
+  background-color: var(--light-dark-bd-color);
+  background-size: auto;
+  background-position: right;
+  background-repeat: no-repeat;
   background-size: auto;
   color: var(--light-color);
 }

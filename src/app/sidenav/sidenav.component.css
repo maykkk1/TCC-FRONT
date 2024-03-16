@@ -9,18 +9,22 @@
 }
 
 .menu-handler {
-    top: 0;
+    top: 16px;
     position: absolute;
     border: none;
     font-size: 18px;
     color: var(--primary-color);
     font-weight: bolder;
-    background-color: rgba(0, 0, 0, 0.322);
-    width: 35px;
-    right: -35px;
+    background-color: rgba(0, 0, 0, 0.141);
+    width: 25px;
+    right: -25px;
     height: 60px;
-    border-top-right-radius: 35px;
-    border-bottom-right-radius: 35px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.menu-handler:hover {
+    background-color: rgba(0, 0, 0, 0.322);
 }
 
 .user {
@@ -28,6 +32,9 @@
     align-items: center;
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.055);
+    padding: 10px 0;
+    border-radius: 5px;
 }
 
 .name {
@@ -102,8 +109,8 @@
 }
 
 .selected-menu-item {
-    -webkit-filter: drop-shadow(2px 2px 5px var(--primary-color)) !important;
-    filter: drop-shadow(2px 2px 3px var(--primary-color)) !important;
+    -webkit-filter: drop-shadow(2px 2px 1px var(--primary-color)) !important;
+    filter: drop-shadow(2px 2px 1px var(--primary-color)) !important;
 }
 
 .sidenav-nav-item:hover {
