@@ -1,4 +1,5 @@
 <div class="tarefas-wrapper">
+  <app-loading *ngIf="isLoading"></app-loading>
   <div #tarefas class="tarefas" cdkDropListGroup>
     <div [ngStyle]="{'display': scrollAtivo ? 'flex' : 'none'}" (mouseenter)="startScrolling('right')" (mouseleave)="stopScrolling()" class="arrow-left-wrapper">
       <fa-icon [icon]="faArrowLeft"></fa-icon>

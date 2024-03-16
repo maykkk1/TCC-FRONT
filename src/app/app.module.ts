@@ -4,6 +4,7 @@ import {HttpClientModule } from '@angular/common/http'
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { PrincipaisComponent } from './gerenciador/main/principais/principais.co
 import { SecundariasComponent } from './gerenciador/main/secundarias/secundarias.component';
 import { AlunoComponent } from './gerenciador/main/aluno/aluno.component';
 import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
     PrincipaisComponent,
     SecundariasComponent,
     AlunoComponent,
-    TarefaComponent
+    TarefaComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
     DragDropModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

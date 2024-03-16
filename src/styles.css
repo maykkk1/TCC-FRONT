@@ -18,7 +18,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-image: url("./assets/imagens/bg/bg.png");
-  background-color: var(--light-dark-bd-color);
+  background-color: var(--dark-bd-color);
   background-size: auto;
   background-position: right;
   background-repeat: no-repeat;

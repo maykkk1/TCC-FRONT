@@ -26,6 +26,7 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
   private scrollInterval: any;
 
   scrollAtivo: boolean = false;
+  isLoading: boolean = true;
 
   faArrowRight = faArrowRight;
   faArrowLeft = faArrowLeft;
@@ -93,6 +94,7 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
     this.colunas.analise = data.filter(t => t.situacao == SituacaoTarefaEnum.Analise);
     this.colunas.retorno = data.filter(t => t.situacao == SituacaoTarefaEnum.Retorno);
     this.colunas.concluida = data.filter(t => t.situacao == SituacaoTarefaEnum.Concluida);
+    this.isLoading = false;
   }
 
   ngOnDestroy(): void {
