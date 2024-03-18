@@ -6,13 +6,15 @@ import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tare
 import { AuthService } from 'src/app/auth/auth.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { AsideService } from 'src/app/services/aside.service';
+import { AlunoViewSectionEnum } from 'src/app/shared/enums/alunoViewSection.enum';
 
 @Component({
   selector: 'app-aluno',
   templateUrl: './aluno.component.html',
   styleUrls: ['./aluno.component.css']
 })
-export class AlunoComponent  implements OnInit{
+export class AlunoComponent  implements OnInit {
+  viewSection: AlunoViewSectionEnum = AlunoViewSectionEnum.Home;
   alunoId: number;
   faPlus = faPlus;
 
