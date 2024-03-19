@@ -1,16 +1,23 @@
 <div class="aluno-container">
+
     <div class="aluno-container-nav">
         <ul class="nav">
             <li class="nav-itens">
-                <button (click)="viewSection = 0">Home</button>
+                <a (click)="viewSection = 0">Home</a>
             </li>
             <li class="nav-itens">
-                <button (click)="viewSection = 1">Board</button>
+                <a (click)="viewSection = 1">Board</a>
             </li>
             <li class="nav-itens">
                 <fa-icon (click)="openTarefaEdition()" matTooltip="Nova tarefa" [icon]="faPlus"></fa-icon>
             </li>
         </ul>
+        <div class="aluno-info">
+            Aluno
+        </div>
     </div>
+    <hr>
+
     <app-tarefas-view *ngIf="viewSection == 1" [isPrincipal]="true" [idAluno]="alunoId"></app-tarefas-view>
+
 </div>

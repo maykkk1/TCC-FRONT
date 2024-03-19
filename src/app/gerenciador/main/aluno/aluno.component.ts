@@ -7,6 +7,9 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { AsideService } from 'src/app/services/aside.service';
 import { AlunoViewSectionEnum } from 'src/app/shared/enums/alunoViewSection.enum';
+import { User } from 'src/app/model/user.model';
+import { switchMap } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-aluno',
@@ -14,24 +17,30 @@ import { AlunoViewSectionEnum } from 'src/app/shared/enums/alunoViewSection.enum
   styleUrls: ['./aluno.component.css']
 })
 export class AlunoComponent  implements OnInit {
-  viewSection: AlunoViewSectionEnum = AlunoViewSectionEnum.Home;
+  viewSection: AlunoViewSectionEnum = AlunoViewSectionEnum.Board;
   alunoId: number;
+  aluno: User;
   faPlus = faPlus;
 
   constructor(private route: ActivatedRoute,
-              private tarefaService: TarefaService,
               private dialog: MatDialog,
               private authService: AuthService,
-              private asideService: AsideService){ }
+              private asideService: AsideService,
+              private userService: UserService){ }
 
 
   ngOnInit(): void {
     this.asideService.menuSelectedChange.next('aluno'+this.alunoId)
+    this.route.paramMap.pipe(
+      switchMap(params => {
+        this.asideService.menuSelectedChange.next('aluno'+params.get('id')!)
+        this.alunoId = parseInt(params.get('id')!);
 
-    this.route.paramMap.subscribe(params => {
-      this.asideService.menuSelectedChange.next('aluno'+params.get('id')!)
-      this.alunoId = parseInt(params.get('id')!);
-    });
+        return this.userService.getAluno(this.alunoId)
+      })
+    ).subscribe(data => {
+      console.log(data)
+    })
   }
 
   openTarefaEdition(){
@@ -42,8 +51,5 @@ export class AlunoComponent  implements OnInit {
       data: dialogConf
     });
   }
-
-
-  
 
 }
