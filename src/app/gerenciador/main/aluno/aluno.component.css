@@ -38,4 +38,13 @@ fa-icon {
     text-transform: uppercase;
     font-weight: bold;
     text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+.nav-itens.selected-nav-item a {
+    color: var(--primary-color);
+}
+
+.nav-itens a:hover {
+    color: var(--primary-color);
 }

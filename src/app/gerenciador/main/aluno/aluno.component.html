@@ -2,10 +2,10 @@
 
     <div class="aluno-container-nav">
         <ul class="nav">
-            <li class="nav-itens">
+            <li [ngClass]="viewSection == 0 ? 'selected-nav-item' : ''" class="nav-itens">
                 <a (click)="viewSection = 0">Home</a>
             </li>
-            <li class="nav-itens">
+            <li class="nav-itens" [ngClass]="viewSection == 1 ? 'selected-nav-item' : ''">
                 <a (click)="viewSection = 1">Board</a>
             </li>
             <li class="nav-itens">
