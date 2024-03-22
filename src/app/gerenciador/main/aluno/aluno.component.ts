@@ -39,7 +39,7 @@ export class AlunoComponent  implements OnInit {
         return this.userService.getAluno(this.alunoId)
       })
     ).subscribe(data => {
-      console.log(data)
+      this.aluno = data;
     })
   }
 

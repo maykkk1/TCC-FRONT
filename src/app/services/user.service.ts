@@ -37,7 +37,7 @@ export class UserService {
     const params = new HttpParams()
       .set('id', id);
 
-    return this.http.get<User[]>(`${this.getUrl()}/aluno`, { headers, params });
+    return this.http.get<User>(`${this.getUrl()}/aluno`, { headers, params });
   }
 
 
