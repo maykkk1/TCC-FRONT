@@ -4,7 +4,7 @@ import { TarefaService } from 'src/app/services/tarefa-service.service';
 import { MatDialog } from '@angular/material/dialog'; 
 import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tarefas-edition/tarefas-edition.component';
 import { AuthService } from 'src/app/auth/auth.service';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import { AsideService } from 'src/app/services/aside.service';
 import { AlunoViewSectionEnum } from 'src/app/shared/enums/alunoViewSection.enum';
 import { User } from 'src/app/model/user.model';
@@ -21,6 +21,7 @@ export class AlunoComponent  implements OnInit {
   alunoId: number;
   aluno: User;
   faPlus = faPlus;
+  faUser = faUser;
 
   constructor(private route: ActivatedRoute,
               private dialog: MatDialog,

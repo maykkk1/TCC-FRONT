@@ -9,11 +9,11 @@
                 <a (click)="viewSection = 1">Board</a>
             </li>
             <li class="nav-itens">
-                <fa-icon (click)="openTarefaEdition()" matTooltip="Nova tarefa" [icon]="faPlus"></fa-icon>
+                <fa-icon class="add-btn" (click)="openTarefaEdition()" matTooltip="Nova tarefa" [icon]="faPlus"></fa-icon>
             </li>
         </ul>
         <div class="aluno-info">
-            {{ aluno.name }}
+             {{ aluno.name }} <fa-icon class="user-icon" [icon]="faUser"></fa-icon>
         </div>
     </div>
     <hr>
