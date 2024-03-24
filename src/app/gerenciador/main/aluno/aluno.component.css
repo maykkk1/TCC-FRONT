@@ -56,9 +56,8 @@
 .nav-itens a {
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: bold;
     text-decoration: underline;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .nav-itens.selected-nav-item a {
@@ -67,4 +66,5 @@
 
 .nav-itens a:hover {
     color: var(--primary-color);
+    font-weight: bold;
 }

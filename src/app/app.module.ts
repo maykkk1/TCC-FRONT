@@ -21,13 +21,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TarefasViewComponent } from './tarefas-view/tarefas-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { TarefasEditionComponent } from './shared/tarefas-edition/tarefas-edition.component';
+import { TarefasEditionComponent } from './shared/tarefa/tarefas-edition/tarefas-edition.component';
 import { TarefasViewCardComponent } from './tarefas-view/tarefas-view-card/tarefas-view-card.component';
 import { PrincipaisComponent } from './gerenciador/main/principais/principais.component';
 import { SecundariasComponent } from './gerenciador/main/secundarias/secundarias.component';
 import { AlunoComponent } from './gerenciador/main/aluno/aluno.component';
 import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { TarefaModalComponent } from './shared/tarefa/tarefa-modal/tarefa-modal.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LoadingComponent } from './shared/loading/loading.component';
     SecundariasComponent,
     AlunoComponent,
     TarefaComponent,
-    LoadingComponent
+    LoadingComponent,
+    TarefaModalComponent
   ],
   imports: [
     BrowserModule,

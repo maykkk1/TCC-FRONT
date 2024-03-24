@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/auth.service';
-import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tarefas-edition/tarefas-edition.component';
+import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tarefa/tarefas-edition/tarefas-edition.component';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'; 
 import { AsideService } from 'src/app/services/aside.service';
 

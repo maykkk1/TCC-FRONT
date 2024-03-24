@@ -68,7 +68,6 @@ export class TarefaService {
 
   getTarefaById(id: number){
     const token = this.authService.getToken();
-    console.log(id)
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

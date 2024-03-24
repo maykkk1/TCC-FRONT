@@ -3,8 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Tarefa } from 'src/app/model/tarefa.model';
 import { TarefaService } from 'src/app/services/tarefa-service.service';
-import { TipoTarefa } from '../enums/tipoTarefa.enum';
-import { SituacaoTarefaEnum } from '../enums/situacaoTarefa.enum';
+import { TipoTarefa } from '../../enums/tipoTarefa.enum';
+import { SituacaoTarefaEnum } from '../../enums/situacaoTarefa.enum';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MensagemService } from 'src/app/services/mensagem.service';
 

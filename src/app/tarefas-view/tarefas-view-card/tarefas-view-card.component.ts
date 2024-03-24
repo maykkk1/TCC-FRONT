@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Tarefa } from 'src/app/model/tarefa.model';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { TarefaModalComponent } from 'src/app/shared/tarefa/tarefa-modal/tarefa-modal.component';
 
 @Component({
   selector: 'app-tarefas-view-card',
@@ -12,10 +13,13 @@ export class TarefasViewCardComponent {
   faEdit = faEdit;
   @Input() tarefa: Tarefa;
 
-  constructor(private router: Router){}
+  constructor(private dialog: MatDialog,){}
 
 
   openTarefa(){
-    this.router.navigate(['gerenciador/tarefa/'+this.tarefa.id]);
+    this.dialog.open(TarefaModalComponent, {
+      width: "500px",
+      data: this.tarefa.id
+    });
   }
 }
