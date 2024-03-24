@@ -1,0 +1,11 @@
+<div class="comment-box">
+    <textarea [(ngModel)]="comentario" placeholder="Comentar" name="" id=""></textarea>
+    <div class="actions">
+        <div class="tools">
+        </div>
+        <div class="action">
+            <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
+            <div (click)="comentar()" class="button btn btn-primary">Enviar</div>
+        </div>
+    </div>
+</div>

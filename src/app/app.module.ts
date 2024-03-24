@@ -9,7 +9,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './gerenciador/main/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -29,6 +29,7 @@ import { AlunoComponent } from './gerenciador/main/aluno/aluno.component';
 import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { TarefaModalComponent } from './shared/tarefa/tarefa-modal/tarefa-modal.component';
+import { CommentBoxComponent } from './shared/comment-box/comment-box.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TarefaModalComponent } from './shared/tarefa/tarefa-modal/tarefa-modal.
     AlunoComponent,
     TarefaComponent,
     LoadingComponent,
-    TarefaModalComponent
+    TarefaModalComponent,
+    CommentBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { TarefaModalComponent } from './shared/tarefa/tarefa-modal/tarefa-modal.
     MatSnackBarModule,
     MatDialogModule,
     MatTooltipModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
