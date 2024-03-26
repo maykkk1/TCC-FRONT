@@ -1,11 +1,8 @@
-mat-dialog-content {
-    min-height: 400px !important;
-}
-
 hr {
     color: white;
 }
 
 .descricao {
     color: gray;
+    min-height: 200px;
 }
