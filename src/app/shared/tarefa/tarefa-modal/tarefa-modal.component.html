@@ -4,5 +4,5 @@
     <div class="descricao">
         {{ tarefa.descricao }}
     </div>
-    <app-comment-box></app-comment-box>
+    <app-comment-box (comentarioEmitter)="comentar($event)"></app-comment-box>
 </mat-dialog-content>
