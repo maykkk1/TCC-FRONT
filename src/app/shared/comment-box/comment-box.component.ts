@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class CommentBoxComponent {
   comentario: string;
   @Output() comentarioEmitter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() cancelarEmitter: EventEmitter<void> = new EventEmitter<void>();
 
 
   comentar(){
@@ -19,5 +20,6 @@ export class CommentBoxComponent {
 
   cancelar(){
     this.comentario = '';
+    this.cancelarEmitter.emit();
   }
 }

@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TarefaComentario } from 'src/app/model/tarefa-comentario';
@@ -15,6 +16,7 @@ export class TarefaModalComponent implements OnInit {
 
   constructor(private tarefaService: TarefaService,
               private comentarioService: ComentarioTarefaService,
+              private dialogRef: DialogRef<TarefaModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: number){}
 
 
@@ -26,9 +28,11 @@ export class TarefaModalComponent implements OnInit {
 
   comentar($event: string){
     const comentario = new TarefaComentario($event, this.tarefa.id);
-
     this.comentarioService.save(comentario).subscribe(data => console.log(data));
+  }
 
+  cancelar(){
+    this.dialogRef.close()
   }
 
 }
