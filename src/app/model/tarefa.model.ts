@@ -8,11 +8,10 @@ export class Tarefa {
     descricao: string;
     situacao: SituacaoTarefaEnum;
     tipo: TipoTarefa
-    idPessoa: number;
+    pessoaId: number;
     createdById: number;
     createdBy: User | null;
     dataFinal: Date;
     dataCriacao: Date;
-    idTarefaRelacionada: number;
 }
 

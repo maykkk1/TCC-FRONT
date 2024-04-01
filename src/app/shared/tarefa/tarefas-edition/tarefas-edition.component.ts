@@ -36,7 +36,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
     tarefa.descricao = this.form.get('descricao')?.value;
     tarefa.dataFinal = this.form.get('dataFinal')?.value;
     tarefa.tipo = this.data.isPrincipal ? TipoTarefa.Principal : TipoTarefa.Secundaria;
-    tarefa.idPessoa = this.data.destinatarioId;
+    tarefa.pessoaId = this.data.destinatarioId;
     tarefa.createdById = this.data.criadorId;
     tarefa.situacao = SituacaoTarefaEnum.Pendente;
 
