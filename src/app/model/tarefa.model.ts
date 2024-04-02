@@ -1,5 +1,6 @@
 import { SituacaoTarefaEnum } from "../shared/enums/situacaoTarefa.enum";
 import { TipoTarefa } from "../shared/enums/tipoTarefa.enum";
+import { Comentario } from "./comentario.model";
 import { User } from "./user.model";
 
 export class Tarefa {
@@ -13,5 +14,6 @@ export class Tarefa {
     createdBy: User | null;
     dataFinal: Date;
     dataCriacao: Date;
+    comentarios: Comentario[];
 }
 
