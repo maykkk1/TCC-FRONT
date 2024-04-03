@@ -5,9 +5,9 @@
         {{ tarefa.descricao }}
     </div>
     <div class="comentarios">
-        <span *ngFor="let comentario of tarefa.comentarios">
-            {{ comentario.conteudo }}
-        </span>
+        <app-comentario *ngFor="let comentario of tarefa.comentarios" [comentario]="comentario"></app-comentario>
     </div>
-    <app-comment-box (comentarioEmitter)="comentar($event)" (cancelarEmitter)="cancelar()"></app-comment-box>
 </mat-dialog-content>
+<mat-dialog-actions style="display: block; padding: 10px 20px;">
+    <app-comment-box (comentarioEmitter)="comentar($event)" (cancelarEmitter)="cancelar()"></app-comment-box>
+</mat-dialog-actions>

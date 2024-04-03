@@ -30,6 +30,7 @@ import { TarefaComponent } from './gerenciador/main/tarefa/tarefa.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { TarefaModalComponent } from './shared/tarefa/tarefa-modal/tarefa-modal.component';
 import { CommentBoxComponent } from './shared/comment-box/comment-box.component';
+import { ComentarioComponent } from './shared/comentario/comentario.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CommentBoxComponent } from './shared/comment-box/comment-box.component'
     TarefaComponent,
     LoadingComponent,
     TarefaModalComponent,
-    CommentBoxComponent
+    CommentBoxComponent,
+    ComentarioComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 export class TarefaComentario {
     id: number;
     conteudo: string;
-    idTarefa: number;
+    tarefaId: number;
 
 
     constructor(conteudo: string, idTarefa: number) {
         this.conteudo = conteudo;
-        this.idTarefa = idTarefa;
+        this.tarefaId = idTarefa;
     }
 }
