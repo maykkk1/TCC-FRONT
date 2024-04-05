@@ -5,7 +5,10 @@
         {{ tarefa.descricao }}
     </div>
     <div class="comentarios">
-        <app-comentario *ngFor="let comentario of tarefa.comentarios" [comentario]="comentario"></app-comentario>
+        <p (click)="openComentarios()" class="comentarios-handler">Comentarios <span class="comment-count">{{ tarefa.comentarios.length }}</span></p>
+        <div *ngIf="comentariosIsOpen" class="comentarios-wrapper">
+            <app-comentario *ngFor="let comentario of tarefa.comentarios" [comentario]="comentario"></app-comentario>
+        </div>
     </div>
 </mat-dialog-content>
 <mat-dialog-actions style="display: block; padding: 10px 20px;">

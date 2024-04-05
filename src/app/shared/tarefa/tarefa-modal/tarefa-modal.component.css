@@ -6,3 +6,17 @@ hr {
     color: gray;
     min-height: 200px;
 }
+
+.comentarios-handler {
+    color: white;
+    cursor: pointer;
+}
+
+.comment-count {
+    padding: 2px 3px;
+    font-size: 14px;
+    border-radius: 1px;
+    background-color: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+}
