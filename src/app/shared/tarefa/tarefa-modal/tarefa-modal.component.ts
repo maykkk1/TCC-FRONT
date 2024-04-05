@@ -16,8 +16,6 @@ export class TarefaModalComponent implements OnInit {
   tarefa: Tarefa;
   comentariosIsOpen: boolean = false;
 
-  @Output() comentarioEmitter: EventEmitter<Comentario> = new EventEmitter<Comentario>();
-
   constructor(private tarefaService: TarefaService,
               private comentarioService: ComentarioTarefaService,
               private dialogRef: DialogRef<TarefaModalComponent>,
@@ -36,7 +34,8 @@ export class TarefaModalComponent implements OnInit {
 
   comentar($event: string){
     const comentario = new TarefaComentario($event, this.tarefa.id);
-    this.comentarioService.save(comentario).subscribe(data => this.comentarioEmitter.emit(comentario));
+    this.comentarioService.save(comentario).subscribe(data => this.tarefa.comentarios.push(data));
+    
   }
 
   cancelar(){

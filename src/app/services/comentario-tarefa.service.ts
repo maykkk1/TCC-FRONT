@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TarefaComentario } from '../model/tarefa-comentario';
+import { Comentario } from '../model/comentario.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,6 @@ export class ComentarioTarefaService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return this.http.post<any>(`${this.getUrl()}/save`, cometario, { headers });
+    return this.http.post<Comentario>(`${this.getUrl()}/save`, cometario, { headers });
   }
 }

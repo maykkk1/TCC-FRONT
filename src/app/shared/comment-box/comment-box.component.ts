@@ -16,6 +16,7 @@ export class CommentBoxComponent {
       return;
     }
     this.comentarioEmitter.emit(this.comentario)
+    this.comentario = '';
   }
 
   cancelar(){
