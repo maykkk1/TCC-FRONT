@@ -13,7 +13,7 @@ import { TarefaService } from 'src/app/services/tarefa-service.service';
 })
 export class TarefaModalComponent implements OnInit {
   tarefa: Tarefa;
-  comentariosIsOpen: boolean = true;
+  comentariosIsOpen: boolean = false;
 
   constructor(private tarefaService: TarefaService,
               private comentarioService: ComentarioTarefaService,
@@ -36,6 +36,9 @@ export class TarefaModalComponent implements OnInit {
     const comentario = new TarefaComentario($event, this.tarefa.id);
     this.comentarioService.save(comentario).subscribe(data => this.tarefa.comentarios.unshift(data));
     this.comentariosIsOpen = true;
+    setTimeout(() => {
+      this.tarefaService.taskChange.next();
+    }, 500);
   }
 
   cancelar(){

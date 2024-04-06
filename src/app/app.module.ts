@@ -31,6 +31,7 @@ import { LoadingComponent } from './shared/loading/loading.component';
 import { TarefaModalComponent } from './shared/tarefa/tarefa-modal/tarefa-modal.component';
 import { CommentBoxComponent } from './shared/comment-box/comment-box.component';
 import { ComentarioComponent } from './shared/comentario/comentario.component';
+import { ContadorDirective } from './shared/diretivas/contador.directive';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ComentarioComponent } from './shared/comentario/comentario.component';
     LoadingComponent,
     TarefaModalComponent,
     CommentBoxComponent,
-    ComentarioComponent
+    ComentarioComponent,
+    ContadorDirective
   ],
   imports: [
     BrowserModule,
