@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule } from '@angular/common/http'
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { registerLocaleData } from '@angular/common';
+import localeBr from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +35,7 @@ import { CommentBoxComponent } from './shared/comment-box/comment-box.component'
 import { ComentarioComponent } from './shared/comentario/comentario.component';
 import { ContadorDirective } from './shared/diretivas/contador.directive';
 
+registerLocaleData(localeBr, 'pt')
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +74,7 @@ import { ContadorDirective } from './shared/diretivas/contador.directive';
     MatProgressSpinnerModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
