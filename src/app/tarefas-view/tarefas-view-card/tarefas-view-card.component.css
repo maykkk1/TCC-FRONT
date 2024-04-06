@@ -80,3 +80,8 @@ strong {
     display: flex;
     justify-content: flex-end;
 }
+
+.actions {
+    display: flex;
+    gap: 10px;
+}

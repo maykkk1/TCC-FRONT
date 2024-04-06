@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Tarefa } from 'src/app/model/tarefa.model';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faMessage } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { TarefaModalComponent } from 'src/app/shared/tarefa/tarefa-modal/tarefa-modal.component';
 
@@ -11,15 +11,17 @@ import { TarefaModalComponent } from 'src/app/shared/tarefa/tarefa-modal/tarefa-
 })
 export class TarefasViewCardComponent {
   faEdit = faEdit;
+  faMessage = faMessage;
   @Input() tarefa: Tarefa;
 
   constructor(private dialog: MatDialog,){}
 
 
-  openTarefa(){
+  openTarefa(commentOpen: boolean){
     this.dialog.open(TarefaModalComponent, {
-      width: "500px",
-      data: this.tarefa.id
+      maxWidth: "650px",
+      width: "100%",
+      data: { tarefaId: this.tarefa.id, comentarioOpen: commentOpen }
     });
   }
 }
