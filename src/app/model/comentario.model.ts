@@ -3,6 +3,6 @@ export class Comentario {
     conteudo: string;
     tarefaId: number;
     autorNome: string;
-    autorId: string;
+    autorId: number;
     dataComentario: Date;
 }

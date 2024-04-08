@@ -14,6 +14,9 @@
     font-weight: bolder;
     margin-bottom: 5px;
     text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .conteudo {
@@ -29,4 +32,15 @@ i {
     color: rgb(180, 168, 168) !important;
     font-weight: lighter;
     font-size: 10px;
+}
+
+.menu {
+    color: rgb(149, 147, 147);
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.menu:active, .menu:hover, .menu:focus {
+    border: none;
 }

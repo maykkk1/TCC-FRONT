@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { TarefaComentario } from '../model/tarefa-comentario';
 import { Comentario } from '../model/comentario.model';
+import { RequestResult } from '../shared/requestResult/request-result.model';
+import { MensagemService } from './mensagem.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,7 @@ import { Comentario } from '../model/comentario.model';
 export class ComentarioTarefaService {
 
   constructor(private authService: AuthService,
+              private messageService: MensagemService,
               private http: HttpClient) { }
 
   private getUrl(){
@@ -23,5 +26,18 @@ export class ComentarioTarefaService {
       'Authorization': `Bearer ${token}`
     });
     return this.http.post<Comentario>(`${this.getUrl()}/save`, cometario, { headers });
+  }
+
+  delete(tarefaId: number){
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    const params = new HttpParams()
+    .set('id', tarefaId)
+    
+    return this.http.delete<RequestResult<number[]>>(this.getUrl(), { headers, params });
   }
 }

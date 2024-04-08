@@ -45,4 +45,13 @@ export class TarefaModalComponent implements OnInit {
     this.dialogRef.close()
   }
 
+  onDeleteComentario($event: number){
+    const index = this.tarefa.comentarios.findIndex(c => c.id === $event);
+    if (index !== -1) {
+      this.tarefa.comentarios.splice(index, 1);
+      setTimeout(() => {
+        this.tarefaService.taskChange.next();
+      }, 500);
+    }
+  }
 }

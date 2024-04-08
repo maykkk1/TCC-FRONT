@@ -4,6 +4,7 @@ import {HttpClientModule } from '@angular/common/http'
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { registerLocaleData } from '@angular/common';
 import localeBr from '@angular/common/locales/pt';
@@ -72,7 +73,8 @@ registerLocaleData(localeBr, 'pt')
     MatDialogModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
