@@ -16,6 +16,7 @@ import { MensagemService } from 'src/app/services/mensagem.service';
 export class TarefasEditionComponent implements OnInit, OnDestroy {
   form: FormGroup;
   error: boolean = false;
+  processing: boolean = false;
 
   constructor(private tarefaService: TarefaService,
                @Inject(MAT_DIALOG_DATA) public data: tarefasEditionData,
@@ -31,6 +32,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
   }
 
   salvarTarefa(){
+    this.processing = true;
     const tarefa = new Tarefa();
     tarefa.titulo = this.form.get('titulo')?.value;
     tarefa.descricao = this.form.get('descricao')?.value;
@@ -44,6 +46,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
       this.form.markAllAsTouched();
       this.error = true;
       this.mensagem.ShowMessage("Ocorreu um erro ao criar a tarefa!", 3000, false)
+      this.processing = false;
       return;
     }
 
@@ -51,19 +54,23 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
       this.tarefaService.savePrincipal(tarefa).subscribe(response => {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
         this.tarefaService.taskChange.next();
+        this.processing = false;
         this.dialogRef.close();
       }, Error => {
         this.error = true;
         this.mensagem.ShowMessage("Ocorreu um erro ao criar a tarefa!", 3000, false)
+        this.processing = false;
       });
     } else {
       this.tarefaService.save(tarefa).subscribe(response => {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
         this.tarefaService.taskChange.next();
+        this.processing = false;
         this.dialogRef.close();
       }, Error => {
         this.error = true;
         this.mensagem.ShowMessage("Ocorreu um erro ao criar a tarefa!", 3000, false)
+        this.processing = false;
       });
     }
   }

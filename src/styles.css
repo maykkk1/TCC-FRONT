@@ -83,11 +83,20 @@ body {
   border-color: var(--primary-color);
 }
 
+.btn-primary:disabled {
+  background-color: #4a17a0;
+  border-color: var(--primary-color);
+}
+
 .btn-success {
   background-color: var(--secondary-color);
 }
 
 .btn-success:hover {
+  background-color:#04783a;
+}
+
+.btn-success:disabled {
   background-color:#04783a;
 }
 

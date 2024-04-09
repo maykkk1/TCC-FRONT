@@ -1,0 +1,4 @@
+<button [ngClass]="class" [disabled]="processing"> 
+    {{ texto }}
+    <mat-spinner *ngIf="processing" diameter="20"></mat-spinner>
+</button>

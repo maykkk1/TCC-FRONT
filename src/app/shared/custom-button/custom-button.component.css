@@ -1,0 +1,11 @@
+button {
+    position: relative;
+}
+
+::ng-deep .mat-mdc-progress-spinner, .mdc-circular-progress, .mat-primary, .mdc-circular-progress--indeterminate {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 1 !important;
+}

@@ -35,6 +35,7 @@ import { TarefaModalComponent } from './shared/tarefa/tarefa-modal/tarefa-modal.
 import { CommentBoxComponent } from './shared/comment-box/comment-box.component';
 import { ComentarioComponent } from './shared/comentario/comentario.component';
 import { ContadorDirective } from './shared/diretivas/contador.directive';
+import { CustomButtonComponent } from './shared/custom-button/custom-button.component';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -59,7 +60,8 @@ registerLocaleData(localeBr, 'pt')
     TarefaModalComponent,
     CommentBoxComponent,
     ComentarioComponent,
-    ContadorDirective
+    ContadorDirective,
+    CustomButtonComponent
   ],
   imports: [
     BrowserModule,

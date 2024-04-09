@@ -22,8 +22,8 @@
             </div>
             <hr>
             <div class="actions">
-                <button class="btn btn-danger" (click)="resetForm()" [mat-dialog-close]="">Sair</button>
-                <button (click)="salvarTarefa()" class="btn btn-primary">Criar</button>
+                <app-custom-button (click)="resetForm()" [texto]="'Sair'" [mat-dialog-close] [class]="'btn btn-danger'" [processing]="processing"></app-custom-button>
+                <app-custom-button (click)="salvarTarefa()" [texto]="'Criar'" [class]="'btn btn-primary'" [processing]="processing"></app-custom-button>
             </div>
         </div>
     </form>
