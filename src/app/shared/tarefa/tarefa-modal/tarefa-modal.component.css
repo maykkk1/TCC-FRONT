@@ -21,3 +21,16 @@ hr {
     justify-content: center;
     align-items: center;
 }
+
+.header {
+    width: 100%;
+    position: relative;
+}
+
+.sair-btn {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 18px;
+    cursor: pointer;
+}

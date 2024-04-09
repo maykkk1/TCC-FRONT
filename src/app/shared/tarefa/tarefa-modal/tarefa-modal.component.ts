@@ -5,6 +5,7 @@ import { TarefaComentario } from 'src/app/model/tarefa-comentario';
 import { Tarefa } from 'src/app/model/tarefa.model';
 import { ComentarioTarefaService } from 'src/app/services/comentario-tarefa.service';
 import { TarefaService } from 'src/app/services/tarefa-service.service';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tarefa-modal',
@@ -14,6 +15,7 @@ import { TarefaService } from 'src/app/services/tarefa-service.service';
 export class TarefaModalComponent implements OnInit {
   tarefa: Tarefa;
   comentariosIsOpen: boolean = false;
+  faX = faX;
 
   constructor(private tarefaService: TarefaService,
               private comentarioService: ComentarioTarefaService,
@@ -41,7 +43,7 @@ export class TarefaModalComponent implements OnInit {
     }, 500);
   }
 
-  cancelar(){
+  sair(){
     this.dialogRef.close()
   }
 

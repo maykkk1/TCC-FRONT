@@ -1,4 +1,8 @@
-<h2 mat-dialog-title class="title light">{{ tarefa.titulo }}</h2>
+
+<div class="header">
+    <h2 mat-dialog-title class="title light">{{ tarefa.titulo }}</h2>
+    <fa-icon class="sair-btn" (click)="sair()" [icon]="faX"></fa-icon>
+</div>
 <mat-dialog-content>
     <div class="descricao">
         {{ tarefa.descricao }}
@@ -11,5 +15,5 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions style="display: block; padding: 10px 20px;">
-    <app-comment-box (comentarioEmitter)="comentar($event)" (cancelarEmitter)="cancelar()"></app-comment-box>
+    <app-comment-box (comentarioEmitter)="comentar($event)"></app-comment-box>
 </mat-dialog-actions>
