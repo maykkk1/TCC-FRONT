@@ -6,6 +6,7 @@ import { Tarefa } from 'src/app/model/tarefa.model';
 import { User } from 'src/app/model/user.model';
 import { ComentarioTarefaService } from 'src/app/services/comentario-tarefa.service';
 import { MensagemService } from 'src/app/services/mensagem.service';
+import { TarefaService } from 'src/app/services/tarefa-service.service';
 
 @Component({
   selector: 'app-comentario',
@@ -21,7 +22,8 @@ export class ComentarioComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private messageService: MensagemService,
-              private comentarioService: ComentarioTarefaService){}
+              private comentarioService: ComentarioTarefaService,
+              private tarefaService: TarefaService){}
 
   ngOnInit(): void {
     this.user = this.authService.getUser()!
@@ -30,7 +32,8 @@ export class ComentarioComponent implements OnInit {
   deletar(){
     this.comentarioService.delete(this.comentario.id).subscribe(data => {
       this.onDelete.emit(this.comentario.id);
-      this.messageService.ShowMessage("Comentário excluído!", 5000, true)
+      this.messageService.ShowMessage("Comentário excluído!", 5000, true);
+      this.tarefaService.taskChange.next();
     }, error => {
       if(error.error.message){
         this.messageService.ShowMessage(error.error.message, 5000, false);

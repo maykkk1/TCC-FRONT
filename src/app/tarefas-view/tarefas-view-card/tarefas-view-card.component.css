@@ -90,3 +90,16 @@ strong {
     display: flex;
     gap: 15px;
 }
+
+.menu {
+    color: rgb(149, 147, 147);
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    background-color: transparent;
+    border: none;
+}
+
+.menu:active, .menu:hover, .menu:focus {
+    border: none;
+}

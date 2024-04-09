@@ -40,7 +40,7 @@ export class TarefaModalComponent implements OnInit {
     this.comentariosIsOpen = true;
     setTimeout(() => {
       this.tarefaService.taskChange.next();
-    }, 500);
+    }, 1000);
   }
 
   sair(){

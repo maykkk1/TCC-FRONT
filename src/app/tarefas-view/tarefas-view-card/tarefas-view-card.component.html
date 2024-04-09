@@ -4,8 +4,11 @@
             <h3>{{ tarefa.titulo }}</h3>
         </div>
         <div class="col-2">
-            <div [matTooltip]="'Criado por: ' +  tarefa.createdBy?.name" class="letter">{{ (tarefa.createdBy &&
-                tarefa.createdBy.name) ? tarefa.createdBy.name.charAt(0) : '' }}</div>
+            <button class="menu" mat-button [matMenuTriggerFor]="menu"><fa-icon [icon]="faEllipsis"></fa-icon></button>
+            <mat-menu #menu="matMenu">
+                <button class="btn-item" (click)="openTarefa(false)"  mat-menu-item>Abrir</button>
+                <button class="btn-item" (click)="deletar()"  mat-menu-item>Excluir</button>
+              </mat-menu>
         </div>
     </div>
     <p>{{ tarefa.descricao.length > 70 ? tarefa.descricao.slice(0, 70) + '...' : tarefa.descricao }} <strong (click)="openTarefa(false)"

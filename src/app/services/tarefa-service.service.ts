@@ -77,4 +77,17 @@ export class TarefaService {
     return this.http.post<RequestResult<Tarefa>>(`${this.getUrl()}/tarefa`, id, { headers });
   }
 
+  delete(tarefaId: number){
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    const params = new HttpParams()
+    .set('id', tarefaId)
+    
+    return this.http.delete<RequestResult<number[]>>(this.getUrl(), { headers, params });
+  }
+
 }

@@ -28,7 +28,7 @@ export class ComentarioTarefaService {
     return this.http.post<Comentario>(`${this.getUrl()}/save`, cometario, { headers });
   }
 
-  delete(tarefaId: number){
+  delete(comentarioId: number){
     const token = this.authService.getToken();
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export class ComentarioTarefaService {
     });
 
     const params = new HttpParams()
-    .set('id', tarefaId)
+    .set('id', comentarioId)
     
     return this.http.delete<RequestResult<number[]>>(this.getUrl(), { headers, params });
   }

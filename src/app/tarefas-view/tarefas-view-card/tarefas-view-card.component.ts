@@ -1,8 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Tarefa } from 'src/app/model/tarefa.model';
-import { faEdit, faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faEllipsis, faMessage } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { TarefaModalComponent } from 'src/app/shared/tarefa/tarefa-modal/tarefa-modal.component';
+import { TarefaService } from 'src/app/services/tarefa-service.service';
+import { MensagemService } from 'src/app/services/mensagem.service';
 
 @Component({
   selector: 'app-tarefas-view-card',
@@ -12,9 +14,12 @@ import { TarefaModalComponent } from 'src/app/shared/tarefa/tarefa-modal/tarefa-
 export class TarefasViewCardComponent {
   faEdit = faEdit;
   faMessage = faMessage;
+  faEllipsis = faEllipsis;
   @Input() tarefa: Tarefa;
 
-  constructor(private dialog: MatDialog,){}
+  constructor(private dialog: MatDialog,
+              private tarefaService: TarefaService,
+              private messageService: MensagemService){}
 
 
   openTarefa(commentOpen: boolean){
@@ -23,5 +28,18 @@ export class TarefasViewCardComponent {
       width: "100%",
       data: { tarefaId: this.tarefa.id, comentarioOpen: commentOpen }
     });
+  }
+
+  deletar(){
+    this.tarefaService.delete(this.tarefa.id).subscribe(data => {
+      this.messageService.ShowMessage("Tarefa excluída com sucesso!", 5000, true)
+      this.tarefaService.taskChange.next();
+    }, error => {
+      if(error.error.message){
+        this.messageService.ShowMessage(error.error.message, 5000, false);
+      } else {
+        this.messageService.ShowMessage("Ocorreu um erro ao excluir a tarefa.", 5000, false);
+      }
+    });;
   }
 }

@@ -136,3 +136,15 @@ body {
   font-size: 10px;
   font-weight: bold;
 }
+
+.mat-mdc-menu-panel {
+  background-color: var(--dark-bd-color) !important;
+}
+
+.mat-mdc-menu-item {
+  color: white !important;
+}
+
+.mat-mdc-menu-content {
+  padding: 0 !important;
+}
