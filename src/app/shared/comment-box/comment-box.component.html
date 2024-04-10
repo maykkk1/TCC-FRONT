@@ -4,8 +4,18 @@
         <div class="tools">
         </div>
         <div class="action">
-            <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
-            <button (click)="comentar()" class="button btn btn-primary">Enviar</button>
+            <app-custom-button 
+                [class]="'btn btn-danger'"
+                [texto]="'Cancelar'"
+                [processing]="processing"
+                (click)="cancelar()">
+            </app-custom-button>
+            <app-custom-button 
+                [class]="'button btn btn-primary'"
+                [texto]="'Enviar'"
+                [processing]="processing"
+                (click)="comentar()">
+            </app-custom-button>
         </div>
     </div>
 </div>

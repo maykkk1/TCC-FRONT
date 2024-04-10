@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-comment-box',
@@ -7,9 +7,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class CommentBoxComponent {
   comentario: string;
+
+  @Input() processing: boolean;
+
   @Output() comentarioEmitter: EventEmitter<string> = new EventEmitter<string>();
   @Output() cancelarEmitter: EventEmitter<void> = new EventEmitter<void>();
-
 
   comentar(){
     if(this.comentario.length < 1){

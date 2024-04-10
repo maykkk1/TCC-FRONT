@@ -15,5 +15,5 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions style="display: block; padding: 10px 20px;">
-    <app-comment-box (comentarioEmitter)="comentar($event)"></app-comment-box>
+    <app-comment-box [processing]="processing" (comentarioEmitter)="comentar($event)"></app-comment-box>
 </mat-dialog-actions>

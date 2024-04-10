@@ -6,6 +6,7 @@ import { Tarefa } from 'src/app/model/tarefa.model';
 import { ComentarioTarefaService } from 'src/app/services/comentario-tarefa.service';
 import { TarefaService } from 'src/app/services/tarefa-service.service';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+import { MensagemService } from 'src/app/services/mensagem.service';
 
 @Component({
   selector: 'app-tarefa-modal',
@@ -16,9 +17,11 @@ export class TarefaModalComponent implements OnInit {
   tarefa: Tarefa;
   comentariosIsOpen: boolean = false;
   faX = faX;
+  processing: boolean = false;
 
   constructor(private tarefaService: TarefaService,
               private comentarioService: ComentarioTarefaService,
+              private messagemService: MensagemService,
               private dialogRef: DialogRef<TarefaModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: {tarefaId: number, comentarioOpen: boolean}){}
 
@@ -35,8 +38,15 @@ export class TarefaModalComponent implements OnInit {
   }
 
   comentar($event: string){
+    this.processing = true;
     const comentario = new TarefaComentario($event, this.tarefa.id);
-    this.comentarioService.save(comentario).subscribe(data => this.tarefa.comentarios.unshift(data));
+    this.comentarioService.save(comentario).subscribe(data => {
+      this.tarefa.comentarios.unshift(data)
+      this.processing = false;
+    }, error => {
+      this.messagemService.ShowMessage("Ocorreu um erro, espero alguns segundos.", 3000, false);
+      this.processing = false;
+    });
     this.comentariosIsOpen = true;
     setTimeout(() => {
       this.tarefaService.taskChange.next();
