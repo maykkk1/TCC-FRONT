@@ -10,6 +10,7 @@ import { AlunoViewSectionEnum } from 'src/app/shared/enums/alunoViewSection.enum
 import { User } from 'src/app/model/user.model';
 import { switchMap } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
+import { AtividadesService } from 'src/app/services/atividades.service';
 
 @Component({
   selector: 'app-aluno',
@@ -27,7 +28,8 @@ export class AlunoComponent  implements OnInit {
               private dialog: MatDialog,
               private authService: AuthService,
               private asideService: AsideService,
-              private userService: UserService){ }
+              private userService: UserService,
+              private atividadesService: AtividadesService){ }
 
 
   ngOnInit(): void {
@@ -42,6 +44,8 @@ export class AlunoComponent  implements OnInit {
     ).subscribe(data => {
       this.aluno = data;
     })
+
+    this.atividadesService.getAllById(this.alunoId).subscribe(data => console.log(data));
   }
 
   openTarefaEdition(){

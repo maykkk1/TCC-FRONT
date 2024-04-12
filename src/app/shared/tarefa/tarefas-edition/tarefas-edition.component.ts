@@ -53,8 +53,8 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
     if(this.data.isPrincipal){
       this.tarefaService.savePrincipal(tarefa).subscribe(response => {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
-        this.tarefaService.taskChange.next();
         this.processing = false;
+        this.tarefaService.taskChange.next();
         this.dialogRef.close();
       }, Error => {
         this.error = true;
@@ -64,8 +64,8 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
     } else {
       this.tarefaService.save(tarefa).subscribe(response => {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
-        this.tarefaService.taskChange.next();
         this.processing = false;
+        this.tarefaService.taskChange.next();
         this.dialogRef.close();
       }, Error => {
         this.error = true;

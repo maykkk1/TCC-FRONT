@@ -4,8 +4,12 @@ hr {
 
 .descricao {
     color: gray;
-    min-height: 300px;
+    min-height: 200px;
     word-wrap: break-word;
+}
+
+.mat-mdc-dialog-content {
+    max-height: 50vh !important;
 }
 
 .comentarios-handler {
