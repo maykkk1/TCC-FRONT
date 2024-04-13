@@ -3,6 +3,7 @@ import { AuthService } from '../auth/auth.service';
 import { MensagemService } from './mensagem.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { RequestResult } from '../shared/requestResult/request-result.model';
+import { Atividade } from '../model/atividade.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,6 @@ export class AtividadesService {
     const params = new HttpParams()
     .set('userId', userId)
     
-    return this.http.get<RequestResult<any>>(this.getUrl(), { headers, params });
+    return this.http.get<RequestResult<Atividade[]>>(this.getUrl(), { headers, params });
   }
 }
