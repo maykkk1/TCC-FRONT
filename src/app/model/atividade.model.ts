@@ -5,7 +5,7 @@ export class Atividade {
     id: number;
     descricao: string;
     dataAtividade: Date;
-    tipoAtiviade: TipoAtividade
+    tipo: TipoAtividade
     responsavel: string;
     tarefaTitulo: string;
     pessoaId: number;

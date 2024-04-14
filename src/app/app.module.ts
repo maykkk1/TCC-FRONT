@@ -37,6 +37,8 @@ import { ComentarioComponent } from './shared/comentario/comentario.component';
 import { ContadorDirective } from './shared/diretivas/contador.directive';
 import { CustomButtonComponent } from './shared/custom-button/custom-button.component';
 import { AtividadesViewComponent } from './shared/atividades-view/atividades-view.component';
+import { AtividadeAlteracaoComponent } from './shared/atividade-alteracao/atividade-alteracao.component';
+import { TarefaSituacaoPipe } from './shared/pipes/tarefa-situacao.pipe';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -63,7 +65,9 @@ registerLocaleData(localeBr, 'pt')
     ComentarioComponent,
     ContadorDirective,
     CustomButtonComponent,
-    AtividadesViewComponent
+    AtividadesViewComponent,
+    AtividadeAlteracaoComponent,
+    TarefaSituacaoPipe
   ],
   imports: [
     BrowserModule,

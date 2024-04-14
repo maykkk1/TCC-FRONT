@@ -18,7 +18,7 @@ import { AtividadesService } from 'src/app/services/atividades.service';
   styleUrls: ['./aluno.component.css']
 })
 export class AlunoComponent  implements OnInit {
-  viewSection: AlunoViewSectionEnum = AlunoViewSectionEnum.Board;
+  viewSection: AlunoViewSectionEnum = AlunoViewSectionEnum.Atividade;
   alunoId: number;
   aluno: User;
   faPlus = faPlus;
