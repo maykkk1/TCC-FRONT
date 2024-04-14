@@ -3,7 +3,7 @@
     <div class="aluno-container-nav">
         <ul class="nav">
             <li [ngClass]="viewSection == 0 ? 'selected-nav-item' : ''" class="nav-itens">
-                <a (click)="viewSection = 0">Home</a>
+                <a (click)="viewSection = 0">Atividades</a>
             </li>
             <li class="nav-itens" [ngClass]="viewSection == 1 ? 'selected-nav-item' : ''">
                 <a (click)="viewSection = 1">Board</a>
@@ -19,5 +19,6 @@
     <hr>
 
     <app-tarefas-view *ngIf="viewSection == 1" [isPrincipal]="true" [idAluno]="alunoId"></app-tarefas-view>
+    <app-atividades-view [idAluno]="alunoId" *ngIf="viewSection == 0"></app-atividades-view>
 
 </div>

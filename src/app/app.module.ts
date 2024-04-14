@@ -36,6 +36,7 @@ import { CommentBoxComponent } from './shared/comment-box/comment-box.component'
 import { ComentarioComponent } from './shared/comentario/comentario.component';
 import { ContadorDirective } from './shared/diretivas/contador.directive';
 import { CustomButtonComponent } from './shared/custom-button/custom-button.component';
+import { AtividadesViewComponent } from './shared/atividades-view/atividades-view.component';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -61,7 +62,8 @@ registerLocaleData(localeBr, 'pt')
     CommentBoxComponent,
     ComentarioComponent,
     ContadorDirective,
-    CustomButtonComponent
+    CustomButtonComponent,
+    AtividadesViewComponent
   ],
   imports: [
     BrowserModule,
