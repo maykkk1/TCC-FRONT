@@ -1,6 +1,6 @@
-<p>
+<div class="atividade">
     {{ atividade.responsavel + " alterou a tarefa " }}
-    <strong>{{ atividade.tarefaTitulo }}</strong>
+    <strong class="task-title">{{ atividade.tarefaTitulo }}</strong>
     {{ " para "}}
     <strong>{{ atividade.novaSituacaoTarefa | tarefaSituacao }}</strong>
-</p>
+</div>
