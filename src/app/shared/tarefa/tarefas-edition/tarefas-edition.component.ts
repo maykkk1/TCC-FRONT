@@ -7,6 +7,7 @@ import { TipoTarefa } from '../../enums/tipoTarefa.enum';
 import { SituacaoTarefaEnum } from '../../enums/situacaoTarefa.enum';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MensagemService } from 'src/app/services/mensagem.service';
+import { AtividadesService } from 'src/app/services/atividades.service';
 
 @Component({
   selector: 'app-tarefas-edition',
@@ -21,7 +22,8 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
   constructor(private tarefaService: TarefaService,
                @Inject(MAT_DIALOG_DATA) public data: tarefasEditionData,
                private dialogRef: DialogRef<TarefasEditionComponent>,
-               private mensagem: MensagemService){}
+               private mensagem: MensagemService,
+               private atividadeService: AtividadesService){}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -55,6 +57,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
         this.processing = false;
         this.tarefaService.taskChange.next();
+        this.atividadeService.atividadeChange.next();
         this.dialogRef.close();
       }, Error => {
         this.error = true;
@@ -66,6 +69,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
         this.processing = false;
         this.tarefaService.taskChange.next();
+        this.atividadeService.atividadeChange.next();
         this.dialogRef.close();
       }, Error => {
         this.error = true;

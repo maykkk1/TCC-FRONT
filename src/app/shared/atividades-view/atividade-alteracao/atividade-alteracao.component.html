@@ -1,0 +1,17 @@
+<div class="atividade" [ngStyle]="{'border-color': borderColor }">
+    <div class="atividade-header">
+        <strong>{{ atividade.responsavel }}</strong>
+    </div>
+
+    <div class="atividade-content" *ngIf="atividade.tipo == 0">
+        <p>Alterou a tarefa <strong class="task-title" (click)="abrirTarefa(atividade.tarefaId)">{{ atividade.tarefaTitulo }}</strong>  para <strong>{{ atividade.novaSituacaoTarefa | tarefaSituacao }}</strong>.</p>
+    </div>
+
+    <div class="atividade-content" *ngIf="atividade.tipo == 1">
+        <p>Criou a tarefa <strong class="task-title" (click)="abrirTarefa(atividade.tarefaId)">{{ atividade.tarefaTitulo }}</strong>.</p>
+    </div>
+
+    <div class="atividade-footer">
+        <p class="data">{{ atividade.dataAtividade | date:'MMM dd HH:mm a':'':'pt' }}<p></p>
+    </div>
+</div>

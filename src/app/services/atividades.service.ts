@@ -4,11 +4,13 @@ import { MensagemService } from './mensagem.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { RequestResult } from '../shared/requestResult/request-result.model';
 import { Atividade } from '../model/atividade.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AtividadesService {
+  atividadeChange: Subject<void> = new Subject();
 
   constructor(private authService: AuthService,
     private http: HttpClient) { }

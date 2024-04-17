@@ -1,7 +1,5 @@
 <div class="atividades">
     <div class="atividade" *ngFor="let atividade of ativividades">
-        <div *ngIf="atividade.tipo == 0" class="alteracao">
-            <app-atividade-alteracao [atividade]="atividade"></app-atividade-alteracao>
-        </div>
+        <app-atividade-alteracao [atividade]="atividade"></app-atividade-alteracao>
     </div>
 </div>

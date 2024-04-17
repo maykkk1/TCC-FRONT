@@ -1,3 +1,5 @@
 export enum TipoAtividade {
-    Alteraca = 0
+    AlteracaoTarefa = 0,
+    CriacaoTarefa = 1,
+    ExclusaoTarefa = 2
 }
