@@ -21,7 +21,6 @@ export class TarefasViewCardComponent {
               private tarefaService: TarefaService,
               private messageService: MensagemService){}
 
-
   openTarefa(commentOpen: boolean){
     this.dialog.open(TarefaModalComponent, {
       maxWidth: "650px",

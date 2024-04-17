@@ -5,10 +5,32 @@
 
 .atividade {
     width: 100%;
-    padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.138);
-    border-radius: 2px;
+    padding: 10px 15px;
+    border-radius: 5px;
     word-wrap: break-word;
     margin-bottom: 10px;
     background-color: var(--light-dark-bd-color);
+}
+
+.atividade-header {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+p {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.data {
+    font-size: 12px !important;
+    color: rgb(192, 189, 189);
+}
+
+.atividade-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }

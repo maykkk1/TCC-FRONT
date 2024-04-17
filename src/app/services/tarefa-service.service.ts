@@ -5,6 +5,8 @@ import { AuthService } from '../auth/auth.service';
 import { MensagemService } from './mensagem.service';
 import { Subject } from 'rxjs';
 import { RequestResult } from '../shared/requestResult/request-result.model';
+import { MatDialog } from '@angular/material/dialog';
+import { TarefaModalComponent } from '../shared/tarefa/tarefa-modal/tarefa-modal.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class TarefaService {
 
   constructor(private http: HttpClient,
               private authService: AuthService,
-              private mensagemService: MensagemService) { }
+              private dialog: MatDialog,) { }
 
   private getUrl(){
     return "http://localhost:5149/tarefas";
@@ -90,4 +92,11 @@ export class TarefaService {
     return this.http.delete<RequestResult<number[]>>(this.getUrl(), { headers, params });
   }
 
+  openTarefa(tarefaId: number){
+    this.dialog.open(TarefaModalComponent, {
+      maxWidth: "650px",
+      width: "100%",
+      data: { tarefaId: tarefaId, comentarioOpen: false }
+    });
+  }
 }

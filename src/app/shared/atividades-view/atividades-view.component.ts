@@ -19,7 +19,6 @@ export class AtividadesViewComponent {
       this._idAluno = value;
       this.atividadesService.getAllById(value).subscribe(atividades => {
         this.ativividades = atividades.data;
-        console.log(this.ativividades)
       })
     }
   }
