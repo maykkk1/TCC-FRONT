@@ -1,20 +1,29 @@
-<form [formGroup]="form">
-    <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="text" class="form-control" formControlName="name" id="name">
-    </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" formControlName="email" id="email">
-    </div>
-    <select formControlName="tipo" class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">Professor</option>
-        <option value="2">Aluno</option>
-    </select>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" formControlName="password" id="password">
-    </div>
-    <button (click)="onSubmit()" class="btn btn-success">Cadastrar</button>
-</form>
+<div class="cadastro">
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                <input type="text" placeholder="Nome" class="form-control" formControlName="name" id="name">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                <input type="text" placeholder="Sobrenome" class="form-control" formControlName="sobrenome" id="sobrenome">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="E-mail" class="form-control" formControlName="email" id="email">
+        </div>
+        <div class="form-group">
+            <input type="tel" placeholder="Telefone" class="form-control" formControlName="telefone" id="telefone">
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Senha" class="form-control" formControlName="password" id="password">
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Confirmar senha" class="form-control" formControlName="confirm" id="confirm">
+        </div>
+        <button (click)="onSubmit()" class="btn btn-success">Cadastrar</button>
+    </form>
+</div>
