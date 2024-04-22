@@ -22,21 +22,17 @@ export class CadastroComponent implements OnInit, OnDestroy {
       name: new FormControl(null),
       sobrenome: new FormControl(null),
       telefone: new FormControl(null),
-      email: new FormControl("asdasdda@hotmail.com"),
+      email: new FormControl(null),
       password: new FormControl(null),
       confirm: new FormControl(null)
     });
   }
 
   onSubmit(){
-    if(this.form.get('password')?.value != this.form.get('confirm')?.value) {
-      return this.messageService.ShowMessage("As senhas devem ser iguais", 3000, false);
-    }
     const value = this.form.value;
     this.authService.cadastro(value).subscribe(data => {
     });
   }
-
 
   ngOnDestroy(): void {
   }
