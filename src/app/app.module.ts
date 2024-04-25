@@ -39,6 +39,8 @@ import { CustomButtonComponent } from './shared/custom-button/custom-button.comp
 import { AtividadesViewComponent } from './shared/atividades-view/atividades-view.component';
 import { AtividadeAlteracaoComponent } from './shared/atividades-view/atividade-alteracao/atividade-alteracao.component';
 import { TarefaSituacaoPipe } from './shared/pipes/tarefa-situacao.pipe';
+import { NotificationComponent } from './shared/notification/notification.component';
+import { ErrorModalComponent } from './shared/error-modal/error-modal.component';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -67,7 +69,9 @@ registerLocaleData(localeBr, 'pt')
     CustomButtonComponent,
     AtividadesViewComponent,
     AtividadeAlteracaoComponent,
-    TarefaSituacaoPipe
+    TarefaSituacaoPipe,
+    NotificationComponent,
+    ErrorModalComponent
   ],
   imports: [
     BrowserModule,

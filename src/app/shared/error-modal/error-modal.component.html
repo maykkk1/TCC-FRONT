@@ -1,0 +1,18 @@
+<div class="modal-wrapper">
+    <div class="modal-content">
+        <div class="modal-title">
+            <fa-icon [icon]="faWarning"></fa-icon>
+            <h2 style="font-weight: bold;">
+                Parece que algo deu errado...
+            </h2>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li *ngFor="let erro of errors">{{  erro }}<br></li>
+            </ul>
+        </div>
+    </div>
+    <button style="font-size: 18px;" (click)="close()">
+        Fechar
+    </button>
+</div>

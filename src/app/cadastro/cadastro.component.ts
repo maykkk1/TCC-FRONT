@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
-import { User } from '../model/user.model';
 import { MensagemService } from '../services/mensagem.service';
 
 @Component({
@@ -31,6 +30,8 @@ export class CadastroComponent implements OnInit, OnDestroy {
   onSubmit(){
     const value = this.form.value;
     this.authService.cadastro(value).subscribe(data => {
+    }, error => {
+      this.messageService.showErrorModal(error.error)
     });
   }
 

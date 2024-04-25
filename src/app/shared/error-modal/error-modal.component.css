@@ -1,0 +1,32 @@
+.modal-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    color: rgb(60, 59, 59);
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-title {
+    text-align: center;
+}
+
+fa-icon {
+    color: var(--error-color);
+    font-size: 3.5rem;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    background-color: var(--error-color);
+    border: none;
+    color: white;
+    transition: 400ms;
+}
+
+button:hover {
+    background-color: rgb(218, 63, 63);
+}
