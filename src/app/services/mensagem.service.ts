@@ -20,16 +20,6 @@ export class MensagemService {
     });
   }
 
-  showMessageFromComponent(message: string, duration: number, isSuccess: boolean = false){
-    this.mensagem.openFromComponent(NotificationComponent, {
-      data : message,
-      verticalPosition: 'bottom',
-      duration: duration,
-      horizontalPosition: 'right', 
-      panelClass: [isSuccess ? 'success-snackbar' : 'error-snackbar'],
-    })
-  }
-
   showErrorModal(message: string){
     this.dialog.open(ErrorModalComponent, {
       maxWidth: "500px",
