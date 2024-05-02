@@ -26,12 +26,5 @@ export class AsideService {
     this.isCollapesed = !this.isCollapesed;
     this.collapsedChange.next(this.isCollapesed);
   }
-
-  getMenuByTipo(){
-    const user = this.authService.getUser();
-    if(user && user.tipo == TipoPessoaEnum.Aluno){
-      return []
-    }
-    return []
-  }
+  
 }

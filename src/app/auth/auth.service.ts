@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../model/user.model';
+import { CadastroUser, User } from '../model/user.model';
 import { Router } from '@angular/router';
 import { Auth } from '../model/auth.model';
 import { MensagemService } from '../services/mensagem.service';
@@ -38,10 +38,16 @@ export class AuthService {
     return this.auth != null;
   }
 
-  cadastro(user: User){
+  cadastro(user: CadastroUser){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
+
+    if(user.codigoCadastro != null){
+      user.codigoCadastro = parseInt(user.codigoCadastro);
+      user.orientadorId = parseInt(user.orientadorId);
+    }
+    console.log(user);
 
     return this.http.post(`${this.getUrl()}/user`, user, { headers })
   }

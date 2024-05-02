@@ -1,14 +1,14 @@
 <div class="cadastro">
-    <form [formGroup]="form">
+    <form [formGroup]="form" *ngIf="!cadastrarAluno || codigoValidado ; else validacao">
         <legend class="title">Cadastro</legend>
         <div class="row">
-            <div class="col-6">
-                <div class="form-group">
+            <div class="col-md-6">
+                <div class="form-group mb-md-0 mb-2">
                 <input type="text" placeholder="Nome" class="form-control" formControlName="name" id="name">
                 </div>
             </div>
-            <div class="col-6">
-                <div class="form-group">
+            <div class="col-md-6">
+                <div class="form-group mb-md-0 mb-2">
                 <input type="text" placeholder="Sobrenome" class="form-control" formControlName="sobrenome" id="sobrenome">
                 </div>
             </div>
@@ -25,6 +25,21 @@
         <div class="form-group">
             <input type="password" placeholder="Confirmar senha" class="form-control" formControlName="confirm" id="confirm">
         </div>
+        <hr>
+        <div *ngIf="codigoValidado" class="form-group">
+            <label for="">Código de Cadastro</label>
+            <input type="codigo" class="form-control" [value]="codigoCadastro" disabled>
+        </div>
         <button (click)="onSubmit()" class="btn btn-success">Cadastrar</button>
     </form>
+    <ng-template #validacao>
+        <div class="container-template">
+            <form [formGroup]="formCodigo">
+                <h3 class="title">Insira o código de cadastro</h3>
+                <input type="text" placeholder="Código" class="form-control" formControlName="codigo" id="codigo">
+                <button (click)="validarCodigo()" class="btn btn-success">Confirmar</button>
+                <small class="text-muted">Caso não tenha um código de cadastro, entre em contato com o seu orientador.</small>
+            </form>
+        </div>
+    </ng-template>
 </div>

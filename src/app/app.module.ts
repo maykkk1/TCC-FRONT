@@ -15,7 +15,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './gerenciador/main/home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HeaderComponent } from './header/header.component';
 import { GerenciadorComponent } from './gerenciador/gerenciador.component';
@@ -41,6 +40,8 @@ import { AtividadeAlteracaoComponent } from './shared/atividades-view/atividade-
 import { TarefaSituacaoPipe } from './shared/pipes/tarefa-situacao.pipe';
 import { NotificationComponent } from './shared/notification/notification.component';
 import { ErrorModalComponent } from './shared/error-modal/error-modal.component';
+import { AlunosComponent } from './gerenciador/main/alunos/alunos.component';
+import { CodigoModalComponent } from './shared/codigo-modal/codigo-modal.component';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -49,7 +50,6 @@ registerLocaleData(localeBr, 'pt')
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    DashboardComponent,
     SidenavComponent,
     HeaderComponent,
     GerenciadorComponent,
@@ -71,7 +71,9 @@ registerLocaleData(localeBr, 'pt')
     AtividadeAlteracaoComponent,
     TarefaSituacaoPipe,
     NotificationComponent,
-    ErrorModalComponent
+    ErrorModalComponent,
+    AlunosComponent,
+    CodigoModalComponent
   ],
   imports: [
     BrowserModule,

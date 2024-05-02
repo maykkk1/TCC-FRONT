@@ -9,6 +9,7 @@ import { LoginRedirectGuard } from './guards/login-redirect-guard.guard';
 import { PrincipaisComponent } from './gerenciador/main/principais/principais.component';
 import { SecundariasComponent } from './gerenciador/main/secundarias/secundarias.component';
 import { AlunoComponent } from './gerenciador/main/aluno/aluno.component';
+import { AlunosComponent } from './gerenciador/main/alunos/alunos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'gerenciador', pathMatch: 'full' },
@@ -18,9 +19,9 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'principais', component: PrincipaisComponent },
     { path: 'secundarias', component: SecundariasComponent },
-    { path: 'aluno/:id', component: AlunoComponent }
+    { path: 'aluno/:id', component: AlunoComponent },
+    { path: 'alunos', component: AlunosComponent }
   ]},
-  { path: 'cadastro', component: CadastroComponent},
   { path: '**', component: GerenciadorComponent }
 ];
 

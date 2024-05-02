@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+p {
+    background-color: var(--light-dark-bd-color);
+    color: rgb(53, 51, 51);
+    padding: 15px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+fa-icon {
+    cursor: pointer;
+    color: rgba(169, 163, 163, 0.538);
+    font-size: 1.5rem;
+    margin-left: 10px;
+}

@@ -14,3 +14,14 @@ export class User {
         this.password = password;
       }
 }
+
+export class CadastroUser {
+  name: string;
+  sobrenome: string;
+  email: string;
+  tipo: TipoPessoaEnum;
+  password: string;
+  confirm: string;
+  orientadorId: any;
+  codigoCadastro: any;
+}
