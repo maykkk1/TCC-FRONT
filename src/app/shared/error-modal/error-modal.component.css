@@ -1,12 +1,11 @@
 .modal-wrapper {
     width: 100%;
     height: 100%;
-    background-color: var(--light-color);
-    color: rgb(60, 59, 59);
+    color: white;
 }
 
 .modal-content {
-    padding: 20px;
+    padding: 10px 5px;
 }
 
 .modal-title {
@@ -15,8 +14,12 @@
 
 fa-icon {
     color: var(--error-color);
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
+
+li::marker {
+    color: var(--error-color);
+  }
 
 button {
     width: 100%;

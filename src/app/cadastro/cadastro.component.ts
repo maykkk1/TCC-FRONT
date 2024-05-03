@@ -5,6 +5,7 @@ import { MensagemService } from '../services/mensagem.service';
 import { UserService } from '../services/user.service';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,6 +18,7 @@ export class CadastroComponent implements OnInit, OnDestroy {
   cadastrarAluno: boolean = false;
   codigoValidado: boolean = false;
   codigoCadastro: number;
+  faX = faX;
 
   constructor(private authService: AuthService,
               private messageService: MensagemService,
@@ -65,6 +67,10 @@ export class CadastroComponent implements OnInit, OnDestroy {
     }, error => {
       this.messageService.showErrorModal(error.error)
     });
+  }
+
+  close(){
+    this.dialogRef.close();
   }
 
   ngOnDestroy(): void {

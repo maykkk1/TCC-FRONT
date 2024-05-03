@@ -18,7 +18,7 @@
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Home</span>
             </a>
         </li>
-        <li class="sidenav-nav-item">
+        <li *ngIf="user.tipo == 1" class="sidenav-nav-item">
             <a class="sidenav-nav-link" [routerLink]="['/gerenciador/alunos']">
                 <div class="icone">
                     <img [ngClass]="selectedMenu == 'alunos' ? 'selected-menu-item' : ''" src="../../assets/imagens/icones/avatar.png" alt="">
