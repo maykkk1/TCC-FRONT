@@ -1,4 +1,7 @@
 <div class="cadastro">
+    <div class="header">
+        <fa-icon (click)="close()" [icon]="faX"></fa-icon>
+    </div>
     <form [formGroup]="form" *ngIf="!cadastrarAluno || codigoValidado ; else validacao">
         <legend class="title">Cadastro</legend>
         <div class="row">
