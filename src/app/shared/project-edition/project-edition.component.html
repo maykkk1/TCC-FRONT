@@ -1,0 +1,20 @@
+<mat-dialog-content>
+    <h2 class="title light">Novo projeto</h2>
+    <form [formGroup]="form">
+        <div class="form-group">
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" maxlength="50" class="form-control" formControlName="titulo" id="titulo">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input type="text" maxlength="255" class="form-control" formControlName="descricao" id="descricao">
+            </div>
+            <hr>
+        </div>
+        <div class="actions">
+            <app-custom-button  [texto]="'Sair'" [mat-dialog-close] [class]="'btn btn-danger'" [processing]="processing"></app-custom-button>
+            <app-custom-button (click)="addProject()"  [texto]="'Criar'" [class]="'btn btn-primary'" [processing]="processing"></app-custom-button>
+        </div>
+    </form>
+</mat-dialog-content>

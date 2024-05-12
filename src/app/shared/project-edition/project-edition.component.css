@@ -1,0 +1,10 @@
+.form-group {
+    margin-top: 10px !important;
+    color: white;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}

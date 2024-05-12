@@ -47,8 +47,6 @@
     color: rgba(237, 239, 242, 0.475) !important;
 }
 
-
-
 .sidenav-nav {
     list-style: none;
     padding-left: 0;
@@ -123,9 +121,48 @@
     filter: none !important;
 }
 
-.sidenav-nav-item.exit-item:hover{
+.sidenav-nav-item.exit-item:hover {
     background-color: var(--error-color);
 }
+
+.side-nav-title {
+    padding: 1px;
+    margin: 2px 0;
+    border-radius: 5px;
+    transition: ease-in-out 200ms;
+    position: relative;
+}
+
+.sidenav-nav-title {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-weight: lighter;
+    color: rgb(207, 203, 203);
+    font-size: 15px;
+    text-align: center;
+    transition: 400ms;
+}
+
+.sidenav-nav-title.collapesed {
+    text-align: left;
+}
+
+.add-project {
+    border: none;
+    background-color: #7230e49b;
+    border-radius: 2px;
+    color: gray;
+    height: 35px;
+    transition: 400ms;
+    font-weight: bold;
+}
+
+.add-project:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 
 
 

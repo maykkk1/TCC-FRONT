@@ -10,6 +10,7 @@
                 <span class="sidenav-link-text patente" [ngClass]="isCollapesed ? 'collapesed' : ''">Professor</span>
             </div>
         </li>
+        <h3 class="sidenav-nav-title" [ngClass]="isCollapesed ? 'collapesed' : ''">Geral</h3>
         <li class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/home']" class="sidenav-nav-link">
                 <div class="icone">
@@ -26,6 +27,16 @@
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Alunos</span>
             </a>
         </li>
+        <h3 class="sidenav-nav-title" [ngClass]="isCollapesed ? 'collapesed' : ''">Projetos</h3>
+        <li *ngFor="let projeto of projetos" class="sidenav-nav-item">
+            <a class="sidenav-nav-link" >
+                <div class="icone">
+                    <img src="../../assets/imagens/icones/project.png" alt="">
+                </div>
+                <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">{{ projeto.titulo }}</span>
+            </a>
+        </li>
+        <button (click)="addProject()" class="add-project"><fa-icon [icon]="faPlus"></fa-icon></button>
         <hr>
         <li (click)="logout()" class="sidenav-nav-item exit-item">
             <a class="sidenav-nav-link">

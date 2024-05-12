@@ -42,6 +42,7 @@ import { NotificationComponent } from './shared/notification/notification.compon
 import { ErrorModalComponent } from './shared/error-modal/error-modal.component';
 import { AlunosComponent } from './gerenciador/main/alunos/alunos.component';
 import { CodigoModalComponent } from './shared/codigo-modal/codigo-modal.component';
+import { ProjectEditionComponent } from './shared/project-edition/project-edition.component';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -73,7 +74,8 @@ registerLocaleData(localeBr, 'pt')
     NotificationComponent,
     ErrorModalComponent,
     AlunosComponent,
-    CodigoModalComponent
+    CodigoModalComponent,
+    ProjectEditionComponent
   ],
   imports: [
     BrowserModule,
