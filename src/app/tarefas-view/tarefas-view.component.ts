@@ -43,14 +43,30 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
 
   user: User | undefined;
 
-  @Input() isPrincipal: boolean = false;
+  @Input() isProjeto: boolean = false;
+  @Input() getByProjeto: boolean = true;
+
+  private _idProjeto: number;
+  @Input()
+  set idProjeto(value: number) {
+    if (value !== this._idProjeto) {
+      this._idProjeto = value;
+      this.tarefaSerice.getTarefasByProjetoId(this.idProjeto).subscribe(data => {
+        this.filtrarTarefas(data.data);
+      });
+    }
+  }
+
+  get idProjeto(): number {
+    return this._idProjeto;
+  }
 
   private _idAluno: number;
   @Input()
   set idAluno(value: number) {
     if (value !== this._idAluno) {
       this._idAluno = value;
-      this.tarefaSerice.getTarefas(this.isPrincipal, this.idAluno).subscribe(data => {
+      this.tarefaSerice.getTarefasByUserId(this.idAluno).subscribe(data => {
         this.filtrarTarefas(data.data);
       });
     }
@@ -77,12 +93,18 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.user = this.authService.getUser();
 
-    this.tarefaSerice.getTarefas(this.isPrincipal, this.idAluno != null ? this.idAluno : this.user?.id!).subscribe(data => {
-      this.filtrarTarefas(data.data);
-    });
+    if(this.getByProjeto){
+      this.tarefaSerice.getTarefasByProjetoId(this.idProjeto).subscribe(data => {
+        this.filtrarTarefas(data.data);
+      })
+    } else {
+      this.tarefaSerice.getTarefasByUserId(this.idAluno != null ? this.idAluno : this.user?.id!).subscribe(data => {
+        this.filtrarTarefas(data.data);
+      });
+    }
 
     this.task$Sub = this.tarefaSerice.taskChange.pipe(
-      switchMap(() => this.tarefaSerice.getTarefas(this.isPrincipal, this.idAluno != null ? this.idAluno : this.user?.id!))
+      switchMap(() => this.tarefaSerice.getTarefasByUserId(this.idAluno != null ? this.idAluno : this.user?.id!))
     ).subscribe(data => {
       this.filtrarTarefas(data.data);
     })
@@ -107,7 +129,7 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
 
     let newSituacao = this.containerIdToEnum(event.container.id);
 
-    if ((newSituacao == 3 || newSituacao == 4) && this.isPrincipal && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor) {
+    if ((newSituacao == 3 || newSituacao == 4) && this.isProjeto && !(event.previousContainer === event.container) && this.user?.tipo != TipoPessoaEnum.Professor) {
       this.mensagemService.ShowMessage("Apenas o orientador pode concluir tarefas principais.", 10000, false)
       return;
     }

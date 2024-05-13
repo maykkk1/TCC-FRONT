@@ -139,7 +139,7 @@
     margin: 0;
     font-weight: lighter;
     color: rgb(207, 203, 203);
-    font-size: 15px;
+    font-size: 14px;
     text-align: center;
     transition: 400ms;
 }
@@ -156,6 +156,11 @@
     height: 35px;
     transition: 400ms;
     font-weight: bold;
+}
+
+.add-project fa-icon {
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .add-project:hover {

@@ -9,7 +9,8 @@ export class Tarefa {
     descricao: string;
     situacao: SituacaoTarefaEnum;
     tipo: TipoTarefa
-    pessoaId: number;
+    pessoaId: number | null;
+    projetoId: number;
     createdById: number;
     createdBy: User | null;
     dataFinal: Date;

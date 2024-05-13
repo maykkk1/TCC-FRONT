@@ -1,6 +1,6 @@
-<div class="aluno-container">
+<div class="projeto-container">
 
-    <div class="aluno-container-nav">
+    <div class="projeto-container-nav">
         <ul class="nav">
             <li [ngClass]="viewSection == 0 ? 'selected-nav-item' : ''" class="nav-itens">
                 <a (click)="viewSection = 0">Atividades</a>
@@ -12,13 +12,13 @@
                 <fa-icon class="add-btn" (click)="openTarefaEdition()" matTooltip="Nova tarefa" [icon]="faPlus"></fa-icon>
             </li>
         </ul>
-        <div class="aluno-info">
-             {{ aluno.name }} <fa-icon class="user-icon" [icon]="faUser"></fa-icon>
+        <div class="projeto-info">
+             {{ projeto.titulo }} <fa-icon class="user-icon" [icon]="faUser"></fa-icon>
         </div>
     </div>
     <hr>
 
-    <app-tarefas-view *ngIf="viewSection == 1" [isProjeto]="true" [idAluno]="alunoId"></app-tarefas-view>
-    <app-atividades-view [idAluno]="alunoId" *ngIf="viewSection == 0"></app-atividades-view>
-
+    <app-tarefas-view [idProjeto]="projetoId" *ngIf="viewSection == 1"></app-tarefas-view>
+    <!-- <app-atividades-view *ngIf="viewSection == 0"></app-atividades-view> -->
 </div>
+

@@ -24,7 +24,7 @@ export class SecundariasComponent implements OnInit {
 
   openTarefaEdition(){
     const user = this.authService.getUser();
-    const dialogConf: tarefasEditionData = {isPrincipal: false, criadorId: user?.id!, destinatarioId: user?.id!};
+    const dialogConf: tarefasEditionData = {isProjeto: false, criadorId: user?.id!, destinatarioId: user?.id!};
     this.dialog.open(TarefasEditionComponent, {
       width: "500px",
       data: dialogConf

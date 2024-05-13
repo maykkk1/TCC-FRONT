@@ -8,6 +8,7 @@ import { SituacaoTarefaEnum } from '../../enums/situacaoTarefa.enum';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MensagemService } from 'src/app/services/mensagem.service';
 import { AtividadesService } from 'src/app/services/atividades.service';
+import { ProjetoService } from 'src/app/services/projeto.service';
 
 @Component({
   selector: 'app-tarefas-edition',
@@ -20,6 +21,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
   processing: boolean = false;
 
   constructor(private tarefaService: TarefaService,
+              private projetoService: ProjetoService,
                @Inject(MAT_DIALOG_DATA) public data: tarefasEditionData,
                private dialogRef: DialogRef<TarefasEditionComponent>,
                private mensagem: MensagemService,
@@ -39,8 +41,6 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
     tarefa.titulo = this.form.get('titulo')?.value;
     tarefa.descricao = this.form.get('descricao')?.value;
     tarefa.dataFinal = this.form.get('dataFinal')?.value;
-    tarefa.tipo = this.data.isPrincipal ? TipoTarefa.Principal : TipoTarefa.Secundaria;
-    tarefa.pessoaId = this.data.destinatarioId;
     tarefa.createdById = this.data.criadorId;
     tarefa.situacao = SituacaoTarefaEnum.Pendente;
 
@@ -52,8 +52,10 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if(this.data.isPrincipal){
-      this.tarefaService.savePrincipal(tarefa).subscribe(response => {
+    if(this.data.isProjeto){
+      tarefa.pessoaId = null;
+      tarefa.projetoId = this.data.destinatarioId;
+      this.projetoService.saveTarefa(tarefa).subscribe(response => {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
         this.processing = false;
         this.tarefaService.taskChange.next();
@@ -65,6 +67,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
         this.processing = false;
       });
     } else {
+      tarefa.pessoaId = this.data.destinatarioId;
       this.tarefaService.save(tarefa).subscribe(response => {
         this.mensagem.ShowMessage("Tarefa criada com sucesso!", 3000, true)
         this.processing = false;
@@ -90,7 +93,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
 }
 
 export interface tarefasEditionData {
-  isPrincipal: boolean;
+  isProjeto: boolean;
   criadorId: number;
   destinatarioId: number;
 }

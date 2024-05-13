@@ -6,7 +6,7 @@ import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tare
 import { AuthService } from 'src/app/auth/auth.service';
 import { faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import { AsideService } from 'src/app/services/aside.service';
-import { AlunoViewSectionEnum } from 'src/app/shared/enums/alunoViewSection.enum';
+import { ProjetoViewSectionEnum } from 'src/app/shared/enums/alunoViewSection.enum';
 import { User } from 'src/app/model/user.model';
 import { Subscription, switchMap } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
@@ -19,7 +19,7 @@ import { AlunoService } from 'src/app/services/aluno.service';
   styleUrls: ['./aluno.component.css']
 })
 export class AlunoComponent  implements OnInit, OnDestroy {
-  viewSection: AlunoViewSectionEnum = AlunoViewSectionEnum.Atividade;
+  viewSection: ProjetoViewSectionEnum = ProjetoViewSectionEnum.Atividade;
   alunoId: number;
   aluno: User;
   faPlus = faPlus;
@@ -55,7 +55,7 @@ export class AlunoComponent  implements OnInit, OnDestroy {
 
   openTarefaEdition(){
     const user = this.authService.getUser();
-    const dialogConf: tarefasEditionData = {isPrincipal: true, criadorId: user?.id!, destinatarioId: this.alunoId};
+    const dialogConf: tarefasEditionData = {isProjeto: true, criadorId: user?.id!, destinatarioId: this.alunoId};
     this.dialog.open(TarefasEditionComponent, {
       width: "500px",
       data: dialogConf

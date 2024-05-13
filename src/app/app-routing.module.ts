@@ -10,6 +10,7 @@ import { PrincipaisComponent } from './gerenciador/main/principais/principais.co
 import { SecundariasComponent } from './gerenciador/main/secundarias/secundarias.component';
 import { AlunoComponent } from './gerenciador/main/aluno/aluno.component';
 import { AlunosComponent } from './gerenciador/main/alunos/alunos.component';
+import { ProjetoComponent } from './gerenciador/main/projeto/projeto.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'gerenciador', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'principais', component: PrincipaisComponent },
     { path: 'secundarias', component: SecundariasComponent },
     { path: 'aluno/:id', component: AlunoComponent },
+    { path: 'projeto/:id', component: ProjetoComponent },
     { path: 'alunos', component: AlunosComponent }
   ]},
   { path: '**', component: GerenciadorComponent }

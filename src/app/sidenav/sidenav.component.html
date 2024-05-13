@@ -10,6 +10,7 @@
                 <span class="sidenav-link-text patente" [ngClass]="isCollapesed ? 'collapesed' : ''">Professor</span>
             </div>
         </li>
+
         <h3 class="sidenav-nav-title" [ngClass]="isCollapesed ? 'collapesed' : ''">Geral</h3>
         <li class="sidenav-nav-item">
             <a [routerLink]="['/gerenciador/home']" class="sidenav-nav-link">
@@ -19,6 +20,7 @@
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Home</span>
             </a>
         </li>
+
         <li *ngIf="user.tipo == 1" class="sidenav-nav-item">
             <a class="sidenav-nav-link" [routerLink]="['/gerenciador/alunos']">
                 <div class="icone">
@@ -27,15 +29,17 @@
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Alunos</span>
             </a>
         </li>
+
         <h3 class="sidenav-nav-title" [ngClass]="isCollapesed ? 'collapesed' : ''">Projetos</h3>
         <li *ngFor="let projeto of projetos" class="sidenav-nav-item">
-            <a class="sidenav-nav-link" >
+            <a class="sidenav-nav-link" [routerLink]="['/gerenciador/projeto/' + projeto.id]">
                 <div class="icone">
-                    <img src="../../assets/imagens/icones/project.png" alt="">
+                    <img [ngClass]="selectedMenu == 'projeto'+projeto.id ? 'selected-menu-item' : ''" src="../../assets/imagens/icones/project.png" alt="">
                 </div>
-                <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">{{ projeto.titulo }}</span>
+                <span class="sidenav-link-text text-truncate" [ngClass]="isCollapesed ? 'collapesed' : ''">{{ projeto.titulo }}</span>
             </a>
         </li>
+
         <button (click)="addProject()" class="add-project"><fa-icon [icon]="faPlus"></fa-icon></button>
         <hr>
         <li (click)="logout()" class="sidenav-nav-item exit-item">
@@ -46,6 +50,7 @@
                 <span class="sidenav-link-text" [ngClass]="isCollapesed ? 'collapesed' : ''">Sair</span>
             </a>
         </li>
+
     </ul>
     
 </aside>
