@@ -82,6 +82,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
     const user = this.authService.getUser();
     this.dialog.open(ProjectEditionComponent, {
       width: "500px",
+      data: { edition: false, project: null }
     });
   }
 

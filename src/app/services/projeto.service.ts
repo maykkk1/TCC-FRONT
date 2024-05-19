@@ -65,4 +65,13 @@ export class ProjetoService {
     });
     return this.http.post<any>(`${this.getUrl()}/tarefa`, tarefa, { headers });
   }
+
+  updateProjeto(projeto: Projeto){
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put<any>(`${this.getUrl()}`, projeto, { headers });
+  }
 }

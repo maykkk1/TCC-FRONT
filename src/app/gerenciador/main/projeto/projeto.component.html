@@ -13,7 +13,7 @@
             </li>
         </ul>
         <div class="projeto-info">
-             {{ projeto.titulo }} <fa-icon class="user-icon" [icon]="faUser"></fa-icon>
+             {{ projeto.titulo }} <fa-icon (click)="editProject()" class="user-icon" [icon]="faPenToSquare"></fa-icon>
         </div>
     </div>
     <hr>

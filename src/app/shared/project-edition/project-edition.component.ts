@@ -1,6 +1,8 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Projeto } from 'src/app/model/projeto.model';
 import { MensagemService } from 'src/app/services/mensagem.service';
 import { ProjetoService } from 'src/app/services/projeto.service';
 
@@ -13,16 +15,31 @@ export class ProjectEditionComponent implements OnInit {
   form: FormGroup;
   processing: boolean = false;
 
+
   constructor(private projetoService: ProjetoService,
               private messagemService: MensagemService,
+              @Inject(MAT_DIALOG_DATA) public data: { edition: boolean, project: Projeto },
               private dialogRef: DialogRef<ProjectEditionComponent>
   ){}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      titulo: new FormControl(null),
-      descricao: new FormControl(null)
-    })
+    if(this.data.edition){
+      this.form = new FormGroup({
+        titulo: new FormControl(this.data.project.titulo),
+        descricao: new FormControl(this.data.project.descricao)
+      })
+    } else {
+      this.form = new FormGroup({
+        titulo: new FormControl(null),
+        descricao: new FormControl(null)
+      })
+    }
+  }
+
+  save(){
+    this.data.edition 
+    ? this.updateProject()
+    : this.addProject()
   }
 
   addProject(){
@@ -33,9 +50,22 @@ export class ProjectEditionComponent implements OnInit {
       this.projetoService.projetosChange.next();
       this.processing = false;
     }, error => {
-      this.messagemService.ShowMessage("Error", 4000, false)
+      this.messagemService.ShowMessage("Ocorreu um erro ao tentar criar o projeto", 4000, false)
       this.processing = false
     })
+  }
+
+  updateProject(){
+    const projeto = { ... this.data.project };
+    projeto.titulo = this.form.get("titulo")?.value;
+    projeto.descricao = this.form.get("descricao")?.value;
+    this.projetoService.updateProjeto(projeto).subscribe(response => {
+      this.messagemService.ShowMessage("Projeto editado com sucesso!", 4000, true)
+      this.dialogRef.close();
+      this.projetoService.projetosChange.next();
+    }, error => {
+      this.messagemService.showErrorModal(error.error)
+    });
   }
 
 }
