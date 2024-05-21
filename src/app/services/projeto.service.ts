@@ -5,6 +5,7 @@ import { Projeto } from '../model/projeto.model';
 import { RequestResult } from '../shared/requestResult/request-result.model';
 import { Subject } from 'rxjs';
 import { Tarefa } from '../model/tarefa.model';
+import { ProjetoPessoaRelacionamento } from '../model/projeto-pessoa-relacionamento.model';
 
 @Injectable({
   providedIn: 'root'
@@ -73,5 +74,30 @@ export class ProjetoService {
       'Authorization': `Bearer ${token}`
     });
     return this.http.put<any>(`${this.getUrl()}`, projeto, { headers });
+  }
+
+  getAllIntegrantes(projetoId: number){
+    const token = this.authService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    const params = new HttpParams()
+      .set('projetoId', projetoId);
+
+    return this.http.get<any>(`${this.getUrl()}/all-integrantes`, { headers, params });
+  }
+
+  addIntegrante(relacionamento: ProjetoPessoaRelacionamento){
+    const token = this.authService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.post<any>(`${this.getUrl()}/add-integrante`, relacionamento, { headers });
   }
 }

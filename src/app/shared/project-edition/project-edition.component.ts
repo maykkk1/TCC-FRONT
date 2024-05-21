@@ -61,6 +61,8 @@ export class ProjectEditionComponent implements OnInit {
     projeto.descricao = this.form.get("descricao")?.value;
     this.projetoService.updateProjeto(projeto).subscribe(response => {
       this.messagemService.ShowMessage("Projeto editado com sucesso!", 4000, true)
+      this.data.project.titulo = projeto.titulo;
+      this.data.project.descricao = projeto.descricao;
       this.dialogRef.close();
       this.projetoService.projetosChange.next();
     }, error => {

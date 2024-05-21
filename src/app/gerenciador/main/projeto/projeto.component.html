@@ -11,6 +11,9 @@
             <li class="nav-itens">
                 <fa-icon class="add-btn" (click)="openTarefaEdition()" matTooltip="Nova tarefa" [icon]="faPlus"></fa-icon>
             </li>
+            <li class="nav-itens">
+                <fa-icon class="add-btn" (click)="addAluno()" matTooltip="Adicionar aluno" [icon]="faUserPlus"></fa-icon>
+            </li>
         </ul>
         <div class="projeto-info">
              {{ projeto.titulo }} <fa-icon (click)="editProject()" class="user-icon" [icon]="faPenToSquare"></fa-icon>

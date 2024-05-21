@@ -77,7 +77,7 @@ body {
   border-color: var(--primary-color);
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus {
   background-color: #4a17a0;
   border-color: var(--primary-color);
 }
@@ -91,7 +91,7 @@ body {
   background-color: var(--secondary-color);
 }
 
-.btn-success:hover {
+.btn-success:hover, .btn-success:focus {
   background-color:#04783a;
 }
 

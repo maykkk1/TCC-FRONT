@@ -44,6 +44,7 @@ import { AlunosComponent } from './gerenciador/main/alunos/alunos.component';
 import { CodigoModalComponent } from './shared/codigo-modal/codigo-modal.component';
 import { ProjectEditionComponent } from './shared/project-edition/project-edition.component';
 import { ProjetoComponent } from './gerenciador/main/projeto/projeto.component';
+import { AddAlunoModalComponent } from './shared/add-aluno-modal/add-aluno-modal.component';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -77,7 +78,8 @@ registerLocaleData(localeBr, 'pt')
     AlunosComponent,
     CodigoModalComponent,
     ProjectEditionComponent,
-    ProjetoComponent
+    ProjetoComponent,
+    AddAlunoModalComponent
   ],
   imports: [
     BrowserModule,

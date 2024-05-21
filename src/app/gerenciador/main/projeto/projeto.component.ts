@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { faPlus, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPenToSquare, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Subscription, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Projeto } from 'src/app/model/projeto.model';
@@ -10,6 +10,7 @@ import { AlunoService } from 'src/app/services/aluno.service';
 import { AsideService } from 'src/app/services/aside.service';
 import { AtividadesService } from 'src/app/services/atividades.service';
 import { ProjetoService } from 'src/app/services/projeto.service';
+import { AddAlunoModalComponent } from 'src/app/shared/add-aluno-modal/add-aluno-modal.component';
 import { ProjetoViewSectionEnum } from 'src/app/shared/enums/alunoViewSection.enum';
 import { ProjectEditionComponent } from 'src/app/shared/project-edition/project-edition.component';
 import { TarefasEditionComponent, tarefasEditionData } from 'src/app/shared/tarefa/tarefas-edition/tarefas-edition.component';
@@ -26,6 +27,7 @@ export class ProjetoComponent {
   projetoId: number;
   faPlus = faPlus;
   faPenToSquare = faPenToSquare;
+  faUserPlus = faUserPlus;
 
   viewHandler$Sub: Subscription;
 
@@ -33,7 +35,6 @@ export class ProjetoComponent {
               private dialog: MatDialog,
               private authService: AuthService,
               private asideService: AsideService,
-              private atividadesService: AtividadesService,
               private alunoService: AlunoService,
               private projetoService: ProjetoService){ }
 
@@ -69,6 +70,13 @@ export class ProjetoComponent {
     this.dialog.open(ProjectEditionComponent, {
       width: "500px",
       data: { edition: true, project: this.projeto }
+    });
+  }
+
+  addAluno(){
+    this.dialog.open(AddAlunoModalComponent, {
+      width: "500px",
+      data: { projetoId: this.projetoId }
     });
   }
 

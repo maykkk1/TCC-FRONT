@@ -1,0 +1,10 @@
+<div class="add-aluno-container">
+    <h3 class="title">Meu alunos</h3>
+    <hr>
+    <ul class="alunos">
+        <li *ngFor="let aluno of alunos;let i = index" class="aluno">
+            <p>{{ aluno.name }}</p>
+            <app-custom-button (click)="relacionamentoHanlder(i)" [texto]="aluno.status == 0 ? 'Remover' : 'Adicionar'" [class]="aluno.status == 1 ? 'btn btn-primary' : 'btn btn-danger'" [processing]="false"></app-custom-button>
+        </li>
+    </ul>
+</div>
