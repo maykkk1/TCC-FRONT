@@ -50,7 +50,7 @@ export class ProjectEditionComponent implements OnInit {
       this.projetoService.projetosChange.next();
       this.processing = false;
     }, error => {
-      this.messagemService.ShowMessage("Ocorreu um erro ao tentar criar o projeto", 4000, false)
+      this.messagemService.showErrorModal(error.error);
       this.processing = false
     })
   }

@@ -40,7 +40,7 @@
             </a>
         </li>
 
-        <button (click)="addProject()" class="add-project"><fa-icon [icon]="faPlus"></fa-icon></button>
+        <button *ngIf="user.tipo == 1" (click)="addProject()" class="add-project"><fa-icon [icon]="faPlus"></fa-icon></button>
         <hr>
         <li (click)="logout()" class="sidenav-nav-item exit-item">
             <a class="sidenav-nav-link">

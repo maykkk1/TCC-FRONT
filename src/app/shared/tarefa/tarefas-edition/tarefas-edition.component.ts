@@ -48,6 +48,7 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
     tarefa.dataFinal = this.form.get('dataFinal')?.value;
     tarefa.createdById = this.data.criadorId;
     tarefa.situacao = SituacaoTarefaEnum.Pendente;
+    tarefa.dificuldade = this.form.get('dificuldade')?.value;
 
     if(!this.form.get('descricao')?.valid || !this.form.get('titulo')?.valid){
       this.form.markAllAsTouched();

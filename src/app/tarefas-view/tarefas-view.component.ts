@@ -105,7 +105,12 @@ export class TarefasViewComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     this.task$Sub = this.tarefaSerice.taskChange.pipe(
-      switchMap(() => this.tarefaSerice.getTarefasByUserId(this.idAluno != null ? this.idAluno : this.user?.id!))
+      switchMap(() => {
+        if(this.getByProjeto){
+          return this.tarefaSerice.getTarefasByProjetoId(this.idProjeto);
+        }
+        return this.tarefaSerice.getTarefasByUserId(this.idAluno != null ? this.idAluno : this.user?.id!)
+      })
     ).subscribe(data => {
       this.filtrarTarefas(data.data);
     })
