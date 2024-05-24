@@ -20,11 +20,23 @@
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="actions">
-                <app-custom-button (click)="resetForm()" [texto]="'Sair'" [mat-dialog-close] [class]="'btn btn-danger'" [processing]="processing"></app-custom-button>
-                <app-custom-button (click)="salvarTarefa()" [texto]="'Criar'" [class]="'btn btn-primary'" [processing]="processing"></app-custom-button>
+            <div class="dificuldade">
+                <div class="label-icons">
+                    <label for="dificuldade">Dificuldade</label>
+                    <div class="icons">
+                        <fa-icon *ngFor="let item of dificuldade" [icon]="faGraduationCap"></fa-icon>
+                    </div>
+                </div>
+                <mat-slider  min="0" max="3" step="1" showTickMarks discrete [displayWith]="formatLabel">
+                    <input (valueChange)="dificuldadeChange($event)" formControlName="dificuldade" matSliderThumb>
+                  </mat-slider>
             </div>
         </div>
     </form>
 </mat-dialog-content>
+<mat-dialog-actions style="display: block; padding: 10px 20px;">
+    <div class="actions">
+        <app-custom-button (click)="resetForm()" [texto]="'Sair'" [mat-dialog-close] [class]="'btn btn-danger'" [processing]="processing"></app-custom-button>
+        <app-custom-button (click)="salvarTarefa()" [texto]="'Criar'" [class]="'btn btn-primary'" [processing]="processing"></app-custom-button>
+    </div>
+</mat-dialog-actions>

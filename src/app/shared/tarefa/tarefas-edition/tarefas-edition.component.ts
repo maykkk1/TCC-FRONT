@@ -3,12 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Tarefa } from 'src/app/model/tarefa.model';
 import { TarefaService } from 'src/app/services/tarefa-service.service';
-import { TipoTarefa } from '../../enums/tipoTarefa.enum';
 import { SituacaoTarefaEnum } from '../../enums/situacaoTarefa.enum';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MensagemService } from 'src/app/services/mensagem.service';
 import { AtividadesService } from 'src/app/services/atividades.service';
 import { ProjetoService } from 'src/app/services/projeto.service';
+import { faGraduationCap, faStar } from '@fortawesome/free-solid-svg-icons';
+import { DificuldadeTarefaEnum } from '../../enums/dificuldadeTarefa.enum';
 
 @Component({
   selector: 'app-tarefas-edition',
@@ -16,6 +17,9 @@ import { ProjetoService } from 'src/app/services/projeto.service';
   styleUrls: ['./tarefas-edition.component.css']
 })
 export class TarefasEditionComponent implements OnInit, OnDestroy {
+  faGraduationCap = faGraduationCap;
+  dificuldade:number[] = [0];
+
   form: FormGroup;
   error: boolean = false;
   processing: boolean = false;
@@ -31,7 +35,8 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       titulo: new FormControl(null, Validators.required),
       descricao: new FormControl(null, Validators.required),
-      dataFinal: new FormControl(null)
+      dataFinal: new FormControl(null),
+      dificuldade: new FormControl(0)
     });
   }
 
@@ -88,6 +93,29 @@ export class TarefasEditionComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
+  }
+
+  dificuldadeChange(event: any){
+    const outroArray =  [];
+    for (let i = 0; i < event + 1; i++) {
+      outroArray.push(i);
+    }
+    this.dificuldade = [...outroArray];
+  }
+
+  formatLabel(value: number): string {
+    switch (value) {
+      case DificuldadeTarefaEnum.Facil:
+        return 'Fácil';
+      case DificuldadeTarefaEnum.Normal:
+        return 'Normal';
+      case DificuldadeTarefaEnum.Dificil:
+        return 'Difícil';
+      case DificuldadeTarefaEnum.Lendaria:
+        return 'Lendária';
+      default:
+        return `${value}`;
+    }
   }
 
 }

@@ -3,10 +3,18 @@
     color: white;
 }
 
+.mat-dialog-content {
+    height: 100vh !important;
+}
+
 .actions {
     display: flex;
     justify-content: flex-end;
     gap: 5px;
+}
+
+form {
+    padding: 10px;
 }
 
 small {
@@ -25,5 +33,23 @@ input.ng-invalid.ng-touched.error {
 
 textarea.ng-invalid.ng-touched.error {
     border-color: var(--error-color);
+}
+
+.dificuldade {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.label-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icons {
+    color: var(--secondary-color);
+    display: flex;
+    gap: 5px;
 }
 

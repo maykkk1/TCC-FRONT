@@ -45,6 +45,7 @@ import { CodigoModalComponent } from './shared/codigo-modal/codigo-modal.compone
 import { ProjectEditionComponent } from './shared/project-edition/project-edition.component';
 import { ProjetoComponent } from './gerenciador/main/projeto/projeto.component';
 import { AddAlunoModalComponent } from './shared/add-aluno-modal/add-aluno-modal.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -94,7 +95,8 @@ registerLocaleData(localeBr, 'pt')
     MatTooltipModule,
     MatProgressSpinnerModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSliderModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]

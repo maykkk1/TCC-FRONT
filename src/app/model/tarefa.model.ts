@@ -1,3 +1,4 @@
+import { DificuldadeTarefaEnum } from "../shared/enums/dificuldadeTarefa.enum";
 import { SituacaoTarefaEnum } from "../shared/enums/situacaoTarefa.enum";
 import { TipoTarefa } from "../shared/enums/tipoTarefa.enum";
 import { Comentario } from "./comentario.model";
@@ -8,7 +9,8 @@ export class Tarefa {
     titulo: string;
     descricao: string;
     situacao: SituacaoTarefaEnum;
-    tipo: TipoTarefa
+    tipo: TipoTarefa;
+    dificuldade: DificuldadeTarefaEnum;
     pessoaId: number | null;
     projetoId: number;
     createdById: number;
