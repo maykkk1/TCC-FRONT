@@ -48,7 +48,7 @@ textarea.ng-invalid.ng-touched.error {
 }
 
 .icons {
-    color: var(--secondary-color);
+    color: #ffd700;
     display: flex;
     gap: 5px;
 }

@@ -14,12 +14,15 @@
     <p>{{ tarefa.descricao.length > 70 ? tarefa.descricao.slice(0, 70) + '...' : tarefa.descricao }} <strong (click)="openTarefa(false)"
             *ngIf="tarefa.descricao.length > 70">veja mais</strong></p>
     <hr>
-    <div class="data-action">
-        <div class="date">
+    <div class="data-action row">
+        <div class="dificuldade col-4 justify-content-start">
+            <fa-icon *ngFor="let item of createRange(tarefa.dificuldade + 1);" [icon]="faStar"></fa-icon>
+        </div>
+        <div class="date col-4 justify-content-center">
             <span *ngIf="tarefa.dataFinal" matTooltip="Data de Entrega">{{ tarefa.dataFinal| date : 'dd/MM/yyyy'
                 }}</span>
         </div>
-        <div class="actions">
+        <div class="actions col-4 justify-content-end">
             <div [appContador]="tarefa.comentarios.length" class="icon-wrapper">
                 <fa-icon (click)="openTarefa(true)"  [icon]="faMessage"></fa-icon>
             </div>

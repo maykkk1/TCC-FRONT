@@ -22,6 +22,6 @@
     <hr>
 
     <app-tarefas-view [idProjeto]="projetoId" *ngIf="viewSection == 1"></app-tarefas-view>
-    <!-- <app-atividades-view *ngIf="viewSection == 0"></app-atividades-view> -->
+    <app-atividades-view [ativividades]="projeto.atividades" *ngIf="viewSection == 0"></app-atividades-view>
 </div>
 

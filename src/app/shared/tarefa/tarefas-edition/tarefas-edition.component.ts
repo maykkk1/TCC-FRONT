@@ -8,7 +8,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { MensagemService } from 'src/app/services/mensagem.service';
 import { AtividadesService } from 'src/app/services/atividades.service';
 import { ProjetoService } from 'src/app/services/projeto.service';
-import { faGraduationCap, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { DificuldadeTarefaEnum } from '../../enums/dificuldadeTarefa.enum';
 
 @Component({
@@ -17,7 +17,7 @@ import { DificuldadeTarefaEnum } from '../../enums/dificuldadeTarefa.enum';
   styleUrls: ['./tarefas-edition.component.css']
 })
 export class TarefasEditionComponent implements OnInit, OnDestroy {
-  faGraduationCap = faGraduationCap;
+  faStar = faStar;
   dificuldade:number[] = [0];
 
   form: FormGroup;

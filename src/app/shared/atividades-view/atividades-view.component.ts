@@ -8,13 +8,17 @@ import { AtividadesService } from 'src/app/services/atividades.service';
   templateUrl: './atividades-view.component.html',
   styleUrls: ['./atividades-view.component.css']
 })
-export class AtividadesViewComponent implements OnInit{
+export class AtividadesViewComponent implements OnInit {
+  @Input()
   ativividades: Atividade[]
   private _idAluno: number;
 
   constructor(private atividadesService: AtividadesService){}
 
   ngOnInit(): void {
+    if(this.idAluno == null)
+      return;
+
     this.atividadesService.atividadeChange.pipe(
       switchMap(() => this.atividadesService.getAllById(this._idAluno))
     ).subscribe(atividades => this.ativividades = atividades.data)

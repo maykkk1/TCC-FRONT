@@ -103,3 +103,13 @@ strong {
 .menu:active, .menu:hover, .menu:focus {
     border: none;
 }
+
+
+.dificuldade fa-icon {
+   color: gold;
+}
+
+.col-6 {
+    margin: 0 !important;
+    padding: 0 !important;
+}

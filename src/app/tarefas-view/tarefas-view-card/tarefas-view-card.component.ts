@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Tarefa } from 'src/app/model/tarefa.model';
-import { faEdit, faEllipsis, faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faEllipsis, faMessage, faStar } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { TarefaModalComponent } from 'src/app/shared/tarefa/tarefa-modal/tarefa-modal.component';
 import { TarefaService } from 'src/app/services/tarefa-service.service';
 import { MensagemService } from 'src/app/services/mensagem.service';
+import { DificuldadeTarefaEnum } from 'src/app/shared/enums/dificuldadeTarefa.enum';
 
 @Component({
   selector: 'app-tarefas-view-card',
@@ -15,6 +16,7 @@ export class TarefasViewCardComponent {
   faEdit = faEdit;
   faMessage = faMessage;
   faEllipsis = faEllipsis;
+  faStar = faStar;
   @Input() tarefa: Tarefa;
 
   constructor(private dialog: MatDialog,
@@ -40,5 +42,10 @@ export class TarefasViewCardComponent {
         this.messageService.ShowMessage("Ocorreu um erro ao excluir a tarefa.", 5000, false);
       }
     });;
+  }
+
+  createRange(number: number){
+    return new Array(number).fill(0)
+      .map((n, index) => index + 1);
   }
 }
