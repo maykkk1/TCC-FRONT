@@ -1,4 +1,5 @@
 import { TipoPessoaEnum } from "../shared/enums/tipoPessoa.enum";
+import { Rank } from "./rank.model";
 
 export class User {
     id: number;
@@ -6,6 +7,7 @@ export class User {
     email: string;
     tipo: TipoPessoaEnum;
     password: string;
+    rank: Rank;
 
     constructor(name: string, email: string, tipo: TipoPessoaEnum, password: string) {
         this.name = name;
