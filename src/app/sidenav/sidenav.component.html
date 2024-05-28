@@ -3,7 +3,7 @@
     <ul class="sidenav-nav">
         <li class="user">
             <div class="icone">
-                <img src="../../assets/imagens/icones/badge.png" alt="">
+                <img [src]="'../../assets/imagens/ranks/' + user.rank.nome + '.png'" alt="">
             </div>
             <div class="usuario-name">
                 <span class="sidenav-link-text name" [ngClass]="isCollapesed ? 'collapesed' : ''">{{ user.name }}</span>
