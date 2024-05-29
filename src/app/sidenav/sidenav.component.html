@@ -2,7 +2,7 @@
     <button (click)="asideHandler()" class="menu-handler">{{ isCollapesed ? '<' : '>' }}</button>
     <ul class="sidenav-nav">
         <li class="user">
-            <div class="icone">
+            <div class="icone" [matTooltip]="isCollapesed ? '' : user.rank.nome">
                 <img [src]="'../../assets/imagens/ranks/' + user.rank.nome + '.png'" alt="">
             </div>
             <div class="usuario-name">
