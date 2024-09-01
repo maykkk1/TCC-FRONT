@@ -1,1 +1,15 @@
-<button (click)="gerarCodigo()">Gerar</button>
+<div class="alunos">
+    <h2 class="title">Meus alunos <fa-icon class="add-btn" (click)="gerarCodigo()" matTooltip="Gerar código para o aluno" [icon]="faUserPlus"></fa-icon></h2>   
+
+    <hr>
+
+    <div *ngFor="let aluno of alunos">
+        <app-user-card  [user]="aluno"></app-user-card>
+        <hr style="color: rgba(255, 255, 255, 0.315);">
+    </div>
+
+
+
+
+
+</div>

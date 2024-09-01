@@ -6,6 +6,7 @@
     left: 0;
     background-color: var(--light-dark-bd-color);
     padding: 5px;
+    z-index: 500000;
 }
 
 .menu-handler {
@@ -21,6 +22,13 @@
     height: 60px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    z-index: 100000999;
+}
+
+.sidenav-content {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
 }
 
 .menu-handler:hover {
@@ -67,6 +75,18 @@
     align-items: center;
     text-decoration: none;
     transition: ease-in-out 400ms;
+}
+
+.rank-wrapper {
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.rank-wrapper img {
+    width: 100%;
 }
 
 .icone {

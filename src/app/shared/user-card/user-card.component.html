@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="user-card">
+            <div class="rank">
+                <div class="img-wrapper">
+                    <img [src]="'../../../assets/imagens/ranks/' + user.rank.nome + '.webp'" alt="">
+                </div>
+                <p>{{ user.rank.nome }}</p>
+            </div>
+            <div class="info">
+                <p style="font-weight: bold;">{{ user.name }} {{ user.sobrenome }}</p>
+                <p>{{ user.email}}</p>
+                <p>{{ user.telefone }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="conquistas">
+            <div [matTooltip]="conquista.titulo" *ngFor="let conquista of conquistas" class="img-wrapper">
+                <img [src]="'../../../assets/imagens/conquistas/' + conquista.id + '.webp'" alt="">
+            </div>
+            <div *ngIf="conquistas.length > 0" [matTooltip]="'Ver mais'" class="img-wrapper">
+                <img  style="cursor: pointer;" [routerLink]="['/gerenciador/conquistas']" style="cursor: pointer;" src="../../../assets/imagens/mais.webp" alt="">
+            </div>
+        </div>
+    </div>
+</div>

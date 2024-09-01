@@ -1,0 +1,16 @@
+<div class="conquistas">
+    <h2 class="title">Conquistas</h2>
+    <hr>
+    <div *ngFor="let conquista of conquistas" class="conquista">
+        <div class="img-wrapper">
+            <img [src]="'../../../../assets/imagens/conquistas/' + conquista.id + '.webp'" alt="">
+        </div>
+
+        <div class="text">
+            <h3 style="font-weight: bolder;">{{ conquista.titulo }}</h3>
+            <p>{{ conquista.descricao }}</p>
+            <small>Alcançada por <Strong>{{ conquista.porcentagem  | number:'1.2-2'}}%</Strong> dos usuários.</small>
+        </div>
+
+    </div>
+</div>

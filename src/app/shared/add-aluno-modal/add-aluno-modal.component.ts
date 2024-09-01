@@ -3,9 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Integrante } from 'src/app/model/integrante.model';
 import { ProjetoPessoaRelacionamento } from 'src/app/model/projeto-pessoa-relacionamento.model';
-import { User } from 'src/app/model/user.model';
 import { ProjetoService } from 'src/app/services/projeto.service';
-import { UserService } from 'src/app/services/user.service';
 import { StatusEnum } from '../enums/status.enum';
 
 @Component({

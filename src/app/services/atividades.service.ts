@@ -32,4 +32,14 @@ export class AtividadesService {
     
     return this.http.get<RequestResult<Atividade[]>>(this.getUrl(), { headers, params });
   }
+
+
+  Notificar(notificao: {descricao:string}){
+    const token = this.authService.getAdmToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post<any>(`${this.getUrl()}/notificacao`, notificao, { headers });
+  }
 }

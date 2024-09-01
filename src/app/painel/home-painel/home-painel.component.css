@@ -1,0 +1,15 @@
+h2 {
+    font-size: 2rem !important;
+}
+
+.notificacao form, .links form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notificacao form label {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+

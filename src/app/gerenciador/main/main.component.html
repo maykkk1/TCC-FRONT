@@ -1,4 +1,4 @@
-<main [ngClass]="isAsideCollapesed ? 'aside-collapped' : ''">
+<main [ngClass]="isAsideCollapesed && isSmallScreen ? 'aside-collapped' : ''">
     <div class="main-wrapper">
         <router-outlet></router-outlet>
     </div>

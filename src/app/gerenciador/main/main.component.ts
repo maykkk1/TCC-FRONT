@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AsideService } from '../../services/aside.service';
 import { Subscription } from 'rxjs';
+import { ScreenHelperService } from 'src/app/services/screen-helper.service';
 
 @Component({
   selector: 'app-main',
@@ -10,8 +11,9 @@ import { Subscription } from 'rxjs';
 export class MainComponent implements OnDestroy, OnInit {
   isAsideCollapesed: Boolean;
   isAsideCollapesed$Subscription: Subscription;
+  isSmallScreen: boolean;
 
-  constructor(private asideService: AsideService){}
+  constructor(private asideService: AsideService, private screenHelperService: ScreenHelperService){}
 
   ngOnInit(): void {
     this.isAsideCollapesed = this.asideService.getCollapesedValue();
@@ -19,6 +21,10 @@ export class MainComponent implements OnDestroy, OnInit {
     this.isAsideCollapesed$Subscription = this.asideService.collapsedChange.subscribe(value => {
       this.isAsideCollapesed = value;
     })
+
+    this.screenHelperService.isGreaterThanSmallScreen().subscribe(value => {
+      this.isSmallScreen = value
+    });
   }
 
 

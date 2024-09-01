@@ -46,6 +46,12 @@ import { ProjectEditionComponent } from './shared/project-edition/project-editio
 import { ProjetoComponent } from './gerenciador/main/projeto/projeto.component';
 import { AddAlunoModalComponent } from './shared/add-aluno-modal/add-aluno-modal.component';
 import {MatSliderModule} from '@angular/material/slider';
+import { ConquistasComponent } from './gerenciador/main/conquistas/conquistas.component';
+import { UserCardComponent } from './shared/user-card/user-card.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { PainelComponent } from './painel/painel.component';
+import { HomePainelComponent } from './painel/home-painel/home-painel.component';
+import { LoginPainelComponent } from './painel/login-painel/login-painel.component';
 
 registerLocaleData(localeBr, 'pt')
 @NgModule({
@@ -80,7 +86,12 @@ registerLocaleData(localeBr, 'pt')
     CodigoModalComponent,
     ProjectEditionComponent,
     ProjetoComponent,
-    AddAlunoModalComponent
+    AddAlunoModalComponent,
+    ConquistasComponent,
+    UserCardComponent,
+    PainelComponent,
+    HomePainelComponent,
+    LoginPainelComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +107,8 @@ registerLocaleData(localeBr, 'pt')
     MatProgressSpinnerModule,
     FormsModule,
     MatMenuModule,
-    MatSliderModule
+    MatSliderModule,
+    MatProgressBarModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]

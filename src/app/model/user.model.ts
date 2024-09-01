@@ -4,9 +4,12 @@ import { Rank } from "./rank.model";
 export class User {
     id: number;
     name: string;
+    sobrenome: string;
     email: string;
+    telefone: string;
     tipo: TipoPessoaEnum;
     password: string;
+    pontos: number;
     rank: Rank;
 
     constructor(name: string, email: string, tipo: TipoPessoaEnum, password: string) {

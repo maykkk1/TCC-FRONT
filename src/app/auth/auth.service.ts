@@ -4,6 +4,7 @@ import { CadastroUser, User } from '../model/user.model';
 import { Router } from '@angular/router';
 import { Auth } from '../model/auth.model';
 import { MensagemService } from '../services/mensagem.service';
+import { TipoPessoaEnum } from '../shared/enums/tipoPessoa.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class AuthService {
     private router: Router,
     private mensagemService: MensagemService) { }
   auth: Auth | null;
+  authAdm: Auth | null;
 
   private getUrl(){
     return "http://localhost:5149";
@@ -34,8 +36,16 @@ export class AuthService {
     return this.auth?.token;
   }
 
+  getAdmToken(){
+    return this.authAdm?.token;
+  }
+
   isAuthenticated(){
     return this.auth != null;
+  }
+
+  isAdmAuthenticated(){
+    return this.authAdm != null;
   }
 
   cadastro(user: CadastroUser){
@@ -53,9 +63,11 @@ export class AuthService {
   }
 
   onStart(){
-    const auth: Auth = JSON.parse(localStorage.getItem('gerenciador-auth')!);
-    if(auth != null){
-      this.auth = auth;
+    const authBack: Auth = JSON.parse(localStorage.getItem('gerenciador-auth')!);
+    if(authBack.user.tipo == TipoPessoaEnum.Adm && authBack != null) {
+      this.authAdm = authBack
+    } else {
+      this.auth = authBack
     }
   }
 
@@ -66,8 +78,18 @@ export class AuthService {
     return this.http.post<Auth>(`${this.getUrl()}/auth/login`, user, { headers })
       .subscribe(response => {
         localStorage.setItem('gerenciador-auth', JSON.stringify(response))
-        this.auth = response;
-        this.router.navigate(['gerenciador']);
+        if(response.user.tipo == TipoPessoaEnum.Adm){
+          this.authAdm = response;
+        } else {
+          this.auth = response;
+        }
+
+        if(this.auth != null) {
+          this.router.navigate(['gerenciador']);
+        } else {
+          this.router.navigate(['painel/home']);
+        }
+        
         this.mensagemService.ShowMessage("Login efetuado com sucesso!", 3000, true);
       }, error => {
         if(error.error.message){

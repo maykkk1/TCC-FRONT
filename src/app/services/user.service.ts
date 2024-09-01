@@ -4,6 +4,7 @@ import { AuthService } from '../auth/auth.service';
 import { User } from '../model/user.model';
 import { RequestResult } from '../shared/requestResult/request-result.model';
 import { CodigoCadastro } from '../model/codigo-cadastro.model';
+import { Conquista } from '../model/conquista.model';
 
 @Injectable({
   providedIn: 'root'
@@ -64,6 +65,23 @@ export class UserService {
     // verificar pq o request não funciona
     return this.http.get<CodigoCadastro>(`${this.getUrl()}/validar`, { headers, params });
   }
+
+  getConquistas(userId: number){
+    const token = this.authService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get<RequestResult<any>>(`${this.getUrl()}/conquistas`, {
+      headers,
+      params: { userId: userId.toString() }
+    });
+  }
+
+
+  
 
 
 }

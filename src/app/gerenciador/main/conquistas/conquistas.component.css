@@ -1,0 +1,42 @@
+.conquistas {
+    padding: 10px;
+    width: 100%;
+}
+
+.conquista {
+    display: flex;
+    padding: 5px; 
+    gap: 5px;
+    background-color: var(--light-dark-bd-color);
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.img-wrapper {
+    width: 80px;
+    height: 80px;
+    background-color: black;
+    object-fit: cover;
+} 
+
+.img-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+p {
+    color: rgb(165, 158, 158);
+}
+
+strong {
+    color: var(--primary-color);
+}
+
+small {
+    color: rgb(165, 158, 158);
+}
+
+p, h3 {
+    margin: 0;
+    padding: 0;
+}

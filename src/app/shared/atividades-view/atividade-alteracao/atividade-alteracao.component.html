@@ -1,6 +1,6 @@
 <div class="atividade" [ngStyle]="{'border-color': borderColor }">
     <div class="atividade-header">
-        <strong>{{ atividade.responsavel }}</strong>
+        <strong>{{ atividade.tipo == 3 ? "Administração" : atividade.responsavel }}</strong>
     </div>
 
     <div class="atividade-content" *ngIf="atividade.tipo == 0">
@@ -9,6 +9,10 @@
 
     <div class="atividade-content" *ngIf="atividade.tipo == 1">
         <p>Criou a tarefa <strong class="task-title" (click)="abrirTarefa(atividade.tarefaId)">{{ atividade.tarefaTitulo }}</strong>.</p>
+    </div>
+
+    <div class="atividade-content" *ngIf="atividade.tipo == 3">
+        <p>{{ atividade.descricao }}</p>
     </div>
 
     <div class="atividade-footer">

@@ -1,2 +1,11 @@
 <div class="home">
+    <h2>Seja bem vindo, <strong>{{ user.name }}</strong>!</h2>
+
+    <hr>
+
+    <app-user-card [user]="user"></app-user-card>
+
+
+    <h3 style="margin-top: 30px;">Últimas ativdades</h3>
+    <app-atividades-view [ativividades]="atividades"></app-atividades-view>
 </div>
