@@ -8,4 +8,7 @@
 
     <h3 style="margin-top: 30px;">Últimas ativdades</h3>
     <app-atividades-view [ativividades]="atividades"></app-atividades-view>
+    <hr>
+    <h3 style="margin-top: 30px;">Links importantes</h3>
+    <a *ngFor="let link of links" target="_blank" href="{{link.linkUrl}}">{{link.descricao}}</a>
 </div>

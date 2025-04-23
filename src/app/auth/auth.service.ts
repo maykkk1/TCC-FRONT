@@ -85,7 +85,7 @@ export class AuthService {
         }
 
         if(this.auth != null) {
-          this.router.navigate(['gerenciador']);
+          this.router.navigate(['gerenciador/home']);
         } else {
           this.router.navigate(['painel/home']);
         }
@@ -102,6 +102,7 @@ export class AuthService {
 
   logout(){
     this.auth = null;
+    this.authAdm = null;
     localStorage.removeItem('gerenciador-auth')
     this.router.navigate(['login']);
   }

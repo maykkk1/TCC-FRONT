@@ -11,7 +11,7 @@
             <li class="nav-itens">
                 <fa-icon class="add-btn" (click)="openTarefaEdition()" matTooltip="Nova tarefa" [icon]="faPlus"></fa-icon>
             </li>
-            <li class="nav-itens">
+            <li *ngIf="user.tipo == 1" class="nav-itens">
                 <fa-icon class="add-btn" (click)="addAluno()" matTooltip="Adicionar aluno" [icon]="faUserPlus"></fa-icon>
             </li>
         </ul>

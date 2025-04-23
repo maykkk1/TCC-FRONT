@@ -28,6 +28,7 @@ export class ProjetoComponent {
   faPlus = faPlus;
   faPenToSquare = faPenToSquare;
   faUserPlus = faUserPlus;
+  user: User;
 
   viewHandler$Sub: Subscription;
 
@@ -40,6 +41,7 @@ export class ProjetoComponent {
 
 
   ngOnInit(): void {
+    this.user = this.authService.getUser()!;
     this.asideService.menuSelectedChange.next('projeto'+this.projetoId)
     this.route.paramMap.pipe(
       switchMap(params => {

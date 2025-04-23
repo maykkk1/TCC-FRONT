@@ -81,6 +81,42 @@ export class UserService {
   }
 
 
+  saveLink(titulo: string, url: string){
+    const token = this.authService.getAdmToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post<any>(`${this.getUrl()}/link/save`, {descricao: titulo, linkUrl: url}, { headers });
+  }
+
+  getLinks(){
+    const token = this.authService.getAdmToken() ?? this.authService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get<{descricao: string, linkUrl: string, id: number}[]>(`${this.getUrl()}/links`, {
+      headers
+    });
+  }
+
+  deleteLink(linkId: number){
+    const token = this.authService.getAdmToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    const params = new HttpParams()
+    .set('linkid', linkId)
+    
+    return this.http.delete<RequestResult<number[]>>(this.getUrl()+"/link/delete", { headers, params });
+  }
+
+
   
 
 

@@ -2,6 +2,11 @@ h2 {
     font-size: 2rem !important;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .notificacao form, .links form{
     display: flex;
     flex-direction: column;
@@ -11,5 +16,20 @@ h2 {
 .notificacao form label {
     font-size: 2rem;
     margin-bottom: 10px;
+}
+
+.links-wrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.excluir {
+    background-color: red;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 5p;
+    border-radius: 3px;
 }
 
